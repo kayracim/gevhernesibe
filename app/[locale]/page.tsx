@@ -92,8 +92,10 @@ export default async function HomePage({
         title={h.posters.title}
         note={h.posters.note}
         slotLabel={h.posters.slotLabel}
-        images={[]}
+        images={historicalImages}
       />
+
+      <div className="grid gap-6 lg:grid-cols-2">
         <Section id="kaynakca-cta" variant="heritage" title={dict.nav.bibliography || "Kaynakça"}>
           <p>
             {locale === "tr" 
