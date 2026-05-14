@@ -1,0 +1,159 @@
+{
+  "brand": {
+    "short": "Gevher Nesibe",
+    "full": "Gevher Nesibe Healing House and Medical School",
+    "tagline": "800 Years of Legacy: The World’s First Medical Faculty and Healing Center."
+  },
+  "nav": {
+    "home": "Home",
+    "history": "History & Legacy",
+    "hospital": "Architecture & Education",
+    "cases": "Healing Methods",
+    "international": "Scientific Heritage",
+    "bibliography": "Bibliography",
+    "contact": "Visit & Contact",
+    "cta": "Explore History"
+  },
+  "skip": "Skip to content",
+  "home": {
+    "hero": {
+      "eyebrow": "Medicine · Art · Humanity",
+      "title": "A Scientific Journey Rooted in the Will of Gevher Nesibe Sultan.",
+      "lead": "The pinnacle of Seljuk civilization: established in Kayseri in 1206, a unique heritage combining medical education and treatment under one roof. Where music, water, and compassion turn into healing.",
+      "ctaPrimary": "Explore Our Legacy",
+      "ctaSecondary": "Arts of Healing"
+    },
+    "pillars": {
+      "title": "Why is this Complex Significant?",
+      "items": [
+        {
+          "title": "The First Medical Faculty",
+          "body": "The world's first institutional example where theoretical education (Medrese) and practical application (Hospital) were conducted together."
+        },
+        {
+          "title": "Holistic Healing",
+          "body": "A vision where patients were healed not only physically but also spiritually, blending music, water, and herbal medicine."
+        },
+        {
+          "title": "Endowment Culture",
+          "body": "A humanitarian approach offering free service to everyone without discrimination, as per the will of Gevher Nesibe Sultan."
+        }
+      ]
+    },
+    "video": {
+      "title": "History of the Complex",
+      "note": "The introductory video for the Kayseri Gevher Nesibe History of Medicine Museum will be added.",
+      "badge": "Documentary",
+      "emptyState": "Video player area"
+    },
+    "posters": {
+      "title": "Historical Documents and Drawings",
+      "note": "A special collection including architectural plans of the complex, Seljuk medical instruments, and treatment scenes.",
+      "slotLabel": "Artifact"
+    },
+    "historicalContext": {
+      "title": "Seljuk Scientific World",
+      "body": "The observation, recording, and measurement techniques used 800 years ago form the basis of today's modern medical disciplines. The complex is a masterpiece of genius, combining statics in its architecture and biology/psychology in its treatments."
+    }
+  },
+  "historyPage": {
+    "title": "History & Legacy",
+    "subtitle": "The Story of Gevher Nesibe Sultan, Daughter of Kılıç Arslan",
+    "intro": "Gevher Nesibe Sultan, daughter of Seljuk Sultan Kılıç Arslan II, changed the world of medicine with her will. Upon her death, her brother Gıyaseddin Keyhüsrev I built this 'Double Medrese' to keep her name alive.",
+    "bulletsTitle": "Historical Milestones",
+    "bullets": [
+      "1204-1206: Construction and commissioning of the Healing House (Hospital).",
+      "1210-1214: Completion of the Gıyasiye Medrese (Medical School).",
+      "800-Year Timeline: Serving continuously as the oldest and largest medical center in Anatolia.",
+      "Tomb of Gevher Nesibe: The eternal resting place of the Sultan located at the heart of the complex."
+    ],
+    "taskTitle": "Historical Research",
+    "task": "What is the greatest similarity between the Seljuk understanding of 'Healing-Service' and modern medical ethics?",
+    "taskHint": "Hint: Consider the dignity of the patient, the right to free treatment, and the master-apprentice discipline of physicians.",
+    "stemTitle": "History of Science",
+    "stem": "Science + History of Science: The Seljuks' plant catalogs in pharmacology (pharmacy) are a product of systematic observation that inspires today's biotechnology.",
+    "bridgeTitle": "A Bridge from Yesterday to Today",
+    "bridge": "The 'Tımarhane' (Mental Health) records kept during the Seljuk period are now accepted as the first clinical case files of modern psychiatry. This tradition of data keeping is the foundation of today's big data medicine.",
+    "bibliographyTitle": "Bibliography and Sources",
+    "bibliography": [
+      "Nil Sarı, 'Gevher Nesibe Sultan and Her Healing House', Turkish Archives of Medical History.",
+      "Ahmed Süheyl Ünver, 'Medicine in the Seljuk Era', Turkish Historical Society Publications.",
+      "Exhibition Data from the Kayseri Seljuk Civilization Museum (Gevher Nesibe Complex).",
+      "Avicenna (Ibn Sina), 'The Canon of Medicine'.",
+      "Osman Turan, 'Turkey in the Time of the Seljuks', Otuken Publishing."
+    ]
+  },
+  "hospitalPage": {
+    "title": "Architecture & Education",
+    "subtitle": "The Double Medrese: Where Science and Healing Intertwine",
+    "intro": "Architecturally, the complex consists of two main sections connected by a corridor. This structure is tangible proof of Seljuk engineering and educational vision.",
+    "sections": [
+      {
+        "title": "Shifahiye (Hospital)",
+        "body": "Located in the western part, this section contains 24 rooms. Patients were divided into different wards based on their ailments, with specialized treatments applied to each."
+      },
+      {
+        "title": "Gıyasiye (Medrese)",
+        "body": "The medical school located in the eastern part. Students read the works of Galen, Avicenna (Ibn Sina), and Rhazes (Razi), and practiced their theoretical knowledge in the adjacent building."
+      },
+      {
+        "title": "Acoustics and Light",
+        "body": "The layout of the structure was designed with genius acoustics to maximize sunlight and ensure the sound of water reached every room."
+      }
+    ],
+    "disclaimer": "This information is based on data from the Kayseri Seljuk Civilization Museum (Gevher Nesibe Complex)."
+  },
+  "casesPage": {
+    "title": "Healing Arts",
+    "subtitle": "Recovery through Music, Water, and Compassion",
+    "intro": "Seljuk medicine views the human not just as a body but as a whole with its soul. The following methods represent the scientific treatment techniques applied at Gevher Nesibe in the 13th century.",
+    "filterAll": "All",
+    "filterImaging": "Anatomy/Surgery",
+    "filterLab": "Pharmacy",
+    "filterCare": "Spiritual Care",
+    "filterExample": "Education"
+  },
+  "internationalPage": {
+    "title": "Scientific Heritage",
+    "subtitle": "The Science Magnet of the Medieval World",
+    "intro": "At the time of its establishment, Gevher Nesibe was a scientific center that hosted scholars not only from Anatolia but also from the Middle East and Europe.",
+    "stepsTitle": "Spread of the Legacy",
+    "steps": [
+      "Meeting of Different Cultures: The fusion of Arabic, Persian, and Greek medical traditions in the Seljuk crucible.",
+      "Traveling Physicians: Doctors trained in Kayseri carried knowledge to centers like Damascus, Baghdad, and Cairo.",
+      "Translation Activities: Bringing ancient medical works into Seljuk Turkish and Arabic.",
+      "Impact on Modern Medicine: The influence of Seljuk hospital models on the establishment of Europe's medical faculties."
+    ],
+    "faqTitle": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "Was surgery performed at Gevher Nesibe?",
+        "a": "Yes, 13th-century surgical instruments (scalpels, forceps) displayed in the museum prove that eye and internal disease surgeries were performed."
+      },
+      {
+        "q": "How long did the education take?",
+        "a": "While the duration of education depended on the student's ability, it generally varied between 5-7 years within a master-apprentice relationship."
+      }
+    ],
+    "disclaimer": "This section is for general historical information; consult medical history sources for academic research."
+  },
+  "contactPage": {
+    "title": "Visit & Contact",
+    "subtitle": "See the Complex Today",
+    "intro": "The Gevher Nesibe Complex, serving today as the Seljuk Civilization Museum, awaits visitors in the heart of Kayseri.",
+    "channelsTitle": "Museum Information",
+    "channels": [
+      "Address: Inside Mimar Sinan Park, Gevher Nesibe Neighborhood, Kayseri",
+      "Visiting Hours: Every day 09:00 - 17:00",
+      "Entrance: Entry with MuseumCard and official tickets."
+    ],
+    "mapTitle": "Location of the Complex",
+    "mapPlaceholder": "Location of the complex inside Kayseri Mimar Sinan Park.",
+    "emergency": "Remember that you are in a historical site; please protect the artifacts."
+  },
+  "footer": {
+    "disclaimerTitle": "Important Note",
+    "disclaimer": "This site was prepared for the promotion of a historical and cultural heritage. It does not contain medical advice.",
+    "rights": "© {year} Gevher Nesibe Legacy — History and Science Platform"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "brand": {
+    "short": "Gevher Nesibe",
+    "full": "Gevher Nesibe Şifahanesi ve Medresesi",
+    "tagline": "800 Yıllık Miras: Dünyanın İlk Tıp Fakültesi ve Şifa Merkezi."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "history": "Tarih ve Miras",
+    "hospital": "Mimari ve Eğitim",
+    "cases": "Tedavi Yöntemleri",
+    "international": "Bilimsel Miras",
+    "bibliography": "Kaynakça",
+    "contact": "Ziyaret ve İletişim",
+    "cta": "Tarihi Keşfet"
+  },
+  "skip": "İçeriğe geç",
+  "home": {
+    "hero": {
+      "eyebrow": "Tıp · Sanat · İnsanlık",
+      "title": "Gevher Nesibe Sultan’ın Vasiyetiyle Başlayan Bilim Yolculuğu.",
+      "lead": "Selçuklu medeniyetinin zirve noktası: 1206 yılında Kayseri'de kurulan, tıp eğitimi ve tedaviyi aynı çatıda birleştiren eşsiz bir miras. Müziğin, suyun ve sevginin şifaya dönüştüğü yer.",
+      "ctaPrimary": "Mirasımızı Keşfedin",
+      "ctaSecondary": "Tedavi Sanatları"
+    },
+    "pillars": {
+      "title": "Neden Bu Külliye Önemli?",
+      "items": [
+        {
+          "title": "İlk Tıp Fakültesi",
+          "body": "Teorik eğitimin (Medrese) ve pratik uygulamanın (Şifahane) bir arada yürütüldüğü dünyadaki ilk kurumsal örnek."
+        },
+        {
+          "title": "Bütünsel Tedavi",
+          "body": "Hastaların sadece bedensel değil, ruhsal olarak da iyileştirildiği; müzik, su ve bitkisel ilaçların harmanlandığı vizyon."
+        },
+        {
+          "title": "Vakıf Kültürü",
+          "body": "Gevher Nesibe Sultan'ın vasiyetiyle, hiçbir ayrım gözetmeksizin herkese ücretsiz hizmet sunan insani yaklaşım."
+        }
+      ]
+    },
+    "video": {
+      "title": "Külliyenin Tarihçesi",
+      "note": "Kayseri Gevher Nesibe Tıp Tarihi Müzesi tanıtım videosu eklenecektir.",
+      "badge": "Belgesel",
+      "emptyState": "Video oynatıcı alanı"
+    },
+    "posters": {
+      "title": "Tarihi Belgeler ve Çizimler",
+      "note": "Külliyenin mimari planları, Selçuklu tıp aletleri ve tedavi sahnelerini içeren özel bir koleksiyon.",
+      "slotLabel": "Eser"
+    },
+    "historicalContext": {
+      "title": "Selçuklu Bilim Dünyası",
+      "body": "800 yıl önce kullanılan gözlem, kayıt ve ölçüm teknikleri; bugünün modern tıp disiplinlerinin temelini oluşturur. Külliye, mimarisiyle statik, tedavileriyle biyoloji ve psikoloji bilimlerini buluşturan bir dehadır."
+    }
+  },
+  "historyPage": {
+    "title": "Tarih ve Miras",
+    "subtitle": "Kılıç Arslan’ın Kızı Gevher Nesibe Sultan’ın Hikâyesi",
+    "intro": "Selçuklu Sultanı II. Kılıç Arslan’ın kızı olan Gevher Nesibe Sultan, vasiyetiyle tıp dünyasını değiştirdi. Öldüğünde ağabeyi I. Gıyaseddin Keyhüsrev, onun adını yaşatmak için bu 'Çifte Medrese'yi inşa ettirdi.",
+    "bulletsTitle": "Tarihsel Dönemeçler",
+    "bullets": [
+      "1204-1206: Şifahanenin (Hastane) inşası ve hizmete açılması.",
+      "1210-1214: Gıyasiye Medresesi'nin (Tıp Okulu) tamamlanması.",
+      "800 Yıllık Süreç: Anadolu'nun en eski ve en büyük tıp merkezi olarak kesintisiz hizmet vermesi.",
+      "Gevher Nesibe Türbesi: Külliyenin merkezinde yer alan sultanın ebedi istirahatgahı."
+    ],
+    "taskTitle": "Tarih Araştırması",
+    "task": "Selçuklu dönemindeki 'Şifaperverlik' anlayışı ile modern tıp etiği arasındaki en büyük benzerlik nedir?",
+    "taskHint": "İpucu: Hastanın onuru, ücretsiz tedavi hakkı ve hekimlerin usta-çırak disiplini üzerinden düşünün.",
+    "stemTitle": "Bilim Tarihi",
+    "stem": "Fen Bilimleri + Bilim Tarihi: Selçukluların farmakoloji (eczacılık) alanındaki bitki katalogları, bugünün biyoteknolojisine ilham veren sistematik bir gözlem ürünüdür.",
+    "bridgeTitle": "Dünden Bugüne Köprü",
+    "bridge": "Selçuklu döneminde tutulan 'Tımarhane' kayıtları, bugün modern psikiyatrinin ilk klinik vaka dosyaları olarak kabul edilir. Bu veri tutma geleneği, bugünün büyük veri tıp dünyasının temelidir.",
+    "bibliographyTitle": "Kaynakça ve Kaynaklar",
+    "bibliography": [
+      "Nil Sarı, 'Gevher Nesibe Sultan ve Darüşşifası', Türk Tıp Tarihi Arkivi.",
+      "Ahmed Süheyl Ünver, 'Selçuklu Tababeti', Türk Tarih Kurumu Yayınları.",
+      "Kayseri Selçuklu Uygarlığı Müzesi (Gevher Nesibe Külliyesi) Teşhir Verileri.",
+      "İbn-i Sina, 'El-Kanun fi't-Tıb' (The Canon of Medicine).",
+      "Osman Turan, 'Selçuklular Zamanında Türkiye', Ötüken Neşriyat."
+    ]
+  },
+  "hospitalPage": {
+    "title": "Mimari ve Eğitim",
+    "subtitle": "Çifte Medrese: Bilim ve Şifanın İç İçe Geçtiği Yapı",
+    "intro": "Külliye, mimari açıdan birbirine koridorla bağlı iki ana bölümden oluşur. Bu yapı, Selçuklu mühendisliğinin ve eğitim vizyonunun somut bir kanıtıdır.",
+    "sections": [
+      {
+        "title": "Şifahiye (Hastane)",
+        "body": "Batı kısmında yer alan bu bölümde 24 oda bulunmaktadır. Hastalar, rahatsızlıklarına göre farklı koğuşlara ayrılmış ve her birine özel tedavi uygulanmıştır."
+      },
+      {
+        "title": "Gıyasiye (Medrese)",
+        "body": "Doğu kısmında yer alan tıp okulu. Öğrenciler burada Galen, İbn-i Sina and Razi'nin eserlerini okumuş, teorik bilgilerini yan binada pratik etmişlerdir."
+      },
+      {
+        "title": "Akustik and Işık",
+        "body": "Yapının planı, güneş ışığından maksimum faydalanacak ve su sesinin her odaya ulaşmasını sağlayacak şekilde deha ürünü bir akustikle tasarlanmıştır."
+      }
+    ],
+    "disclaimer": "Bu bilgiler, Kayseri Selçuklu Uygarlığı Müzesi (Gevher Nesibe Külliyesi) verilerine dayanmaktadır."
+  },
+  "casesPage": {
+    "title": "Tedavi Sanatları",
+    "subtitle": "Müzik, Su and Merhametle Gelen İyileşme",
+    "intro": "Selçuklu tıbbı, insanı sadece bir beden olarak değil, ruhuyla bir bütün olarak görür. Aşağıdaki yöntemler, 13. yüzyılda Gevher Nesibe'de uygulanan bilimsel tedavi yöntemlerini temsil eder.",
+    "filterAll": "Tümü",
+    "filterImaging": "Anatomi/Cerrahi",
+    "filterLab": "Eczacılık",
+    "filterCare": "Ruhsal Tedavi",
+    "filterExample": "Eğitim"
+  },
+  "internationalPage": {
+    "title": "Bilimsel Miras",
+    "subtitle": "Ortaçağ Dünyasının Bilim Mıknatısı",
+    "intro": "Gevher Nesibe, kurulduğu dönemde sadece Anadolu değil, Orta Doğu ve Avrupa'dan gelen bilim insanlarını da ağırlamış bir bilim merkezidir.",
+    "stepsTitle": "Mirasın Yayılımı",
+    "steps": [
+      "Farklı Kültürlerin Buluşması: Arap, İran ve Yunan tıp geleneklerinin Selçuklu potasında birleşmesi.",
+      "Gezgin Hekimler: Kayseri'de yetişen hekimlerin Şam, Bağdat ve Kahire gibi merkezlere bilgi taşıması.",
+      "Tercüme Faaliyetleri: Antik tıp eserlerinin Selçuklu Türkçesine ve Arapçaya kazandırılması.",
+      "Modern Tıbba Etki: Avrupa'nın tıp fakültelerinin kuruluşunda Selçuklu hastane modellerinin etkisi."
+    ],
+    "faqTitle": "Merak Edilenler",
+    "faqs": [
+      {
+        "q": "Gevher Nesibe'de ameliyat yapılıyor muydu?",
+        "a": "Evet, müzede sergilenen 13. yüzyıla ait cerrahi aletler (neşterler, pensler), göz ve iç hastalıkları cerrahisinin yapıldığını kanıtlamaktadır."
+      },
+      {
+        "q": "Eğitim kaç yıl sürüyordu?",
+        "a": "Eğitim süresi öğrencinin yeteneğine bağlı olmakla birlikte, genellikle usta-çırak ilişkisi içinde 5-7 yıl arası değişmekteydi."
+      }
+    ],
+    "disclaimer": "Bu bölüm genel tarihsel bilgilendirme amaçlıdır; akademik araştırmalar için tıp tarihi kaynaklarına başvurun."
+  },
+  "contactPage": {
+    "title": "Ziyaret ve İletişim",
+    "subtitle": "Külliyeyi Bugün Görün",
+    "intro": "Bugün Selçuklu Uygarlığı Müzesi olarak hizmet veren Gevher Nesibe Külliyesi, Kayseri'nin merkezinde ziyaretçilerini beklemektedir.",
+    "channelsTitle": "Müze Bilgileri",
+    "channels": [
+      "Adres: Mimar Sinan Parkı İçi, Gevher Nesibe Mahallesi, Kayseri",
+      "Ziyaret Saatleri: Haftanın her günü 09:00 - 17:00",
+      "Giriş: Müzekart ve resmi bilet ile giriş imkanı."
+    ],
+    "mapTitle": "Külliye Konumu",
+    "mapPlaceholder": "Kayseri Mimar Sinan Parkı içindeki külliye konumu.",
+    "emergency": "Tarihi bir mekanda olduğunuzu unutmayın; lütfen eserleri koruyun."
+  },
+  "footer": {
+    "disclaimerTitle": "Önemli Not",
+    "disclaimer": "Bu site tarihi ve kültürel bir mirasın tanıtımı için hazırlanmıştır. Tıbbi tavsiye içermez.",
+    "rights": "© {year} Gevher Nesibe Mirası — Tarih ve Bilim Platformu"
+  }
+}
