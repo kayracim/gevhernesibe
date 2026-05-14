@@ -5,6 +5,7 @@ import type { Locale } from "@/lib/locale";
 import { withLocale } from "@/lib/paths";
 import { VideoPlaceholder } from "@/components/VideoPlaceholder";
 import { PosterGridPlaceholder } from "@/components/PosterGridPlaceholder";
+import { InfoCarousel } from "@/components/InfoCarousel";
 import { Section } from "@/components/Section";
 
 export async function generateMetadata({
@@ -80,6 +81,8 @@ export default async function HomePage({
           </div>
         </aside>
       </section>
+
+      <InfoCarousel slides={h.carousel} />
 
       <VideoPlaceholder
         title={h.video.title}

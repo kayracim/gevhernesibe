@@ -54,7 +54,27 @@
     "historicalContext": {
       "title": "Seljuk Scientific World",
       "body": "The observation, recording, and measurement techniques used 800 years ago form the basis of today's modern medical disciplines. The complex is a masterpiece of genius, combining statics in its architecture and biology/psychology in its treatments."
-    }
+    },
+    "carousel": [
+      {
+        "id": 1,
+        "tag": "Legacy",
+        "title": "The Last Will of Princess Gevher Nesibe",
+        "description": "On her deathbed, she requested her brother to build a place that would provide cure and education for all, leading to the birth of this center."
+      },
+      {
+        "id": 2,
+        "tag": "Healing Arts",
+        "title": "The Power of Sound and Water",
+        "description": "800 years ago, music therapy and the soothing sound of water were integrated into clinical treatments for psychological disorders."
+      },
+      {
+        "id": 3,
+        "tag": "Architecture",
+        "title": "The First Medical University",
+        "description": "The 'Double Madrasa' layout integrated clinical practice and theoretical education under one roof, a first in medical history."
+      }
+    ]
   },
   "historyPage": {
     "title": "History & Legacy",

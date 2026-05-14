@@ -54,7 +54,27 @@
     "historicalContext": {
       "title": "Selçuklu Bilim Dünyası",
       "body": "800 yıl önce kullanılan gözlem, kayıt ve ölçüm teknikleri; bugünün modern tıp disiplinlerinin temelini oluşturur. Külliye, mimarisiyle statik, tedavileriyle biyoloji ve psikoloji bilimlerini buluşturan bir dehadır."
-    }
+    },
+    "carousel": [
+      {
+        "id": 1,
+        "tag": "Vasiyet",
+        "title": "Gevher Nesibe Sultan'ın Son Arzusu",
+        "description": "Ölüm döşeğinde abisi Gıyaseddin Keyhüsrev'e 'Benim adıma öyle bir yer yap ki, derdine çare bulunamayanlara şifa olsun' vasiyetiyle kuruldu."
+      },
+      {
+        "id": 2,
+        "tag": "Müzik Terapi",
+        "title": "Makamların Şifalı Gücü",
+        "description": "800 yıl önce bu odalarda su sesi ve ney tınıları, ruhsal hastalıkların tedavisinde birer ilaç gibi kullanılıyordu."
+      },
+      {
+        "id": 3,
+        "tag": "Mimari",
+        "title": "Çifte Medrese: Bilimin Evi",
+        "description": "Dünyanın tıp eğitimini ve hastaneyi aynı çatı altında birleştiren ilk kurumsal yapısı, Selçuklu mimarisinin zirvesidir."
+      }
+    ]
   },
   "historyPage": {
     "title": "Tarih ve Miras",
