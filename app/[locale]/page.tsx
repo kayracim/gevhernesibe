@@ -35,14 +35,7 @@ export default async function HomePage({
   const dict = await getDictionary(locale);
   const h = dict.home;
 
-  const historicalImages = [
-    { src: "/images/historical/img_1.png", alt: "Gevher Nesibe Şifahanesi Dış Görünümü" },
-    { src: "/images/historical/img_2.png", alt: "Şifahane İç Avlusu ve Eyvanlar" },
-    { src: "/images/historical/img_3.png", alt: "Gevher Nesibe Sultan Türbesi" },
-    { src: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80", alt: "Selçuklu/İslam Dönemi Cerrahi Alet Çizimleri" },
-    { src: "https://images.unsplash.com/photo-1544640805-35c0fa9405d6?auto=format&fit=crop&w=800&q=80", alt: "İbn-i Sina Tıp Elyazması" },
-    { src: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80", alt: "Ortaçağ Tıp ve Cerrahi Uygulamaları" },
-  ];
+  const historicalImages: { src: string; alt: string }[] = [];
 
   return (
     <div className="space-y-16 lg:space-y-20">
