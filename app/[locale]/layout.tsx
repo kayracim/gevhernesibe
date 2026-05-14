@@ -43,7 +43,7 @@ export default async function LocaleLayout({
         {dict.skip}
       </a>
       <SiteHeader locale={locale} nav={dict.nav} />
-      <main id="main" className="min-h-[60vh] bg-paper bg-grain-soft">
+      <main id="main" className="min-h-[60vh] bg-paper bg-grain-soft dark:bg-ink dark:text-paper/90">
         <div className="mx-auto max-w-content px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           {children}
         </div>

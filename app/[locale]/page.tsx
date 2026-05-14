@@ -44,10 +44,10 @@ export default async function HomePage({
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-heritage">
             {h.hero.eyebrow}
           </p>
-          <h1 className="font-display text-4xl font-bold tracking-tight text-ink text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-bold tracking-tight text-ink dark:text-paper text-balance sm:text-5xl lg:text-6xl">
             {h.hero.title}
           </h1>
-          <p className="max-w-measure text-lg leading-relaxed text-ink-muted sm:text-xl">
+          <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70 sm:text-xl">
             {h.hero.lead}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -67,12 +67,12 @@ export default async function HomePage({
         </div>
 
         <aside className="lg:col-span-5">
-          <div className="rounded-3xl border border-sand bg-gradient-to-br from-paper via-clinical-soft/40 to-sand p-6 shadow-card sm:p-8">
-            <p className="font-display text-lg text-ink">{dict.brand.tagline}</p>
-            <ul className="mt-6 space-y-4 text-sm text-ink-muted">
+          <div className="rounded-3xl border border-sand bg-gradient-to-br from-paper via-clinical-soft/40 to-sand p-6 shadow-card dark:border-ink/20 dark:from-ink dark:via-clinical-soft/10 dark:to-ink sm:p-8">
+            <p className="font-display text-lg text-ink dark:text-paper">{dict.brand.tagline}</p>
+            <ul className="mt-6 space-y-4 text-sm text-ink-muted dark:text-paper/70">
               {h.pillars.items.map((item) => (
-                <li key={item.title} className="rounded-2xl border border-sand/80 bg-paper/70 p-4">
-                  <p className="font-semibold text-ink">{item.title}</p>
+                <li key={item.title} className="rounded-2xl border border-sand/80 bg-paper/70 p-4 dark:border-ink/30 dark:bg-ink/60">
+                  <p className="font-semibold text-ink dark:text-paper">{item.title}</p>
                   <p className="mt-2 leading-relaxed">{item.body}</p>
                 </li>
               ))}

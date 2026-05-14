@@ -20,10 +20,10 @@ export function PosterGridPlaceholder({
   return (
     <section aria-labelledby="posters-heading" className="space-y-4">
       <div>
-        <h2 id="posters-heading" className="font-display text-2xl text-ink sm:text-3xl">
+        <h2 id="posters-heading" className="font-display text-2xl text-ink dark:text-paper sm:text-3xl">
           {title}
         </h2>
-        <p className="mt-2 max-w-measure text-sm leading-relaxed text-ink-muted">{note}</p>
+        <p className="mt-2 max-w-measure text-sm leading-relaxed text-ink-muted dark:text-paper/60">{note}</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -33,7 +33,7 @@ export function PosterGridPlaceholder({
             <div
               key={slot}
               onClick={() => image && setSelectedImage(image)}
-              className={`group relative overflow-hidden rounded-2xl border border-sand bg-paper shadow-card transition ${
+              className={`group relative overflow-hidden rounded-2xl border border-sand bg-paper shadow-card transition dark:border-ink/20 dark:bg-ink/50 ${
                 image ? "cursor-zoom-in hover:border-heritage/30" : ""
               }`}
             >
@@ -47,12 +47,12 @@ export function PosterGridPlaceholder({
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="h-full w-full bg-[length:14px_14px] bg-[linear-gradient(90deg,rgba(12,18,34,0.06)_1px,transparent_1px),linear-gradient(rgba(12,18,34,0.06)_1px,transparent_1px)]">
+                  <div className="h-full w-full bg-[length:14px_14px] bg-[linear-gradient(90deg,rgba(12,18,34,0.06)_1px,transparent_1px),linear-gradient(rgba(12,18,34,0.06)_1px,transparent_1px)] dark:bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)]">
                     <div className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center">
-                      <span className="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-ink-muted">
+                      <span className="rounded-full bg-sand px-3 py-1 text-xs font-semibold text-ink-muted dark:bg-paper/10 dark:text-paper/60">
                         #{slot + 1}
                       </span>
-                      <p className="text-xs text-ink-muted">{slotLabel}</p>
+                      <p className="text-xs text-ink-muted dark:text-paper/40">{slotLabel}</p>
                     </div>
                   </div>
                 )}

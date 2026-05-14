@@ -15,8 +15,8 @@ export function Section({
 }) {
   const surface =
     variant === "heritage"
-      ? "border-heritage/20 bg-gradient-to-br from-heritage/10 via-paper to-paper"
-      : "border-sand bg-paper";
+      ? "border-heritage/20 bg-gradient-to-br from-heritage/10 via-paper to-paper dark:from-heritage/20 dark:via-ink dark:to-ink dark:border-heritage/30"
+      : "border-sand bg-paper dark:border-ink/20 dark:bg-ink/50";
 
   return (
     <section
@@ -29,11 +29,11 @@ export function Section({
       ) : null}
       <h2
         id={id ? `${id}-heading` : undefined}
-        className="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl"
+        className="mt-2 font-display text-2xl font-semibold text-ink dark:text-paper sm:text-3xl"
       >
         {title}
       </h2>
-      <div className="mt-4 space-y-4 text-sm leading-relaxed text-ink-muted sm:text-base">
+      <div className="mt-4 space-y-4 text-sm leading-relaxed text-ink-muted dark:text-paper/70 sm:text-base">
         {children}
       </div>
     </section>

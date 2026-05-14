@@ -13,11 +13,11 @@ export function SiteFooter({
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-sand bg-ink text-paper">
+    <footer className="border-t border-sand bg-ink text-paper dark:border-paper/10 dark:bg-black">
       <div className="mx-auto grid max-w-content gap-8 px-4 py-12 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div className="space-y-3">
           <p className="font-display text-lg font-semibold">{dict.disclaimerTitle}</p>
-          <p className="text-sm leading-relaxed text-paper/85">{dict.disclaimer}</p>
+          <p className="text-sm leading-relaxed text-paper/85 dark:text-paper/70">{dict.disclaimer}</p>
         </div>
         <div className="space-y-3">
           <div className="flex flex-wrap gap-2 text-sm">
@@ -35,8 +35,8 @@ export function SiteFooter({
           </div>
         </div>
         <div className="flex flex-col justify-end gap-2">
-          <p className="text-sm text-paper/70">{dict.rights.replace("{year}", String(year))}</p>
-          <p className="text-xs text-paper/55">
+          <p className="text-sm text-paper/70 dark:text-paper/50">{dict.rights.replace("{year}", String(year))}</p>
+          <p className="text-xs text-paper/55 dark:text-paper/40">
             {locale === "tr"
               ? "Bu vitrin örnek senaryolar içerir; tıbbi iddia değildir."
               : "This showcase includes example scenarios; not a medical claim."}
