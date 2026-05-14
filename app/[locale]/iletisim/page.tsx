@@ -44,7 +44,7 @@ export default async function ContactPage({
       <Section id="harita" title={p.mapTitle}>
         <div className="overflow-hidden rounded-2xl border border-sand shadow-sm dark:border-ink/20">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3113.1118225574514!2d35.4832560765955!3d38.72671565715975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b120f2b322a3d%3A0xc6646cc262502691!2sSel%C3%A7uklu%20Uygarl%C4%B1%C4%9F%C4%B1%20M%C3%BCzesi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.111956165243!2d35.4832560765955!3d38.72671565715975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b120f2b322a3d%3A0xc6646cc262502691!2zU2Vsw6d1a2x1IFV5Z2FybMSxxJ_EsSBNw7Z6ZXNp!5e0!3m2!1str!2str!4v1715705364426!5m2!1str!2str"
             width="100%"
             height="450"
             style={{ border: 0 }}
