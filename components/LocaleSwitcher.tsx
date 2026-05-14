@@ -31,8 +31,8 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
     >
       <Link
         href={trHref}
-        className={`rounded-full px-3 py-1 text-xs font-semibold transition sm:text-sm ${
-          locale === "tr" ? "bg-ink text-paper" : "text-ink-muted hover:text-ink"
+        className={`rounded-full px-3 py-1 text-xs font-semibold transition active:scale-95 sm:text-sm ${
+          locale === "tr" ? "bg-ink text-paper shadow-sm" : "text-ink-muted hover:text-ink"
         }`}
         hrefLang="tr"
         lang="tr"
@@ -41,8 +41,8 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
       </Link>
       <Link
         href={enHref}
-        className={`rounded-full px-3 py-1 text-xs font-semibold transition sm:text-sm ${
-          locale === "en" ? "bg-ink text-paper" : "text-ink-muted hover:text-ink"
+        className={`rounded-full px-3 py-1 text-xs font-semibold transition active:scale-95 sm:text-sm ${
+          locale === "en" ? "bg-ink text-paper shadow-sm" : "text-ink-muted hover:text-ink"
         }`}
         hrefLang="en"
         lang="en"

@@ -56,13 +56,13 @@ export default async function HomePage({
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               href={withLocale(locale, "/hastane")}
-              className="inline-flex items-center justify-center rounded-full bg-heritage px-6 py-3 text-sm font-semibold text-white shadow-lift transition hover:bg-heritage-dark"
+              className="btn-hover-effect inline-flex items-center justify-center rounded-full bg-heritage px-8 py-3 text-sm font-semibold text-white shadow-lift hover:bg-heritage-dark"
             >
               {h.hero.ctaPrimary}
             </Link>
             <Link
               href={withLocale(locale, "/cozum-hikayeleri")}
-              className="inline-flex items-center justify-center rounded-full border border-sand bg-paper px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-heritage/40"
+              className="btn-hover-effect inline-flex items-center justify-center rounded-full border border-sand bg-paper px-8 py-3 text-sm font-semibold text-ink shadow-sm hover:border-heritage/40"
             >
               {h.hero.ctaSecondary}
             </Link>

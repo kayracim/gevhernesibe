@@ -59,7 +59,7 @@ export function SiteHeader({
           <LocaleSwitcher locale={locale} />
           <Link
             href={withLocale(locale, "/iletisim")}
-            className="hidden rounded-full bg-heritage px-4 py-2 text-sm font-semibold text-white shadow-card transition hover:bg-heritage-dark sm:inline-flex"
+            className="hidden btn-hover-effect rounded-full bg-heritage px-5 py-2.5 text-sm font-semibold text-white shadow-card hover:bg-heritage-dark sm:inline-flex"
           >
             {nav.cta}
           </Link>
