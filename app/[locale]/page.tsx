@@ -40,6 +40,8 @@ export default async function HomePage({
 
   return (
     <div className="space-y-16 lg:space-y-20">
+      <InfoCarousel slides={h.carousel} />
+      
       <section className="grid gap-10 lg:grid-cols-12 lg:items-center">
         <div className="space-y-6 lg:col-span-7">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-heritage">
@@ -81,8 +83,6 @@ export default async function HomePage({
           </div>
         </aside>
       </section>
-
-      <InfoCarousel slides={h.carousel} />
 
       <VideoPlaceholder
         title={h.video.title}

@@ -80,35 +80,33 @@ export function InfoCarousel({ slides }: { slides: Slide[] }) {
       </AnimatePresence>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-10 left-12 right-12 flex items-center justify-between sm:left-20 sm:right-20 lg:left-32 lg:right-32">
-        <div className="flex gap-4">
-          <button
-            onClick={prevSlide}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-paper/20 bg-paper/5 transition hover:bg-paper/20 active:scale-95"
-            aria-label="Previous slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-paper/20 bg-paper/5 transition hover:bg-paper/20 active:scale-95"
-            aria-label="Next slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
-        
-        {/* Indicators */}
-        <div className="flex gap-2">
-          {slides.map((_, index) => (
-            <div
-              key={index}
-              className={`h-1.5 transition-all duration-300 rounded-full ${
-                index === currentIndex ? "w-8 bg-accent" : "w-2 bg-paper/30"
-              }`}
-            />
-          ))}
-        </div>
+      <div className="absolute inset-x-0 top-1/2 z-20 flex -translate-y-1/2 items-center justify-between px-4 sm:px-8">
+        <button
+          onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-paper/20 bg-paper/10 text-white backdrop-blur-md transition hover:bg-paper/30 active:scale-95"
+          aria-label="Previous slide"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button
+          onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-paper/20 bg-paper/10 text-white backdrop-blur-md transition hover:bg-paper/30 active:scale-95"
+          aria-label="Next slide"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      {/* Indicators */}
+      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`h-1.5 transition-all duration-300 rounded-full ${
+              index === currentIndex ? "w-8 bg-accent" : "w-2 bg-paper/30"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
