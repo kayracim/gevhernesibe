@@ -66,14 +66,14 @@ export function SiteHeader({
 
       <nav
         aria-label="Primary mobile"
-        className="border-t border-sand/80 px-2 pb-3 pt-2 lg:hidden"
+        className="overflow-x-auto border-t border-sand/80 px-4 py-2 lg:hidden scrollbar-hide"
       >
-        <div className="mx-auto flex max-w-content flex-wrap gap-1">
+        <div className="flex w-max items-center gap-1">
           {links.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-xs text-ink-muted transition hover:bg-sand/70 hover:text-ink"
+              className="whitespace-nowrap rounded-full bg-sand/40 px-4 py-2 text-[11px] font-medium text-ink-muted transition active:scale-95 active:bg-sand/60"
             >
               {item.label}
             </Link>

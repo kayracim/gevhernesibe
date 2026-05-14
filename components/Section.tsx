@@ -22,14 +22,14 @@ export function Section({
     <section
       id={id}
       aria-labelledby={id ? `${id}-heading` : undefined}
-      className={`rounded-3xl border p-6 shadow-sm sm:p-8 ${surface}`}
+      className={`rounded-3xl border p-7 shadow-sm sm:p-10 ${surface}`}
     >
       {eyebrow ? (
         <p className="text-xs font-semibold uppercase tracking-wide text-heritage">{eyebrow}</p>
       ) : null}
       <h2
         id={id ? `${id}-heading` : undefined}
-        className="mt-2 font-display text-2xl text-ink sm:text-3xl"
+        className="mt-2 font-display text-2xl font-semibold text-ink sm:text-3xl"
       >
         {title}
       </h2>

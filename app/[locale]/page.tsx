@@ -44,13 +44,13 @@ export default async function HomePage({
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-heritage">
             {h.hero.eyebrow}
           </p>
-          <h1 className="font-display text-4xl font-semibold tracking-tight text-ink text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-bold tracking-tight text-ink text-balance sm:text-5xl lg:text-6xl">
             {h.hero.title}
           </h1>
           <p className="max-w-measure text-lg leading-relaxed text-ink-muted sm:text-xl">
             {h.hero.lead}
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               href={withLocale(locale, "/hastane")}
               className="inline-flex items-center justify-center rounded-full bg-heritage px-6 py-3 text-sm font-semibold text-white shadow-lift transition hover:bg-heritage-dark"
