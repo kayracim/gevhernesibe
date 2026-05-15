@@ -3,6 +3,7 @@ import { getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/locale";
 import { PageIntro } from "@/components/PageIntro";
 import { CaseStudyExplorer } from "@/components/CaseStudyExplorer";
+import { Section } from "@/components/Section";
 import { cases } from "@/content/cases";
 
 export async function generateMetadata({
