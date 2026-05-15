@@ -36,7 +36,7 @@ export default async function HomePage({
   const dict = await getDictionary(locale);
   const h = dict.home;
 
-  const historicalImages: { src: string; alt: string }[] = [];
+
 
   return (
     <div className="space-y-16 lg:space-y-20">

@@ -37,7 +37,7 @@ export default async function CasesPage({
 
       {/* Bunları Biliyor Muydunuz? Section */}
       <section className="grid gap-6 md:grid-cols-2">
-        {dict.didYouKnow.items.map((item: any, i: number) => (
+        {dict.didYouKnow.items.map((item: { title: string; body: string }, i: number) => (
           <div key={i} className="group relative overflow-hidden rounded-3xl border border-accent/20 bg-accent/5 p-8 transition-all hover:bg-accent/10 dark:border-accent/30 dark:bg-accent/10">
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-3 text-accent">
@@ -67,7 +67,7 @@ export default async function CasesPage({
       {/* Scientific Analysis Section */}
       <Section id="bilimsel-analiz" title={dict.scienceAnalysis.title}>
         <div className="grid gap-12 lg:grid-cols-3">
-          {dict.scienceAnalysis.sections.map((s: any) => (
+          {dict.scienceAnalysis.sections.map((s: { id: string; title: string; intro: string; explanation: string; scientificRelation: string }) => (
             <div key={s.id} className="space-y-6">
               <h3 className="font-display text-xl font-bold text-heritage dark:text-heritage/90">{s.title}</h3>
               <p className="text-sm font-medium italic text-ink-muted dark:text-paper/60">{s.intro}</p>
@@ -107,6 +107,7 @@ export default async function CasesPage({
             
             <div className="flex-shrink-0 lg:w-1/3">
               <div className="overflow-hidden rounded-2xl border-4 border-accent/20 shadow-xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src="/images/bilgi1.png" 
                   alt="Bilimsel Analiz Görseli" 
