@@ -206,5 +206,53 @@
       "title": "Legacy for the Future",
       "body": "Gevher Nesibe's legacy is not just made of stone buildings. It is a torch of science passed down through generations, etched into the collective memory of humanity. Today, as the Sirius Team, we take up this torch and bridge the ancient healing knowledge of the Seljuks with today's technology."
     }
+  },
+  "scienceAnalysis": {
+    "title": "Scientific Analysis: Depth of Treatment Methods",
+    "sections": [
+      {
+        "id": "biology",
+        "title": "1: Biology: Humoral Theory and Homeostasis",
+        "intro": "This section explains the 'Humoral Theory' (Humoral Pathology), which forms the basis of the Seljuk medical understanding, from a biological and physiological perspective.",
+        "explanation": "Explanation: Under the heading 'Fluid Balance (Homeostasis)', human anatomical structure and four main body fluids (Humors) called 'Blood', 'Yellow Bile', 'Black Bile', and 'Phlegm' are modeled with test tubes. Balance of these fluids (Homeostasis) means health; imbalance means disease.",
+        "scientificRelation": "Scientific Relation (History): Seljuk physicians based disease diagnosis on physiological signs such as pulse control, urine color, and body temperature. Treatment aims to rectify this imbalance. This approach is an early form of the concept of internal body balance in modern biology."
+      },
+      {
+        "id": "chemistry",
+        "title": "2: Chemistry: Phytotherapy and Chemical Compounds",
+        "intro": "This section shows the pharmaceutical aspect of the healing house and the chemical analysis of herbal medicines.",
+        "explanation": "Explanation: Under the heading 'Analysis of Active Ingredients', medical plants such as 'Willow Bark', 'Poppy', 'Aloe Vera' and their separation in a laboratory environment (Extraction and Preparation) are visualized. For example, the 'Salicylic Acid' molecular model derived from the chemical structure of willow bark and its functions (Painkiller, Antipyretic) are shown in detail.",
+        "scientificRelation": "Scientific Relation (History): This proves how phytotherapy, used since ancient times and applied in the healing house, transformed into modern pharmacology (drug science). Willow bark is the basic ingredient of aspirin today."
+      },
+      {
+        "id": "physics",
+        "title": "3: Physics and Biophysics: Acoustics and Nervous System",
+        "intro": "This column examines the most unique treatment method of the healing house, sound and music, with its effects on the nervous system.",
+        "explanation": "Explanation: Under the heading 'Sound Waves and Nerve Modulation', the acoustic structure in Seljuk architecture and the effects of sound waves emitted from this source on the brain's nervous system are modeled. 'Acoustic Energy and Propagation' and 'Neurological Brain Waves' (Alpha and Theta waves) are shown with diagrams.",
+        "scientificRelation": "Scientific Relation (History): The Seljuks knew experimentally that the frequency and intensity of sound changed the human mood and designed the architecture for this purpose. This forms the basis of Music Therapy and Nerve Modulation techniques used in neurology today."
+      }
+    ],
+    "conclusion": {
+      "title": "Conclusion and Discussion: Linking with Today's Health Applications",
+      "body": "The methods used in the past are directly related to today's medicine and form the basis of modern health. Instead of being seen as 'primitive', they should be evaluated as the 'pioneer' and 'inspiring' stage of modern medicine.",
+      "points": [
+        "Similarities (Medical Education and Holistic Approach): Gevher Nesibe is the world's first example of the system of having a hospital and medical school together (Education and Research Hospital model) applied today.",
+        "Differences (Method and Technology): Today, diagnosis is based on definitive evidence with laboratory tests and imaging technologies (MRI, CT), while the Seljuks relied on pulse and physiological symptoms."
+      ],
+      "final": "In conclusion, the Gevher Nesibe Healing House is a joint field study of natural sciences and history of science. It is a unique resource for understanding the evolution of medical history."
+    }
+  },
+  "didYouKnow": {
+    "title": "Did You Know?",
+    "items": [
+      {
+        "title": "Scientific History Note",
+        "body": "While mental patients in Europe were chained and burned saying 'the devil entered them', in Gevher Nesibe Healing House, patients were treated with humane and scientific methods using water sounds, flower scents, and musical makams."
+      },
+      {
+        "title": "First Integrated System",
+        "body": "Gevher Nesibe is the world's first Education and Research Hospital model where the hospital (Healing House) and the medical school (Madrasa) were intertwined. Students would take theoretical lessons in the classroom and immediately pass through the next door to practice at the patient's bedside."
+      }
+    ]
   }
 }

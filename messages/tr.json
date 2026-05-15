@@ -206,5 +206,53 @@
       "title": "Geleceğe Miras",
       "body": "Gevher Nesibe'nin mirası, sadece taş binalardan ibaret değildir. O, bilginin nesiller boyu aktarıldığı, insanlığın ortak hafızasına kazınmış bir bilim meşalesidir. Bugün Sirius Takımı olarak bizler, bu meşaleyi devralıyor ve Selçuklu'nun kadim şifa bilgisini bugünün teknolojisiyle buluşturuyoruz."
     }
+  },
+  "scienceAnalysis": {
+    "title": "Bilimsel Analiz: Tedavi Yöntemlerinin Derinliği",
+    "sections": [
+      {
+        "id": "biology",
+        "title": "1: Biyoloji: Hıltlar Teorisi ve Homeostazi",
+        "intro": "Bu bölüm, Selçuklu tıp anlayışının temelini oluşturan 'Hıltlar Teorisi'ni (Hümoral Patoloji) biyolojik ve fizyolojik açıdan açıklar.",
+        "explanation": "Açıklama: 'Sıvı Dengesi (Homeostazi)' başlığı altında, insanın anatomik yapısı ve 'Kan', 'Sarı Safra', 'Kara Safra' ve 'Balgam' adı verilen dört ana vücut sıvısı (Hıltlar) test tüpleriyle modellenmiştir. Bu sıvıların dengeli olması (Homeostazi) sağlık; dengesiz olması ise hastalık anlamına gelir.",
+        "scientificRelation": "Bilimsel İlişki (Tarih): Selçuklu hekimleri, hastalık teşhisini nabız kontrolü, idrar rengi ve vücut ısısı gibi fizyolojik işaretlere dayandırmıştır. Tedavi, bu dengesizliği amaçlar. Bu yaklaşım, günümüz biyolojisindeki vücut iç dengesi kavramının erken bir biçimidir."
+      },
+      {
+        "id": "chemistry",
+        "title": "2: Kimya: Fitoterapi ve Kimyasal Bileşikler",
+        "intro": "Bu bölüm, şifahanenin eczacılık yönünü ve bitkisel ilaçların kimyasal analizini gösterir.",
+        "explanation": "Açıklama: 'Aktif Bileşenlerin Analizi' başlığı altında, 'Söğüt Kabuğu', 'Haşhaş', 'Sabır Otu' gibi tıbbi bitkiler ve bunların laboratuvar ortamında ayrıştırılması (Ekstraksiyon ve Hazırlama) görselleştirilmiştir. Örneğin, söğüt kabuğunun kimyasal yapısından türetilen 'Salisilik Asit' molekül modeli ve işlevleri (Ağrı Kesici, Ateş Düşürücü) detaylıca gösterilmiştir.",
+        "scientificRelation": "Bilimsel İlişki (Tarih): Bu, antik dönemden beri kullanılan ve şifahanede uygulanan fitoterapinin, modern farmakolojiye (ilaç bilimi) nasıl dönüştüğünü kanıtlar. Söğüt kabuğu, bugün aspirinin temel maddesidir."
+      },
+      {
+        "id": "physics",
+        "title": "3: Fizik ve Biyofizik: Akustik ve Sinir Sistemi",
+        "intro": "Bu sütun, şifahanenin en özgün tedavi yöntemi olan ses ve müziği sinir sistemi üzerindeki etkileriyle inceler.",
+        "explanation": "Açıklama: 'Ses Dalgaları ve Sinir Modülasyonu' başlığı altında, Selçuklu mimarisindeki akustik yapı ve bu kaynaktan yayılan ses dalgalarının beyin sinir sistemi üzerindeki etkileri modellenmiştir. 'Akustik Enerji ve Yayılımı' ve insan beynindeki 'Nörolojik Beyin Dalgaları' (Alpha ve Theta dalgaları) diyagramlarla gösterilmiştir.",
+        "scientificRelation": "Bilimsel İlişki (Tarih): Selçuklular, sesin frekans ve şiddetinin insan ruh halini değiştirdiğini deneyimsel olarak bilmiş ve mimariyi bu amaca uygun tasarlamıştır. Bu, bugün nörolojide kullanılan Müzikoterapi ve Sinir Modülasyonu tekniklerinin temelini oluşturur."
+      }
+    ],
+    "conclusion": {
+      "title": "Sonuç ve Tartışma: Günümüz Sağlık Uygulamalarıyla İlişkilendirme",
+      "body": "Geçmişte kullanılan yöntemler, günümüz tıbbıyla doğrudan ilişkilidir ve modern sağlığın temelini oluşturur. 'İlkel' olarak görülmek yerine, modern tıbbın 'öncü' ve 'ilham verici' aşaması olarak değerlendirilmelidir.",
+      "points": [
+        "Benzerlikler (Tıp Eğitimi ve Holistik Yaklaşım): Gevher Nesibe, bugün uygulanan hastane ve tıp fakültesinin bir arada olması (Eğitim Araştırma Hastanesi modeli) sisteminin dünyadaki ilk örneğidir.",
+        "Farklılıklar (Yöntem ve Teknoloji): Günümüzde teşhis, laboratuvar testleri ve görüntüleme teknolojileri (MR, BT) ile kesin kanıtlara dayanırken, Selçuklular nabız ve fizyolojik belirtilere dayanıyordu."
+      ],
+      "final": "Sonuç olarak, Gevher Nesibe Darüşşifası, fen bilimleri ve bilim tarihinin ortak bir alan çalışmasıdır. Tıp tarihinin evrimini anlamak için eşsiz bir kaynaktır."
+    }
+  },
+  "didYouKnow": {
+    "title": "Bunları Biliyor Muydunuz?",
+    "items": [
+      {
+        "title": "Bilim Tarihi Notu",
+        "body": "Avrupa'da akıl hastaları 'içine şeytan girdi' denilerek zincire vurulup yakılırken; Gevher Nesibe Darüşşifası'nda hastalar su sesi, çiçek kokuları ve müzik makamlarıyla insani ve bilimsel yöntemlerle tedavi ediliyordu."
+      },
+      {
+        "title": "İlk Entegre Sistem",
+        "body": "Gevher Nesibe, hastane (Darüşşifa) ile tıp okulunun (Medrese) iç içe geçtiği dünyadaki ilk Eğitim ve Araştırma Hastanesi modelidir. Öğrenciler teorik dersi sınıfta görür, hemen yan kapıdan geçip hastanın başında pratik yapardı."
+      }
+    ]
   }
 }
