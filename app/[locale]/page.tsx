@@ -95,7 +95,10 @@ export default async function HomePage({
         title={h.posters.title}
         note={h.posters.note}
         slotLabel={h.posters.slotLabel}
-        images={[]}
+        images={[
+          { src: "/images/posters/poster1.png", alt: "STEM Durak 2 Afişi" },
+          { src: "/images/posters/poster2.png", alt: "Geçmişten Günümüze Tıp Afişi" }
+        ]}
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
