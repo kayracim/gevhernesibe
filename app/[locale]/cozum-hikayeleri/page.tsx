@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/locale";
 import { PageIntro } from "@/components/PageIntro";
 import { CaseStudyExplorer } from "@/components/CaseStudyExplorer";
 import { Section } from "@/components/Section";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { cases } from "@/content/cases";
 
 export async function generateMetadata({
@@ -106,14 +107,10 @@ export default async function CasesPage({
             </div>
             
             <div className="flex-shrink-0 lg:w-1/3">
-              <div className="overflow-hidden rounded-2xl border-4 border-accent/20 shadow-xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                  src="/images/bilgi1.png" 
-                  alt="Bilimsel Analiz Görseli" 
-                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </div>
+              <ImageLightbox 
+                src="/images/bilgi1.png" 
+                alt="Bilimsel Analiz Görseli" 
+              />
             </div>
           </div>
         </div>
