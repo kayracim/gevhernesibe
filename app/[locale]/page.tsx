@@ -115,11 +115,11 @@ export default async function HomePage({
           </div>
         </Section>
 
-        <Section id="uluslararasi-cta" title={locale === "tr" ? "Yolculuk planı" : "Plan your visit"}>
+        <Section id="stem-cta" title={locale === "tr" ? "STEM Projemiz" : "Our STEM Project"}>
           <p>
             {locale === "tr"
-              ? "Kayseri’ye uzaktan gelen hastalar için adım adım bir çerçeve hazırladık."
-              : "We prepared a simple step-by-step frame for patients traveling to Kayseri."}
+              ? "Bilimsel Miras STEM: Köklerden Geleceğe Kültür Köprüsü projemizin Durak 2 sunumu için hazırladığımız dijital keşif sürecine göz atın."
+              : "Check out the digital discovery process we prepared for the Station 2 presentation of our Scientific Heritage STEM project."}
           </p>
           <Link
             href={withLocale(locale, "/uluslararasi")}

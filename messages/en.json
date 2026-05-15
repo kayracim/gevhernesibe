@@ -9,10 +9,10 @@
     "history": "History & Legacy",
     "hospital": "Architecture & Education",
     "cases": "Healing Methods",
-    "international": "Scientific Heritage",
+    "international": "Scientific Heritage STEM",
     "bibliography": "Bibliography",
     "contact": "Visit & Contact",
-    "cta": "Explore History"
+    "cta": "STEM Explore"
   },
   "skip": "Skip to content",
   "home": {
@@ -52,8 +52,8 @@
       "slotLabel": "Artifact"
     },
     "historicalContext": {
-      "title": "Seljuk Scientific World",
-      "body": "The observation, recording, and measurement techniques used 800 years ago form the basis of today's modern medical disciplines. The complex is a masterpiece of genius, combining statics in its architecture and biology/psychology in its treatments."
+      "title": "Selçuklu Science World and STEM",
+      "body": "The observation, recording, and measurement techniques used 800 years ago at Gevher Nesibe form the basis of today's modern medical disciplines. As part of our 'Cultural Bridge from Roots to Future' project, we re-interpret this ancient heritage through STEM disciplines (Science, Technology, Engineering, Mathematics)."
     },
     "carousel": [
       {
@@ -175,5 +175,35 @@
     "disclaimerTitle": "Important Note",
     "disclaimer": "This site was prepared for the promotion of a historical and cultural heritage. It does not contain medical advice.",
     "rights": "© {year} Gevher Nesibe Legacy — Sirius Team (11/A) | Kayseri Ticaret Vocational and Technical Anatolian High School"
+  },
+  "stem": {
+    "title": "Scientific Heritage STEM",
+    "subtitle": "Cultural Bridge from Roots to Future",
+    "activity": {
+      "theme": "Scientific Heritage STEM - Cultural Bridge from Roots to Future",
+      "purpose": "This activity invites students to build a 'cultural bridge' between the scientific heritage of the past and the technological world of the future.",
+      "maarif": "In line with the Turkey Century Education Model; it aims to bring values education, holistic learning, interdisciplinary approach, and skill-based education into the field."
+    },
+    "durak2": {
+      "title": "Station 2: History of Health and Science",
+      "description": "Examine the purpose and treatment methods of the Şifahane. Evaluate the relationship between these methods and the scientific understanding of the period. Discuss similarities and differences with today's health applications.",
+      "mission": "How can the methods used in the past be related to modern medicine today?",
+      "stemLink": "Life Sciences + History of Science",
+      "maarifModel": "Critical thinking, problem solving, aesthetic perspective, cultural awareness, and productivity are at the forefront.",
+      "tasks": [
+        "Discover the purposes of the Şifahane.",
+        "Analyze the scientific understanding of the period.",
+        "Build a bridge with modern medicine."
+      ]
+    },
+    "process": {
+      "title": "Activity Process",
+      "steps": [
+        "Preparation and Information",
+        "Digital Discovery Process",
+        "Production and Sharing Phase",
+        "Evaluation and Reflection"
+      ]
+    }
   }
 }

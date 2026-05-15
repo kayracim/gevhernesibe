@@ -9,10 +9,10 @@
     "history": "Tarih ve Miras",
     "hospital": "Mimari ve Eğitim",
     "cases": "Tedavi Yöntemleri",
-    "international": "Bilimsel Miras",
+    "international": "Bilimsel Miras STEM",
     "bibliography": "Kaynakça",
     "contact": "Ziyaret ve İletişim",
-    "cta": "Tarihi Keşfet"
+    "cta": "STEM Keşfi"
   },
   "skip": "İçeriğe geç",
   "home": {
@@ -52,8 +52,8 @@
       "slotLabel": "Eser"
     },
     "historicalContext": {
-      "title": "Selçuklu Bilim Dünyası",
-      "body": "800 yıl önce kullanılan gözlem, kayıt ve ölçüm teknikleri; bugünün modern tıp disiplinlerinin temelini oluşturur. Külliye, mimarisiyle statik, tedavileriyle biyoloji ve psikoloji bilimlerini buluşturan bir dehadır."
+      "title": "Selçuklu Bilim Dünyası ve STEM",
+      "body": "800 yıl önce Gevher Nesibe'de kullanılan gözlem, kayıt ve ölçüm teknikleri; bugünün modern tıp disiplinlerinin temelini oluşturur. 'Köklerden Geleceğe Kültür Köprüsü' projemiz kapsamında, bu kadim mirası STEM disiplinleriyle (Bilim, Teknoloji, Mühendislik, Matematik) yeniden yorumluyoruz."
     },
     "carousel": [
       {
@@ -175,5 +175,35 @@
     "disclaimerTitle": "Önemli Not",
     "disclaimer": "Bu site tarihi ve kültürel bir mirasın tanıtımı için hazırlanmıştır. Tıbbi tavsiye içermez.",
     "rights": "© {year} Gevher Nesibe Mirası — Sirius Takımı (11/A) | Kayseri Ticaret Mesleki ve Teknik Anadolu Lisesi"
+  },
+  "stem": {
+    "title": "Bilimsel Miras STEM",
+    "subtitle": "Köklerden Geleceğe Kültür Köprüsü",
+    "activity": {
+      "theme": "Bilimsel Miras STEM- Köklerden Geleceğe Kültür Köprüsü",
+      "purpose": "Bu etkinlik, öğrencileri geçmişin bilimsel mirası ile geleceğin teknolojik dünyası arasında bir 'kültür köprüsü' kurmaya davet eder.",
+      "maarif": "Türkiye Yüzyılı Maarif Modeli ile uyumlu olarak; değerler eğitimi, bütüncül öğrenme, disiplinlerarası yaklaşım ve beceri temelli eğitim anlayışını sahaya taşımayı hedefler."
+    },
+    "durak2": {
+      "title": "Durak 2: Sağlık ve Bilim Tarihi",
+      "description": "Şifahanenin kullanım amacını ve tedavi yöntemlerini inceleyiniz. Bu yöntemlerin dönemin bilimsel anlayışıyla ilişkisini değerlendiriniz. Günümüz sağlık uygulamalarıyla benzerlik ve farklılıklarını tartışınız.",
+      "mission": "Geçmişte kullanılan yöntemler günümüz tıbbı ile nasıl ilişkilendirilebilir?",
+      "stemLink": "Fen Bilimleri + Bilim Tarihi",
+      "maarifModel": "Eleştirel düşünme, problem çözme, estetik bakış, kültürel farkındalık ve üretkenlik ön plandadır.",
+      "tasks": [
+        "Şifahanenin amaçlarını keşfedin.",
+        "Dönemin bilimsel anlayışını analiz edin.",
+        "Günümüz tıbbı ile köprü kurun."
+      ]
+    },
+    "process": {
+      "title": "Etkinlik Süreci",
+      "steps": [
+        "Hazırlık ve Bilgilendirme",
+        "Dijital Keşif Süreci",
+        "Üretim ve Paylaşım Aşaması",
+        "Değerlendirme ve Yansıtma"
+      ]
+    }
   }
 }
