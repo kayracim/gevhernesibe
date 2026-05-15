@@ -32,7 +32,7 @@ export default async function CasesPage({
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle} />
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted">{p.intro}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper">{p.intro}</p>
 
       <CaseStudyExplorer
         locale={locale}

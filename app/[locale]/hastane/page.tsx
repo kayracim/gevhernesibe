@@ -31,7 +31,7 @@ export default async function HospitalPage({
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle} />
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70">{p.intro}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper">{p.intro}</p>
 
       <div className="grid gap-6 lg:grid-cols-3">
         {p.sections.map((s) => (

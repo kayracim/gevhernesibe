@@ -10,7 +10,7 @@ export function PageIntro({
       <h1 className="font-display text-4xl font-semibold tracking-tight text-ink dark:text-paper text-balance sm:text-5xl">
         {title}
       </h1>
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70">{subtitle}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper">{subtitle}</p>
     </header>
   );
 }

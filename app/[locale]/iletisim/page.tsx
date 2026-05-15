@@ -31,7 +31,7 @@ export default async function ContactPage({
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle} />
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70">{p.intro}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper">{p.intro}</p>
 
       <Section id="kanallar" title={p.channelsTitle}>
         <ul className="list-disc space-y-3 pl-5 dark:text-paper/70">
