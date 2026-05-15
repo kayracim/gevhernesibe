@@ -14,9 +14,6 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     siteName: "Gevher Nesibe Hastanesi",
   },
-  icons: {
-    icon: "/logo.jpg",
-  },
 };
 
 export default function RootLayout({
