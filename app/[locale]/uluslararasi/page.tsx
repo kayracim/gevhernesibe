@@ -100,22 +100,6 @@ export default async function StemProjectPage({
         </div>
       </div>
 
-      <Section id="surec" title={s.process.title}>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {s.process.steps.map((step, index) => (
-            <div key={step} className="relative rounded-2xl border border-sand bg-paper p-6 shadow-sm">
-              <span className="absolute -top-3 -left-3 flex h-8 w-8 items-center justify-center rounded-full bg-heritage text-sm font-bold text-white shadow-lift">
-                {index + 1}
-              </span>
-              <p className="mt-2 font-semibold text-ink">{step}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <div className="rounded-3xl border border-heritage/20 bg-heritage-soft/20 p-8 text-center">
-        <p className="font-display text-xl text-heritage">{s.durak2.maarifModel}</p>
-      </div>
     </div>
   );
 }
