@@ -202,14 +202,9 @@
         "Bilimsel kayıt geleneği modern tıbbın temelidir."
       ]
     },
-    "process": {
-      "title": "Etkinlik Süreci",
-      "steps": [
-        "Hazırlık ve Bilgilendirme",
-        "Dijital Keşif Süreci",
-        "Üretim ve Paylaşım Aşaması",
-        "Değerlendirme ve Yansıtma"
-      ]
+    "conclusion": {
+      "title": "Geleceğe Miras",
+      "body": "Gevher Nesibe'nin mirası, sadece taş binalardan ibaret değildir. O, bilginin nesiller boyu aktarıldığı, insanlığın ortak hafızasına kazınmış bir bilim meşalesidir. Bugün Sirius Takımı olarak bizler, bu meşaleyi devralıyor ve Selçuklu'nun kadim şifa bilgisini bugünün teknolojisiyle buluşturuyoruz."
     }
   }
 }

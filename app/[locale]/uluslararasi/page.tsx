@@ -100,6 +100,17 @@ export default async function StemProjectPage({
         </div>
       </div>
 
+      <div className="rounded-3xl border border-heritage/20 bg-heritage-soft/20 p-8 text-center sm:p-12">
+        <h3 className="font-display text-2xl font-bold text-heritage">{s.conclusion.title}</h3>
+        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-ink-muted">
+          {s.conclusion.body}
+        </p>
+        <div className="mt-8 flex items-center justify-center gap-4 text-xs font-bold uppercase tracking-widest text-heritage/60">
+          <span className="h-px w-8 bg-heritage/20"></span>
+          SIRIUS PROJECT
+          <span className="h-px w-8 bg-heritage/20"></span>
+        </div>
+      </div>
     </div>
   );
 }
