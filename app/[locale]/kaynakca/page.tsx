@@ -36,7 +36,7 @@ export default async function BibliographyPage({
       />
       
       <Section id="kaynak-listesi" title={locale === "tr" ? "Akademik Referanslar" : "Academic References"}>
-        <ul className="list-disc space-y-4 pl-5 text-lg leading-relaxed text-ink">
+        <ul className="list-disc space-y-4 pl-5 text-lg leading-relaxed text-ink dark:text-paper/70">
           {p.bibliography?.map((item) => (
             <li key={item} className="pl-2">
               {item}
@@ -46,7 +46,7 @@ export default async function BibliographyPage({
       </Section>
 
       <Section id="muze-notu" variant="heritage" title={locale === "tr" ? "Müze Bilgisi" : "Museum Information"}>
-        <p className="leading-relaxed">
+        <p className="leading-relaxed dark:text-paper/70">
           {locale === "tr" 
             ? "Bu projede kullanılan teknik bilgiler ve görseller, Kayseri Selçuklu Uygarlığı Müzesi'ndeki teşhir üniteleri ve tıp tarihi arşivlerinden derlenmiştir. Daha fazla bilgi için Kayseri'deki Gevher Nesibe Külliyesi'ni ziyaret edebilirsiniz."
             : "The technical information and visuals used in this project were compiled from the exhibition units and medical history archives at the Kayseri Seljuk Civilization Museum. For more information, you can visit the Gevher Nesibe Complex in Kayseri."}

@@ -54,8 +54,8 @@ export function CaseStudyExplorer({
               onClick={() => setFilter(chip.key)}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
                 selected
-                  ? "border-ink bg-ink text-paper"
-                  : "border-sand bg-paper text-ink-muted hover:border-heritage/40 hover:text-ink"
+                  ? "border-ink bg-ink text-paper dark:border-paper dark:bg-paper dark:text-ink"
+                  : "border-sand bg-paper text-ink-muted dark:border-ink/20 dark:bg-ink/50 dark:text-paper/70 hover:border-heritage/40 hover:text-ink dark:hover:text-paper"
               }`}
             >
               {chip.label}
