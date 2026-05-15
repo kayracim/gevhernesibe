@@ -20,6 +20,7 @@ export function SiteHeader({
     { href: withLocale(locale, "/hastane"), label: nav.hospital },
     { href: withLocale(locale, "/cozum-hikayeleri"), label: nav.cases },
     { href: withLocale(locale, "/uluslararasi"), label: nav.international },
+    { href: withLocale(locale, "/sanal-tur"), label: nav.virtualTour },
     { href: withLocale(locale, "/kaynakca"), label: nav.bibliography },
     { href: withLocale(locale, "/iletisim"), label: nav.contact },
   ];

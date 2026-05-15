@@ -11,6 +11,7 @@
     "cases": "Tedavi Yöntemleri",
     "international": "Bilimsel Miras STEM",
     "bibliography": "Kaynakça",
+    "virtualTour": "3D Sanal Tur",
     "contact": "Ziyaret ve İletişim",
     "cta": "STEM Keşfi"
   },
@@ -170,6 +171,12 @@
     "mapTitle": "Külliye Konumu",
     "mapPlaceholder": "Kayseri Mimar Sinan Parkı içindeki külliye konumu.",
     "emergency": "Tarihi bir mekanda olduğunuzu unutmayın; lütfen eserleri koruyun."
+  },
+  "virtualTourPage": {
+    "title": "3D Sanal Gezi Turu",
+    "subtitle": "Külliyeyi Adım Adım Keşfedin",
+    "intro": "Gevher Nesibe Şifahanesi ve Medresesi'nin (Selçuklu Uygarlığı Müzesi) tarihi atmosferini Google Street View altyapısı ile 3 boyutlu olarak sanki oradaymış gibi gezebilirsiniz. Fare ile sürükleyerek etrafınıza bakabilir, oklarla ilerleyebilirsiniz.",
+    "loading": "Sanal Tur yükleniyor..."
   },
   "footer": {
     "disclaimerTitle": "Önemli Not",

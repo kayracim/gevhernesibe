@@ -11,6 +11,7 @@
     "cases": "Healing Methods",
     "international": "Scientific Heritage STEM",
     "bibliography": "Bibliography",
+    "virtualTour": "3D Virtual Tour",
     "contact": "Visit & Contact",
     "cta": "STEM Explore"
   },
@@ -170,6 +171,12 @@
     "mapTitle": "Location of the Complex",
     "mapPlaceholder": "Location of the complex inside Kayseri Mimar Sinan Park.",
     "emergency": "Remember that you are in a historical site; please protect the artifacts."
+  },
+  "virtualTourPage": {
+    "title": "3D Virtual Tour",
+    "subtitle": "Explore the Complex Step by Step",
+    "intro": "You can explore the historical atmosphere of Gevher Nesibe Healing House and Madrasa (Seljuk Civilization Museum) in 3D with Google Street View infrastructure, as if you were there. You can look around by dragging with the mouse and move forward with the arrows.",
+    "loading": "Virtual Tour is loading..."
   },
   "footer": {
     "disclaimerTitle": "Important Note",
