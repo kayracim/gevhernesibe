@@ -53,21 +53,35 @@ export default async function StemProjectPage({
           <div className="mt-6 space-y-6">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-clinical/70">
-                {locale === "tr" ? "GÖREV" : "MISSION"}
+                {s.durak2.reportTitle}
               </p>
               <p className="mt-2 text-xl font-medium text-ink">&quot;{s.durak2.mission}&quot;</p>
             </div>
 
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-clinical/70">
-                {locale === "tr" ? "İNCELEME" : "EXAMINATION"}
-              </p>
-              <p className="leading-relaxed text-ink-muted">{s.durak2.description}</p>
+            <div className="space-y-4 rounded-2xl bg-white/40 p-5 dark:bg-ink/40">
+              <div className="space-y-2">
+                <p className="text-xs font-bold uppercase text-clinical/60">
+                  {locale === "tr" ? "Tedavi Yöntemleri" : "Treatment Methods"}
+                </p>
+                <p className="text-sm leading-relaxed text-ink-muted">{s.durak2.details.methods}</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs font-bold uppercase text-clinical/60">
+                  {locale === "tr" ? "Bilimsel Temel" : "Scientific Basis"}
+                </p>
+                <p className="text-sm leading-relaxed text-ink-muted">{s.durak2.details.science}</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-xs font-bold uppercase text-clinical/60">
+                  {locale === "tr" ? "Modern Bağlantı" : "Modern Connection"}
+                </p>
+                <p className="text-sm leading-relaxed text-ink-muted">{s.durak2.details.connection}</p>
+              </div>
             </div>
 
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-wider text-clinical/70">
-                {locale === "tr" ? "ADIMLAR" : "STEPS"}
+                {locale === "tr" ? "ÖZET BİLGİLER" : "SUMMARY POINTS"}
               </p>
               <ul className="list-disc pl-5 text-sm text-ink-muted">
                 {s.durak2.tasks.map((task: string) => (

@@ -186,14 +186,20 @@
     },
     "durak2": {
       "title": "Durak 2: Sağlık ve Bilim Tarihi",
-      "description": "Gevher Nesibe Şifahanesi, sadece bir hastane değil; tıp eğitimi, cerrahi müdahale ve ruhsal tedavinin bilimsel bir temelde birleştiği dünyanın ilk tıp merkezidir. Burada uygulanan yöntemler, Selçuklu döneminin ileri tıp anlayışını yansıtır.",
-      "mission": "Geçmişin şifa yöntemleri, bugünün modern tıp disiplinlerine temel oluşturmaktadır.",
+      "description": "Gevher Nesibe Şifahanesi, Selçuklu döneminde tıbbın bilimsel bir temele oturtulduğu, gözlem ve kayıt geleneğinin başlatıldığı eşsiz bir merkezdir.",
+      "mission": "Geçmişin şifa bilgeliği, bugünün modern tıp teknolojisine ışık tutmaktadır.",
       "stemLink": "Fen Bilimleri + Bilim Tarihi",
-      "maarifModel": "Eleştirel düşünme, problem çözme, estetik bakış, kültürel farkındalık ve üretkenlik ön plandadır.",
+      "maarifModel": "Eleştirel düşünme ve kültürel farkındalık projemizin temelidir.",
+      "reportTitle": "Durak 2 Keşif Raporu",
+      "details": {
+        "methods": "Şifahane'de cerrahi operasyonların yanı sıra; 800 yıl önce müzik (makam), su sesi ve bitkisel kürler kullanılarak 'Bütünsel Tedavi' uygulanmıştır. Bu, o dönemdeki psikiyatrik tedavilerin öncüsüdür.",
+        "science": "Selçuklu tıbbı 'gözlem ve deney' üzerine kuruludur. İbn-i Sina ve Razi'nin eserleri rehberliğinde hastalar için özel diyet ve makam reçeteleri hazırlanmış, tüm semptomlar titizlikle kaydedilmiştir.",
+        "connection": "Bugünün modern psikiyatri kayıtları ve bitki bazlı ilaç (farmakoloji) teknolojileri, Selçuklu'nun bu köklü veri tutma ve araştırma geleneğinin bir devamıdır."
+      },
       "tasks": [
-        "Şifahane, hem tıp eğitimi hem de uygulama merkezi olarak hizmet vermiştir.",
-        "Müzik, su sesi ve bitkisel ilaçlarla bütünsel bir tedavi uygulanmıştır.",
-        "13. yüzyıldaki bu bilimsel yaklaşım, modern tıbbın temellerini oluşturmaktadır."
+        "Şifahane hem tıp eğitimi hem uygulama merkezidir.",
+        "Müzik ve su sesiyle tedavi dünyada ilktir.",
+        "Bilimsel kayıt geleneği modern tıbbın temelidir."
       ]
     },
     "process": {

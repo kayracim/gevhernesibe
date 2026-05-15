@@ -186,14 +186,20 @@
     },
     "durak2": {
       "title": "Station 2: History of Health and Science",
-      "description": "The Gevher Nesibe Healing House is not just a hospital; it is the world's first medical center where medical education, surgical intervention, and spiritual treatment merged on a scientific basis. The methods applied here reflect the advanced medical understanding of the Seljuk period.",
-      "mission": "Healing methods of the past form the foundation of today's modern medical disciplines.",
+      "description": "The Gevher Nesibe Healing House is a unique center where medicine was placed on a scientific basis and the tradition of observation and recording was initiated during the Seljuk period.",
+      "mission": "The healing wisdom of the past sheds light on today's modern medical technology.",
       "stemLink": "Life Sciences + History of Science",
-      "maarifModel": "Critical thinking, problem solving, aesthetic perspective, cultural awareness, and productivity are at the forefront.",
+      "maarifModel": "Critical thinking and cultural awareness are the basis of our project.",
+      "reportTitle": "Station 2 Discovery Report",
+      "details": {
+        "methods": "In addition to surgical operations, 'Holistic Treatment' was applied 800 years ago using music (makam), water sounds, and herbal remedies. This is a precursor to the psychiatric treatments of that period.",
+        "science": "Seljuk medicine is built on 'observation and experiment'. Under the guidance of the works of Avicenna and Rhazes, specific diet and makam prescriptions were prepared for patients, and all symptoms were meticulously recorded.",
+        "connection": "The foundations of today's modern psychiatric records and plant-based drug (pharmacology) technologies are a continuation of this deep-rooted Seljuk tradition of data keeping and research."
+      },
       "tasks": [
-        "The Healing House served as both a medical school and a clinical application center.",
-        "Holistic treatment was applied using music, water sounds, and herbal medicines.",
-        "This scientific approach in the 13th century forms the basis of modern medicine."
+        "The Healing House is both a medical school and an application center.",
+        "Treatment with music and water sounds is a first in the world.",
+        "The tradition of scientific recording is the basis of modern medicine."
       ]
     },
     "process": {
