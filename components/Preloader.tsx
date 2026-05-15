@@ -14,13 +14,21 @@ export function Preloader() {
       return;
     }
 
+    // Lock scroll and force top position
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+
     // Set timeout to hide preloader
     const timer = setTimeout(() => {
       setIsVisible(false);
       sessionStorage.setItem("preloader_shown", "true");
+      document.body.style.overflow = "unset";
     }, 2500); // 2.5 seconds duration
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "unset";
+    };
   }, []);
 
   return (
