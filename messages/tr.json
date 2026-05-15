@@ -114,10 +114,10 @@
       },
       {
         "title": "Gıyasiye (Medrese)",
-        "body": "Doğu kısmında yer alan tıp okulu. Öğrenciler burada Galen, İbn-i Sina and Razi'nin eserlerini okumuş, teorik bilgilerini yan binada pratik etmişlerdir."
+        "body": "Doğu kısmında yer alan tıp okulu. Öğrenciler burada Galen, İbn-i Sina ve Razi'nin eserlerini okumuş, teorik bilgilerini yan binada pratik etmişlerdir."
       },
       {
-        "title": "Akustik and Işık",
+        "title": "Akustik ve Işık",
         "body": "Yapının planı, güneş ışığından maksimum faydalanacak ve su sesinin her odaya ulaşmasını sağlayacak şekilde deha ürünü bir akustikle tasarlanmıştır."
       }
     ],
@@ -125,7 +125,7 @@
   },
   "casesPage": {
     "title": "Tedavi Sanatları",
-    "subtitle": "Müzik, Su and Merhametle Gelen İyileşme",
+    "subtitle": "Müzik, Su ve Merhametle Gelen İyileşme",
     "intro": "Selçuklu tıbbı, insanı sadece bir beden olarak değil, ruhuyla bir bütün olarak görür. Aşağıdaki yöntemler, 13. yüzyılda Gevher Nesibe'de uygulanan bilimsel tedavi yöntemlerini temsil eder.",
     "filterAll": "Tümü",
     "filterImaging": "Anatomi/Cerrahi",
@@ -186,14 +186,14 @@
     },
     "durak2": {
       "title": "Durak 2: Sağlık ve Bilim Tarihi",
-      "description": "Şifahanenin kullanım amacını ve tedavi yöntemlerini inceleyiniz. Bu yöntemlerin dönemin bilimsel anlayışıyla ilişkisini değerlendiriniz. Günümüz sağlık uygulamalarıyla benzerlik ve farklılıklarını tartışınız.",
-      "mission": "Geçmişte kullanılan yöntemler günümüz tıbbı ile nasıl ilişkilendirilebilir?",
+      "description": "Gevher Nesibe Şifahanesi, sadece bir hastane değil; tıp eğitimi, cerrahi müdahale ve ruhsal tedavinin bilimsel bir temelde birleştiği dünyanın ilk tıp merkezidir. Burada uygulanan yöntemler, Selçuklu döneminin ileri tıp anlayışını yansıtır.",
+      "mission": "Geçmişin şifa yöntemleri, bugünün modern tıp disiplinlerine temel oluşturmaktadır.",
       "stemLink": "Fen Bilimleri + Bilim Tarihi",
       "maarifModel": "Eleştirel düşünme, problem çözme, estetik bakış, kültürel farkındalık ve üretkenlik ön plandadır.",
       "tasks": [
-        "Şifahanenin amaçlarını keşfedin.",
-        "Dönemin bilimsel anlayışını analiz edin.",
-        "Günümüz tıbbı ile köprü kurun."
+        "Şifahane, hem tıp eğitimi hem de uygulama merkezi olarak hizmet vermiştir.",
+        "Müzik, su sesi ve bitkisel ilaçlarla bütünsel bir tedavi uygulanmıştır.",
+        "13. yüzyıldaki bu bilimsel yaklaşım, modern tıbbın temellerini oluşturmaktadır."
       ]
     },
     "process": {

@@ -186,14 +186,14 @@
     },
     "durak2": {
       "title": "Station 2: History of Health and Science",
-      "description": "Examine the purpose and treatment methods of the Şifahane. Evaluate the relationship between these methods and the scientific understanding of the period. Discuss similarities and differences with today's health applications.",
-      "mission": "How can the methods used in the past be related to modern medicine today?",
+      "description": "The Gevher Nesibe Healing House is not just a hospital; it is the world's first medical center where medical education, surgical intervention, and spiritual treatment merged on a scientific basis. The methods applied here reflect the advanced medical understanding of the Seljuk period.",
+      "mission": "Healing methods of the past form the foundation of today's modern medical disciplines.",
       "stemLink": "Life Sciences + History of Science",
       "maarifModel": "Critical thinking, problem solving, aesthetic perspective, cultural awareness, and productivity are at the forefront.",
       "tasks": [
-        "Discover the purposes of the Şifahane.",
-        "Analyze the scientific understanding of the period.",
-        "Build a bridge with modern medicine."
+        "The Healing House served as both a medical school and a clinical application center.",
+        "Holistic treatment was applied using music, water sounds, and herbal medicines.",
+        "This scientific approach in the 13th century forms the basis of modern medicine."
       ]
     },
     "process": {
