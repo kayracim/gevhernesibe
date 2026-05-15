@@ -96,8 +96,8 @@ export default async function HomePage({
         note={h.posters.note}
         slotLabel={h.posters.slotLabel}
         images={[
-          { src: "/images/posters/poster1.png", alt: "STEM Durak 2 Afişi" },
-          { src: "/images/posters/poster2.png", alt: "Geçmişten Günümüze Tıp Afişi" }
+          { src: "/images/poster1.png", alt: "STEM Durak 2 Afişi" },
+          { src: "/images/poster2.png", alt: "Geçmişten Günümüze Tıp Afişi" }
         ]}
       />
 
