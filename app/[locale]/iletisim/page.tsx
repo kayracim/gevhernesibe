@@ -31,10 +31,10 @@ export default async function ContactPage({
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle} />
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted">{p.intro}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70">{p.intro}</p>
 
       <Section id="kanallar" title={p.channelsTitle}>
-        <ul className="list-disc space-y-3 pl-5">
+        <ul className="list-disc space-y-3 pl-5 dark:text-paper/70">
           {p.channels.map((c) => (
             <li key={c}>{c}</li>
           ))}
@@ -52,12 +52,12 @@ export default async function ContactPage({
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Gevher Nesibe Müzesi Harita"
-            className="grayscale-[0.2] transition-all duration-500 hover:grayscale-0"
+            className="grayscale-[0.2] transition-all duration-500 hover:grayscale-0 dark:invert-[0.9] dark:hue-rotate-[180deg]"
           ></iframe>
         </div>
       </Section>
 
-      <aside className="rounded-3xl border border-heritage/30 bg-heritage/10 p-6 text-sm font-semibold text-heritage-dark sm:p-8">
+      <aside className="rounded-3xl border border-heritage/30 bg-heritage/10 p-6 text-sm font-semibold text-heritage-dark dark:text-paper dark:bg-heritage/20 sm:p-8">
         {p.emergency}
       </aside>
     </div>

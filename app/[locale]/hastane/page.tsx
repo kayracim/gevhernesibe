@@ -31,17 +31,17 @@ export default async function HospitalPage({
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle} />
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted">{p.intro}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70">{p.intro}</p>
 
       <div className="grid gap-6 lg:grid-cols-3">
         {p.sections.map((s) => (
           <Section key={s.title} title={s.title}>
-            <p>{s.body}</p>
+            <p className="dark:text-paper/70">{s.body}</p>
           </Section>
         ))}
       </div>
 
-      <aside className="rounded-3xl border border-dashed border-heritage/35 bg-heritage/5 p-6 text-sm leading-relaxed text-ink-muted sm:p-8">
+      <aside className="rounded-3xl border border-dashed border-heritage/35 bg-heritage/5 p-6 text-sm leading-relaxed text-ink-muted dark:text-paper/60 dark:bg-heritage/10 sm:p-8">
         {p.disclaimer}
       </aside>
     </div>

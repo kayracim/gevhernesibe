@@ -31,7 +31,7 @@ export default async function HistoryPage({
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle} />
-      <p className="max-w-measure text-lg leading-relaxed text-ink-muted">{p.intro}</p>
+      <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/70">{p.intro}</p>
 
       <Section id="inceleme" title={p.bulletsTitle}>
         <ul className="list-disc space-y-3 pl-5">
@@ -42,8 +42,8 @@ export default async function HistoryPage({
       </Section>
 
       <Section id="gorev" variant="heritage" title={p.taskTitle}>
-        <p className="text-lg font-medium text-ink">{p.task}</p>
-        <p className="text-sm">{p.taskHint}</p>
+        <p className="text-lg font-medium text-ink dark:text-paper">{p.task}</p>
+        <p className="text-sm dark:text-paper/60">{p.taskHint}</p>
       </Section>
 
       <Section id="stem" title={p.stemTitle}>
@@ -56,7 +56,7 @@ export default async function HistoryPage({
 
       {p.bibliography && (
         <Section id="kaynakca" title={p.bibliographyTitle}>
-          <ul className="list-disc space-y-2 pl-5 text-sm text-ink-muted">
+          <ul className="list-disc space-y-2 pl-5 text-sm text-ink-muted dark:text-paper/60">
             {p.bibliography.map((item) => (
               <li key={item}>{item}</li>
             ))}
