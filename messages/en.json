@@ -175,7 +175,7 @@
   "virtualTourPage": {
     "title": "3D Virtual Tour",
     "subtitle": "Explore the Complex Step by Step",
-    "intro": "You can explore the historical atmosphere of Gevher Nesibe Healing House and Madrasa (Seljuk Civilization Museum) in 3D with Google Street View infrastructure, as if you were there. You can look around by dragging with the mouse and move forward with the arrows.",
+    "intro": "You can explore the historical atmosphere of Gevher Nesibe Healing House and Madrasa (Seljuk Civilization Museum) with a 360-degree VR video, as if you were there. You can look around by dragging the video with the mouse.",
     "loading": "Virtual Tour is loading..."
   },
   "footer": {

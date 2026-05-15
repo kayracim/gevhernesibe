@@ -175,7 +175,7 @@
   "virtualTourPage": {
     "title": "3D Sanal Gezi Turu",
     "subtitle": "Külliyeyi Adım Adım Keşfedin",
-    "intro": "Gevher Nesibe Şifahanesi ve Medresesi'nin (Selçuklu Uygarlığı Müzesi) tarihi atmosferini Google Street View altyapısı ile 3 boyutlu olarak sanki oradaymış gibi gezebilirsiniz. Fare ile sürükleyerek etrafınıza bakabilir, oklarla ilerleyebilirsiniz.",
+    "intro": "Gevher Nesibe Şifahanesi ve Medresesi'nin (Selçuklu Uygarlığı Müzesi) tarihi atmosferini 360 derece VR video ile sanki oradaymış gibi gezebilirsiniz. Videoyu fare ile sürükleyerek etrafınıza bakabilirsiniz.",
     "loading": "Sanal Tur yükleniyor..."
   },
   "footer": {
