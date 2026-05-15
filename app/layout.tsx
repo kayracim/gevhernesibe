@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Gevher Nesibe Hastanesi",
   },
   icons: {
-    icon: "/images/logo.jpeg",
+    icon: "/logo.jpg",
   },
 };
 
