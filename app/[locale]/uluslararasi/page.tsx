@@ -55,7 +55,7 @@ export default async function StemProjectPage({
               <p className="text-xs font-semibold uppercase tracking-wider text-clinical/70">
                 {locale === "tr" ? "GÖREV" : "MISSION"}
               </p>
-              <p className="mt-2 text-xl font-medium text-ink">"{s.durak2.mission}"</p>
+              <p className="mt-2 text-xl font-medium text-ink">&quot;{s.durak2.mission}&quot;</p>
             </div>
 
             <div className="space-y-3">
