@@ -7,6 +7,7 @@ import { VideoPlaceholder } from "@/components/VideoPlaceholder";
 import { PosterGridPlaceholder } from "@/components/PosterGridPlaceholder";
 import { InfoCarousel } from "@/components/InfoCarousel";
 import { Section } from "@/components/Section";
+import { PulseScienceSection } from "@/components/PulseScienceSection";
 
 export async function generateMetadata({
   params,
@@ -83,6 +84,9 @@ export default async function HomePage({
           </div>
         </aside>
       </section>
+
+      {/* İlm-i Nabz / Pulse Science Section */}
+      <PulseScienceSection data={dict.pulseScience} />
 
       <VideoPlaceholder
         title={h.video.title}

@@ -249,6 +249,73 @@
       "final": "In conclusion, the Gevher Nesibe Healing House is a joint field study of natural sciences and history of science. It is a unique resource for understanding the evolution of medical history."
     }
   },
+  "pulseScience": {
+    "badge": "Advanced Technology in Seljuk Medicine",
+    "title": "Biometric Data and the 'Lie Detector': The Science of Pulse",
+    "lead": "The medicine practiced at Gevher Nesibe Darüşşifa was largely based on Avicenna's medical philosophy. In this system, the pulse was not merely a simple symptom showing heart rate; it was a biometric data set mapping the patient's entire internal system, akin to today's ECG or a blood test.",
+    "tabs": {
+      "dataAnalysis": "Multi-dimensional Data",
+      "lieDetector": "Lie Detector",
+      "algorithm": "Treatment Algorithm"
+    },
+    "sections": {
+      "dataAnalysis": {
+        "title": "1. Multi-dimensional Data Analysis (Ilm-i Nabz)",
+        "intro": "While today we generally evaluate the pulse only by 'rate', physicians of that era examined the pulse three-dimensionally across 10 different parameters (Width, Strength, Speed, Rest Duration, Vessel Texture, Fullness, Temperature, Equality, Regularity, Musical Rhythm).",
+        "points": [
+          {
+            "t": "Zü'l-fetr (Broken Pulse):",
+            "d": "The beat suddenly stops in the middle, then continues. A sign of heart failure."
+          },
+          {
+            "t": "Müşerşer (Sawtooth Pulse):",
+            "d": "The vessel is very hard, beats fast, and feels like rubbing against a jagged surface. Used in diagnosing pleurisy."
+          },
+          {
+            "t": "Nemlî (Ant Pulse):",
+            "d": "Beats are so small and weak they feel like the footsteps of an ant walking under the skin. Indicates depleted life energy."
+          }
+        ]
+      },
+      "lieDetector": {
+        "title": "2. Pulse as a 'Lie Detector' for the Soul",
+        "intro": "Physicians discovered that a thought in the mind instantly changed blood flow speed. Holding the patient's wrist and whispering specific words (cities, names), they detected emotional traumas via a 'Biometric Jump' (arrhythmia).",
+        "points": [
+          {
+            "t": "Avicenna's Diagnosis of Love:",
+            "d": "For a young man who stopped eating, Avicenna listed neighborhood and person names. A pulse spike at a specific name led to the diagnosis that the illness was not physiological, but 'love'."
+          },
+          {
+            "t": "Anger and Fear:",
+            "d": "In anger, the pulse is hard and strong (Rebellion of Rising Heat); in fear, it is very weak and deep (Escape to the Center)."
+          },
+          {
+            "t": "Sorrow and Shame:",
+            "d": "In sorrow, the pulse is slow 'like a thread' (Slowing Life Energy); in shame, it fluctuates inconsistently."
+          }
+        ]
+      },
+      "algorithm": {
+        "title": "3. Personalized Treatment Algorithm",
+        "intro": "Physicians combined pulse data with physical traits to map the patient's 'Temperament' (Hot, Cold, Dry, Moist) and programmed the treatment accordingly.",
+        "points": [
+          {
+            "t": "Music and Frequency:",
+            "d": "For a weak pulse (Cold temperament), upbeat makams like Uşşak; for a fast/hard pulse (Hot temperament), calming makams like Rast were prescribed."
+          },
+          {
+            "t": "Culinary Coding:",
+            "d": "Cooling foods (Muberrid) like vinegar for Choleric (Hot) patients; warming foods (Muhammiz) like ginger and honey for Phlegmatic (Cold) patients."
+          },
+          {
+            "t": "Feedback Loop:",
+            "d": "The pulse was re-measured every morning for a 'Biometric ID Update', allowing dynamic adjustment of the treatment."
+          }
+        ]
+      }
+    },
+    "source": "Avicenna, The Canon of Medicine (El-Kanun fi't-Tıbb), Book 1 - The Section on Pulse"
+  },
   "didYouKnow": {
     "title": "Did You Know?",
     "items": [

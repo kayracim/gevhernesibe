@@ -249,6 +249,73 @@
       "final": "Sonuç olarak, Gevher Nesibe Darüşşifası, fen bilimleri ve bilim tarihinin ortak bir alan çalışmasıdır. Tıp tarihinin evrimini anlamak için eşsiz bir kaynaktır."
     }
   },
+  "pulseScience": {
+    "badge": "Selçuklu Tıbbında İleri Teknoloji",
+    "title": "Biyometrik Veri ve 'Yalan Makinesi': İlm-i Nabz",
+    "lead": "Gevher Nesibe Darüşşifası'nda uygulanan tıp, büyük ölçüde İbn-i Sina’nın tıbbi felsefesine dayanıyordu. Bu sistemde nabız, sadece kalbin atış hızını gösteren basit bir belirti değil; günümüzdeki EKG veya kan tahlili gibi hastanın tüm iç sistemini haritalandıran bir biyometrik veriydi.",
+    "tabs": {
+      "dataAnalysis": "Çok Boyutlu Veri",
+      "lieDetector": "Yalan Makinesi",
+      "algorithm": "Tedavi Algoritması"
+    },
+    "sections": {
+      "dataAnalysis": {
+        "title": "1. Çok Boyutlu Veri Analizi (İlm-i Nabz)",
+        "intro": "Bugün nabız sadece 'hız' üzerinden değerlendirilirken, o dönem hekimleri nabzı 10 farklı parametrede (Genişlik, Kuvvet, Hız, Sükûn Süresi, Damar Dokusu, Doluluk, Isı, Eşitlik, Nizam, Müzikal Ritim) üç boyutlu olarak inceliyordu.",
+        "points": [
+          {
+            "t": "Zü'l-fetr (Kopan Nabız):",
+            "d": "Atış tam ortasında aniden kesilir, sonra tekrar devam eder. Kalp yetmezliği belirtisidir."
+          },
+          {
+            "t": "Müşerşer (Testere Dişi Nabzı):",
+            "d": "Damar çok serttir, hızlı atar ve tırtıklı bir yüzeye sürtünüyormuş hissi verir. Akciğer zarı iltihabında (plörezi) kullanılırdı."
+          },
+          {
+            "t": "Nemlî (Karınca Nabzı):",
+            "d": "Deri altında yürüyen bir karıncanın ayak sesleri gibi zayıftır. Yaşam enerjisinin tükendiğini gösterir."
+          }
+        ]
+      },
+      "lieDetector": {
+        "title": "2. Ruhsal Durumun 'Yalan Makinesi'",
+        "intro": "Hekimler, zihindeki bir düşüncenin damarlardaki kan akış hızını değiştirdiğini keşfetmişti. Hastanın bileğini tutup belirli kelimeler (şehir, isimler) fısıldayarak nabızdaki 'Biyometrik Sıçrama' (aritmi) ile duygusal travmaları tespit ederlerdi.",
+        "points": [
+          {
+            "t": "İbn-i Sina'nın Aşk Teşhisi:",
+            "d": "Yemeden içmeden kesilen bir genç için mahalle ve şahıs isimleri sayan İbn-i Sina, belirli bir isimde nabzın hızlanmasıyla hastalığın fizyolojik değil 'aşk' olduğuna karar vermiştir."
+          },
+          {
+            "t": "Öfke ve Korku:",
+            "d": "Öfke anında nabız sert ve güçlü (Yükselen Sıcaklığın İsyanı); korku anında ise çok zayıf ve derinde (Merkeze Kaçış) hissedilirdi."
+          },
+          {
+            "t": "Üzüntü ve Utanç:",
+            "d": "Üzüntüde nabız 'ip gibi' yavaş (Yavaşlayan Yaşam Enerjisi); utanç anında ise dalgalı ve kararsızdı."
+          }
+        ]
+      },
+      "algorithm": {
+        "title": "3. Kişiselleştirilmiş Tedavi Algoritması",
+        "intro": "Hekimler nabız verilerini fiziksel özelliklerle birleştirerek hastaya özel 'Mizaç Haritası' (Sıcak, Soğuk, Kuru, Nemli) çıkarır ve tedaviyi programlardı.",
+        "points": [
+          {
+            "t": "Müzik ve Makam Frekansı:",
+            "d": "Zayıf nabız (Soğuk mizaç) için Uşşak gibi hareketli makamlar; hızlı/sert nabız (Sıcak mizaç) için Rast gibi sakinleştirici makamlar reçete edilirdi."
+          },
+          {
+            "t": "Mutfak Kodlaması:",
+            "d": "Safravî (Sıcak) hastalar için sirke, koruk suyu gibi soğutucu (Muberrid) gıdalar; Balgamî (Soğuk) hastalar için bal, zencefil gibi ısıtıcı (Muhammiz) gıdalar kurgulanırdı."
+          },
+          {
+            "t": "Feedback Loop (Döngü):",
+            "d": "Her sabah nabız tekrar ölçülerek 'Biyometrik Kimlik Güncellemesi' yapılır ve tedavi dinamik olarak ayarlanurdu."
+          }
+        ]
+      }
+    },
+    "source": "İbn-i Sina, El-Kanun fi't-Tıbb (Tıbbın Kanunu), 1. Kitap - Nabız Bahsi"
+  },
   "didYouKnow": {
     "title": "Bunları Biliyor Muydunuz?",
     "items": [
