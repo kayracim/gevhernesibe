@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 
-type Point = { t: string; d: string; icon?: string };
+type Point = { t: string; d: string; icon?: string; extra?: string };
 type SectionData = { title: string; intro: string; points: Point[] };
 
 interface PulseScienceProps {
@@ -27,56 +27,48 @@ interface PulseScienceProps {
 export function PulseScienceSection({ data }: PulseScienceProps) {
   const [activeTab, setActiveTab] = useState<keyof typeof data.sections>("dataAnalysis");
   const [activeCard, setActiveCard] = useState(0);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isScrollingProgrammatically = useRef(false);
 
   const points = data.sections[activeTab].points;
-  const totalCards = points.length;
+  const total = points.length;
 
-  const updateActiveCard = useCallback(() => {
-    if (!scrollContainerRef.current) return;
-    const container = scrollContainerRef.current;
-    const { scrollLeft, scrollWidth, clientWidth } = container;
-    // At or very close to the end → snap to last card
-    if (scrollLeft + clientWidth >= scrollWidth - 16) {
-      setActiveCard(totalCards - 1);
-      return;
-    }
-    const cardEl = container.querySelector('[data-card]') as HTMLElement | null;
-    const cardWidth = cardEl?.offsetWidth ?? 300;
-    const gap = 24;
-    const index = Math.round(scrollLeft / (cardWidth + gap));
-    setActiveCard(Math.max(0, Math.min(index, totalCards - 1)));
-  }, [totalCards]);
-
+  // Reset when tab changes
   useEffect(() => {
-    const el = scrollContainerRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", updateActiveCard, { passive: true });
-    return () => el.removeEventListener("scroll", updateActiveCard);
-  }, [updateActiveCard]);
-
-  // Reset scroll + active card when tab changes
-  useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft = 0;
-    }
     setActiveCard(0);
+    if (scrollRef.current) scrollRef.current.scrollLeft = 0;
   }, [activeTab]);
 
-  const scrollToCard = (index: number) => {
-    if (!scrollContainerRef.current) return;
-    const container = scrollContainerRef.current;
-    const cardWidth = container.querySelector('[data-card]')?.clientWidth ?? 300;
-    const gap = 24;
-    container.scrollTo({ left: index * (cardWidth + gap), behavior: "smooth" });
+  const goTo = (index: number) => {
+    const clamped = Math.max(0, Math.min(index, total - 1));
+    setActiveCard(clamped);
+    if (!scrollRef.current) return;
+    isScrollingProgrammatically.current = true;
+    const container = scrollRef.current;
+    const card = container.querySelector("[data-card]") as HTMLElement | null;
+    const cardWidth = card?.offsetWidth ?? 300;
+    container.scrollTo({ left: clamped * (cardWidth + 24), behavior: "smooth" });
+    setTimeout(() => { isScrollingProgrammatically.current = false; }, 600);
   };
 
-  const scroll = (direction: "left" | "right") => {
-    const next = direction === "right"
-      ? Math.min(activeCard + 1, totalCards - 1)
-      : Math.max(activeCard - 1, 0);
-    scrollToCard(next);
-  };
+  // Update activeCard from manual swipe only
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      if (isScrollingProgrammatically.current) return;
+      const card = el.querySelector("[data-card]") as HTMLElement | null;
+      const cardWidth = card?.offsetWidth ?? 300;
+      const { scrollLeft, scrollWidth, clientWidth } = el;
+      if (scrollLeft + clientWidth >= scrollWidth - 16) {
+        setActiveCard(total - 1);
+      } else {
+        setActiveCard(Math.round(scrollLeft / (cardWidth + 24)));
+      }
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [total]);
 
   const tabs: { id: keyof typeof data.sections; label: string; icon: string }[] = [
     { id: "dataAnalysis", label: data.tabs.dataAnalysis, icon: "📊" },
@@ -94,13 +86,12 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
         <h2 className="font-display text-3xl font-bold tracking-tight text-ink dark:text-paper sm:text-4xl">
           {data.title}
         </h2>
-        <p className="mx-auto max-w-4xl text-lg leading-relaxed text-ink-muted dark:text-paper/80 whitespace-pre-wrap">
+        <p className="mx-auto max-w-4xl text-lg leading-relaxed text-ink-muted dark:text-paper/80">
           {data.lead}
         </p>
       </div>
 
       <div className="rounded-3xl bg-paper/50 p-3 shadow-sm border border-sand dark:bg-ink/40 dark:border-paper/10 relative overflow-hidden">
-        {/* Decorative blobs */}
         <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-clinical/5 blur-3xl pointer-events-none" />
         <div className="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-heritage/5 blur-3xl pointer-events-none" />
 
@@ -125,7 +116,6 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
         {/* Content */}
         <div className="relative z-10 rounded-2xl bg-white p-5 sm:p-8 shadow-inner border border-sand/50 dark:bg-ink/80 dark:border-paper/5">
           <div key={activeTab} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            {/* Section header */}
             <h3 className="font-display text-2xl font-bold text-ink dark:text-paper mb-3 flex items-center gap-3">
               <span className="text-heritage">{tabs.find((t) => t.id === activeTab)?.icon}</span>
               {data.sections[activeTab].title}
@@ -134,44 +124,35 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
               {data.sections[activeTab].intro}
             </p>
 
-            {/* Counter + Arrow Controls Row */}
+            {/* Dot nav + Arrow controls */}
             <div className="flex items-center justify-between mb-4">
-              {/* Progress: "3 / 6" style */}
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-semibold text-ink-muted dark:text-paper/60">
-                  <span className="text-2xl font-bold text-heritage">{activeCard + 1}</span>
-                  <span className="text-ink-muted dark:text-paper/40"> / {totalCards}</span>
-                </span>
-                {/* Dot indicators */}
-                <div className="flex gap-1.5">
-                  {points.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => scrollToCard(i)}
-                      aria-label={`Kart ${i + 1}`}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        i === activeCard
-                          ? "w-6 bg-heritage"
-                          : "w-2 bg-sand dark:bg-paper/20 hover:bg-heritage/50"
-                      }`}
-                    />
-                  ))}
-                </div>
+              <div className="flex gap-1.5">
+                {points.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    aria-label={`Kart ${i + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === activeCard
+                        ? "w-6 bg-heritage"
+                        : "w-2 bg-sand dark:bg-paper/20 hover:bg-heritage/50"
+                    }`}
+                  />
+                ))}
               </div>
-              {/* Arrow buttons */}
               <div className="flex gap-2">
                 <button
-                  onClick={() => scroll("left")}
+                  onClick={() => goTo(activeCard - 1)}
                   disabled={activeCard === 0}
-                  className="p-2 rounded-full bg-sand/30 hover:bg-heritage/20 text-ink-muted dark:bg-paper/5 dark:hover:bg-heritage/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="p-2 rounded-full bg-sand/30 hover:bg-heritage/20 text-ink-muted transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                   aria-label="Önceki"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
                 </button>
                 <button
-                  onClick={() => scroll("right")}
-                  disabled={activeCard === totalCards - 1}
-                  className="p-2 rounded-full bg-sand/30 hover:bg-heritage/20 text-ink-muted dark:bg-paper/5 dark:hover:bg-heritage/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                  onClick={() => goTo(activeCard + 1)}
+                  disabled={activeCard === total - 1}
+                  className="p-2 rounded-full bg-sand/30 hover:bg-heritage/20 text-ink-muted transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                   aria-label="Sonraki"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
@@ -179,9 +160,9 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
               </div>
             </div>
 
-            {/* Horizontal scroll carousel */}
+            {/* Horizontal carousel */}
             <div
-              ref={scrollContainerRef}
+              ref={scrollRef}
               className="flex overflow-x-auto gap-6 pb-2 snap-x snap-mandatory"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
@@ -189,45 +170,48 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
                 <div
                   key={i}
                   data-card
-                  className="snap-start shrink-0 w-72 sm:w-80 rounded-2xl border border-accent/10 bg-accent/5 hover:border-accent/30 hover:bg-accent/10 transition-all duration-300 group relative"
-                  style={{ height: "240px" }}
+                  className="snap-start shrink-0 w-72 sm:w-80 rounded-2xl border border-accent/10 bg-accent/5 hover:border-accent/30 transition-all duration-300 relative"
+                  style={{ height: "300px" }}
                 >
                   {/* Background icon watermark */}
-                  <div className="absolute top-2 right-2 text-7xl opacity-10 select-none pointer-events-none z-0">
+                  <div className="absolute top-2 right-2 text-7xl opacity-10 select-none pointer-events-none">
                     {point.icon || "✨"}
                   </div>
 
-                  {/* Internally scrollable content — CSS overscroll-contain keeps page scroll intact */}
+                  {/* Internally scrollable content */}
                   <div
-                    className="relative z-10 h-full overflow-y-scroll p-6"
+                    className="h-full overflow-y-auto p-5"
                     style={{
-                      scrollbarWidth: "none",
-                      msOverflowStyle: "none",
+                      scrollbarWidth: "thin",
+                      scrollbarColor: "rgba(100,100,100,0.25) transparent",
                       overscrollBehavior: "contain",
                     }}
                   >
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-start gap-3 mb-3">
                       {point.icon && (
-                        <span className="text-2xl bg-white dark:bg-ink p-2 rounded-xl shadow-sm border border-sand/50 dark:border-paper/10 shrink-0">
+                        <span className="text-xl bg-white dark:bg-ink p-2 rounded-xl shadow-sm border border-sand/50 dark:border-paper/10 shrink-0">
                           {point.icon}
                         </span>
                       )}
-                      <h4 className="font-bold text-accent text-base leading-tight">{point.t}</h4>
+                      <h4 className="font-bold text-accent text-sm leading-snug pt-1">{point.t}</h4>
                     </div>
-                    <p className="text-sm text-ink-muted dark:text-paper/70 leading-relaxed">
+                    <p className="text-sm text-ink-muted dark:text-paper/70 leading-relaxed mb-3">
                       {point.d}
                     </p>
-                    {/* Extra padding so content can scroll up inside the card */}
-                    <div className="h-16" />
+                    {point.extra && (
+                      <>
+                        <div className="border-t border-accent/10 my-3" />
+                        <p className="text-xs text-ink-muted/80 dark:text-paper/50 leading-relaxed italic">
+                          {point.extra}
+                        </p>
+                      </>
+                    )}
+                    <div className="h-4" />
                   </div>
-
-                  {/* Bottom fade hint */}
-                  <div className="absolute bottom-0 left-0 right-0 h-10 rounded-b-2xl bg-gradient-to-t from-accent/15 to-transparent pointer-events-none z-20" />
                 </div>
               ))}
             </div>
 
-            {/* Mobile swipe hint */}
             <p className="text-center text-xs text-ink-muted/40 dark:text-paper/25 mt-3 sm:hidden">
               Kartları keşfetmek için sağa kaydırın ⟷
             </p>
@@ -236,7 +220,7 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
       </div>
 
       {/* Bibliography */}
-      {data.bibliography && data.bibliography.length > 0 && (
+      {data.bibliography?.length > 0 && (
         <div className="mt-8 rounded-2xl border border-sand bg-paper p-5 dark:border-paper/10 dark:bg-ink shadow-sm text-center">
           <p className="text-xs text-ink-muted dark:text-paper/60 italic">
             📚 Kaynak: {data.bibliography.join(" | ")}

@@ -1,251 +1,70 @@
 const fs = require('fs');
+const tr = JSON.parse(fs.readFileSync('messages/tr.json', 'utf8'));
+const en = JSON.parse(fs.readFileSync('messages/en.json', 'utf8'));
 
-const trData = JSON.parse(fs.readFileSync('messages/tr.json', 'utf8'));
-const enData = JSON.parse(fs.readFileSync('messages/en.json', 'utf8'));
-
-const trPulse = {
-  "badge": "Selçuklu Tıbbında İleri Teknoloji",
-  "title": "Biyometrik Veri ve 'Yalan Makinesi': İlm-i Nabz",
-  "lead": "Gevher Nesibe Darüşşifası'nda uygulanan tıp, büyük ölçüde İbn-i Sina’nın tıbbi felsefesine dayanıyordu. Bu sistemde nabız, sadece kalbin atış hızını gösteren basit bir belirti değil; günümüzdeki EKG veya kan tahlili gibi hastanın tüm iç sistemini haritalandıran, yalan makinesi işlevi gören ve kişiselleştirilmiş tedavi sürecini başlatan bir biyometrik veriydi.",
-  "tabs": {
-    "dataAnalysis": "Çok Boyutlu Veri",
-    "lieDetector": "Yalan Makinesi",
-    "algorithm": "Tedavi Algoritması"
-  },
-  "sections": {
-    "dataAnalysis": {
-      "title": "1. Çok Boyutlu Veri Analizi (İlm-i Nabz)",
-      "intro": "Bugün nabız sadece 'hız' üzerinden değerlendirilirken, o dönem hekimleri nabzı 10 farklı parametrede (Genişlik, Kuvvet, Hız, Sükûn Süresi, Dokusu, Doluluk, Isı, Eşitlik, Nizam, Müzikal Ritim) inceliyordu.",
-      "points": [
-        {
-          "t": "Uzunluk, Genişlik ve Derinlik",
-          "d": "Nabzın parmaklara vurduğu alan üç boyutlu olarak ölçülür. Atış yüzeysel mi yoksa derine (kemiğe doğru) mi basmak gerekiyor, buna bakılırdı.",
-          "icon": "📐"
-        },
-        {
-          "t": "Atışların Eşitliği ve Nizam",
-          "d": "Tüm vuruşlar eşitse sistem sağlıklıydı. Biri güçlü, diğeri zayıf vuruyorsa 'Aritmi' (ritim bozukluğu) tespit edilirdi.",
-          "icon": "⚖️"
-        },
-        {
-          "t": "Müzikal Ritim (İkâ)",
-          "d": "Nabzın 'hareket' ve 'sükûn' sürelerinin müzikal bir ahenge uyup uymadığı kontrol edilirdi. En üst düzey teşhis parametresiydi.",
-          "icon": "🎵"
-        },
-        {
-          "t": "Zü'l-fetr (Kopan Nabız)",
-          "d": "Atış tam ortasında aniden kesilir, sonra tekrar devam eder. Kalp yetmezliği belirtisi olarak kabul edilirdi.",
-          "icon": "💔"
-        },
-        {
-          "t": "Müşerşer (Testere Dişi Nabzı)",
-          "d": "Damar çok serttir ve tırtıklı bir yüzeye sürtünüyormuş hissi verir. Akciğer zarı iltihabı teşhisinde kullanılırdı.",
-          "icon": "🪚"
-        },
-        {
-          "t": "Nemlî (Karınca Nabzı)",
-          "d": "Deri altında yürüyen bir karıncanın ayak sesleri gibi zayıftır. Yaşam enerjisinin tükendiğini gösteren en tehlikeli nabızdı.",
-          "icon": "🐜"
-        }
-      ]
-    },
-    "lieDetector": {
-      "title": "2. Ruhsal Durumun 'Yalan Makinesi'",
-      "intro": "Selçuklu tıbbında ruh ve beden bir bütün kabul edilirdi. Hastanın zihnindeki bir düşüncenin veya duygusal travmanın kanın akış hızını anlık olarak değiştirdiği keşfedilmişti.",
-      "points": [
-        {
-          "t": "Sözel Uyaran ve Nabız Tepkisi",
-          "d": "Hekim, hastanın bileğini tutarak belirli kelimeler (şehir, şahıs isimleri) fısıldar; duygusal bir tetiklenmede nabızdaki 'Biyometrik Sıçrama'yı (aritmi) ölçerdi.",
-          "icon": "🗣️"
-        },
-        {
-          "t": "İbn-i Sina ve 'Aşk' Teşhisi",
-          "d": "Yemeden kesilen bir gence mahalle ve isimler sayan İbn-i Sina, belirli bir isimde nabzın hızlanmasıyla hastalığın 'aşk' olduğuna karar vermiştir.",
-          "icon": "❤️‍🔥"
-        },
-        {
-          "t": "Öfke ve Hiddet",
-          "d": "Vücuttaki hararet yükselir. Nabız son derece hızlı, vuruş alanı geniş ve damar duvarı gergin (sert) bir yapıya bürünür (Yükselen Sıcaklığın İsyanı).",
-          "icon": "😡"
-        },
-        {
-          "t": "Korku ve Dehşet",
-          "d": "Isı ve kan merkeze çekilir. Nabız aniden zayıflar ve derine kaçar, ritim kaotikleşebilir (Merkeze Kaçış).",
-          "icon": "😨"
-        },
-        {
-          "t": "Üzüntü, Keder ve Utanç",
-          "d": "Üzüntüde nabız 'ip gibi' yavaş ve güçsüzdür. Utanç anında ise nabız bir hızlanıp bir yavaşlayan dalgalı ve kararsız bir seyir izler.",
-          "icon": "😔"
-        }
-      ]
-    },
-    "algorithm": {
-      "title": "3. Kişiselleştirilmiş Tedavi Algoritması",
-      "intro": "Nabız verileri hastanın fiziksel özellikleriyle birleştirilerek hastaya özel 'Mizaç Haritası' çıkarılır ve bu algoritmaya göre tedavi programlanırdı.",
-      "points": [
-        {
-          "t": "Biyometrik Kimlik Oluşturma",
-          "d": "Sıcaklık (hareket hızı), Kuruluk (damar sertliği) ve Nemlilik (damar yumuşaklığı) parametreleri üzerinden hastanın mizacı (Sıcak, Soğuk vb.) tespit edilirdi.",
-          "icon": "🧬"
-        },
-        {
-          "t": "Yüksek Frekanslı Müdahale (Müzik)",
-          "d": "Nabız 'Karınca Yürüyüşü' gibi yavaş ve zayıfsa (Soğuk mizaç), hastayı canlandırmak için Uşşak veya Irak gibi neşeli makamlar çalınırdı.",
-          "icon": "🎼"
-        },
-        {
-          "t": "Düşük Frekanslı Müdahale (Müzik)",
-          "d": "Nabız 'Testere Dişi' gibi çok sert ve hızlıysa (Sıcak mizaç), damarı gevşetmek ve ateşi düşürmek için Rast veya Rehavi makamları seçilirdi.",
-          "icon": "🧘"
-        },
-        {
-          "t": "Soğutucu Gıdalar (Muberrid)",
-          "d": "Safravî (Sıcak-Kuru) hastalar için sirke, hıyar, koruk suyu gibi gıdalar reçete edilerek nabızdaki keskin 'testere' etkisi yumuşatılırdı.",
-          "icon": "🥒"
-        },
-        {
-          "t": "Isıtıcı Gıdalar (Muhammiz)",
-          "d": "Balgamî (Soğuk-Nemli) hastalar için kanı ısıtacak ve harekete geçirecek bal, zencefil ve çörek otu mutfakta bir ilaç gibi kodlanırdı.",
-          "icon": "🍯"
-        },
-        {
-          "t": "Algoritmanın Döngüsü (Feedback Loop)",
-          "d": "Hekim her sabah nabzı tekrar ölçerek tedaviyi güncellerdi. Nabız dengeye yaklaştıkça makamın süresi ve gıdaların dozu azaltılırdı.",
-          "icon": "🔄"
-        }
-      ]
-    }
-  },
-  "bibliography": [
-    "İbn-i Sina, El-Kanun fi't-Tıbb (Tıbbın Kanunu), 1. Kitap - Nabız Bahsi.",
-    "Prof. Dr. Ayten Altıntaş ve Prof. Dr. Nil Sarı'nın İslam Tıbbında Nabız makaleleri."
+// Add `extra` field to each point in TR
+const trExtra = {
+  dataAnalysis: [
+    "Bu üç boyutlu ölçüm, günümüzdeki EKG cihazının elektrik sinyallerini okuma mantığıyla birebir aynıdır. Hekim, parmak uçlarını farklı baskı kademelerinde kullanarak her eksendeki veriyi ayrı ayrı kayıt ederdi.",
+    "Nabzın düzenli düzensizliği (Nizamlı İhtilaf) bedenin hastalıkla savaştığının; tamamen kaotik olması ise (Nizamsız İhtilaf) kritik tehlikenin işaretiydi. Modern tıpta buna 'aritmi sınıflandırması' denir.",
+    "İbn-i Sina'ya göre sağlıklı bir çocuğun nabzı Hicaz makamına, gençlerinki Rast'a, yaşlılarınki ise yavaş bir Rehavi'ye benzerdi. Ritim bozulduğunda o ritmi geri kazandıracak makam reçete edilirdi.",
+    "Kalp kasının kasılma döngüsünün ortasındaki bu ani kesinti, günümüzde 'intermitent kalp bloğu' olarak tanımlanır. O dönem hekimleri bunu 'pnomat'ın (yaşam ruhunun) geçici olarak tükenmesi şeklinde yorumlardı.",
+    "Damar duvarının sertliği (Sulb nabız), İbn-i Sina'nın Kanun'unda akciğer zarı iltihabının (plörezi) ayırt edici tanı ölçütü olarak ayrıntılı biçimde tanımlanmıştır. Hekim basınçlı bir atışla bu özelliği test ederdi.",
+    "Bu nabız türü, Kanun'da 'ölüm habercisi' olarak özellikle vurgulanır. Yaşam enerjisinin merkeze çekilip dış organlara gitmediğini gösterir; modern tıptaki septik şok tablosuna benzer."
+  ],
+  lieDetector: [
+    "Hekim bu yöntemi uygulamadan önce hastayı sakinleştirerek 'temel nabız' hattını (baseline) belirlerdi. Duygusal tetikleyici kelimelerde bu hatın üzerindeki sıçramalar kayıt edilirdi; tıpkı modern poligraf cihazının GSR (galvanik deri yanıtı) ölçümü gibi.",
+    "Bu vaka, tıp tarihinin en erken belgelenmiş psikosomatik teşhis örneklerinden biridir. İbn-i Sina teşhisi koyduktan sonra ailesiyle görüşerek nikâhı mümkün kılmış ve genç hızla iyileşmiştir. Olayı 'El-Kanun fi't-Tıbb'da bizzat aktarır.",
+    "Safra sıvısının (Safra humoru) vücutta ani artışı olarak yorumlanan öfke durumu, hekimler tarafından 'Sıcak ve Kuru' mizacın geçici alevlenmesi kabul edilirdi. Tedavide soğutucu makamlar ve gıdalar derhal uygulanırdı.",
+    "Korku anında beyin ve kalp çevresindeki kan damarlarının büzülmesi sonucu oluşan bu nabız değişikliği, modern tıpta 'sempatik sinir sistemi aktivasyonu' olarak tanımlanır. Hekimler bu durumu, bedenin 'kalaya çekilmesi' metaforuyla ifade ederdi.",
+    "Utanç ve üzüntü duyguları Selçuklu tıbbında 'Soğuk ve Nemli' balgam humorunu artıran duygular olarak sınıflandırılırdı. Tedavide bu humoru dengelemek için hareketli ve neşeli makamlar reçete edilir, ağır yiyeceklerden kaçınılırdı."
+  ],
+  algorithm: [
+    "Mizaç haritasının çıkarılması bir kez yapılıp bırakılan statik bir işlem değildi. Hekim hastanın yanına her sabah uğrayarak nabzı yeniden ölçer ve algoritmayı güncel duruma göre yeniden kalibre ederdi.",
+    "Makam seçiminde 'Zıtlıklar İlkesi' esas alınırdı: Soğuk mizaçlıya sıcak makam, sıcak mizaçlıya soğuk makam. Bu, günümüzde psikoakustik araştırmalarla da desteklenen bir prensiptir; bazı frekanslar gerçekten nabzı ve solunum hızını etkiler.",
+    "Uşşak makamı, deney hayvanları üzerinde yapılan modern araştırmalarda da kalp atış hızını artırdığı gözlemlenen bir makamdır. Rast makamı ise sedasyon etkisiyle bilinen bir frekans aralığına karşılık gelir.",
+    "Mutfak-ı Şerif'in menüsü her gün değişmezdi; hastanın sabah nabzı ölçümüne göre o günkü yemek 'reçetesi' belirlenir ve özel olarak hazırlanırdı. Bu, günümüzün kişiselleştirilmiş beslenme (precision nutrition) anlayışıyla örtüşür.",
+    "Isıtıcı gıdaların seçiminde de bilimsel bir arka plan mevcuttu: Zencefil modern tıpta da anti-enflamatuar ve dolaşım açıcı özellikleriyle bilinir. Bal ise doğal bir prebiyotiktir. Selçuklu hekimleri bu etkileri gözlemsel verilerle keşfetmişti.",
+    "Feedback döngüsünün sonunda nabız 'İtidal' (denge) noktasına ulaştıysa hasta 'şifa bulmuş' kabul edilir ve yoğun tedavi kademeli azaltılırdı. Bu döngü haftalar, hatta aylar sürebilirdi."
   ]
 };
 
-const enPulse = {
-  "badge": "Advanced Technology in Seljuk Medicine",
-  "title": "Biometric Data and the 'Lie Detector': The Science of Pulse",
-  "lead": "The medicine practiced at Gevher Nesibe Darüşşifa was largely based on Avicenna's medical philosophy. In this system, the pulse was not merely a simple symptom showing heart rate; it was a biometric data set mapping the patient's entire internal system, acting as a lie detector, and initiating a personalized treatment process.",
-  "tabs": {
-    "dataAnalysis": "Multi-dimensional Data",
-    "lieDetector": "Lie Detector",
-    "algorithm": "Treatment Algorithm"
-  },
-  "sections": {
-    "dataAnalysis": {
-      "title": "1. Multi-dimensional Data Analysis (Ilm-i Nabz)",
-      "intro": "While today we generally evaluate the pulse only by 'rate', physicians of that era examined the pulse across 10 different parameters (Width, Strength, Speed, Rest, Texture, Fullness, Heat, Equality, Regularity, Musical Rhythm).",
-      "points": [
-        {
-          "t": "Length, Width, and Depth",
-          "d": "The area the pulse hit the fingers was measured in 3D. They checked whether the beat was superficial or if it needed deep pressure towards the bone.",
-          "icon": "📐"
-        },
-        {
-          "t": "Equality and Regularity of Beats",
-          "d": "If all beats were equal, the system was healthy. If one was strong and another weak, an 'Arrhythmia' was detected.",
-          "icon": "⚖️"
-        },
-        {
-          "t": "Musical Rhythm",
-          "d": "The highest diagnostic parameter. The ratio between 'movement' and 'rest' times was checked against musical harmony.",
-          "icon": "🎵"
-        },
-        {
-          "t": "Broken Pulse (Zü'l-fetr)",
-          "d": "The beat suddenly stops in the middle, then continues. Accepted as a sign of heart failure.",
-          "icon": "💔"
-        },
-        {
-          "t": "Sawtooth Pulse (Müşerşer)",
-          "d": "The vessel is very hard and feels like rubbing against a jagged surface. Used in diagnosing pleurisy.",
-          "icon": "🪚"
-        },
-        {
-          "t": "Ant Pulse (Nemlî)",
-          "d": "Beats are so weak they feel like ant footsteps. The most dangerous pulse indicating depleted life energy.",
-          "icon": "🐜"
-        }
-      ]
-    },
-    "lieDetector": {
-      "title": "2. Pulse as a 'Lie Detector' for the Soul",
-      "intro": "In Seljuk medicine, soul and body were a whole. Physicians discovered that a thought or emotional trauma instantly changed blood flow.",
-      "points": [
-        {
-          "t": "Verbal Stimulus and Pulse Reaction",
-          "d": "The physician whispered specific words (cities, names) while holding the wrist, measuring the 'Biometric Jump' (arrhythmia) upon emotional trigger.",
-          "icon": "🗣️"
-        },
-        {
-          "t": "Avicenna's 'Love' Diagnosis",
-          "d": "For a sick young man, Avicenna listed names. A pulse spike at a specific name led him to diagnose the illness as 'love'.",
-          "icon": "❤️‍🔥"
-        },
-        {
-          "t": "Anger and Fury",
-          "d": "Body heat rises. Pulse becomes extremely fast, wide, and the vessel wall hard (Rebellion of Rising Heat).",
-          "icon": "😡"
-        },
-        {
-          "t": "Fear and Terror",
-          "d": "Heat and blood pull inward. Pulse suddenly weakens and goes deep; rhythm may become chaotic (Escape to the Center).",
-          "icon": "😨"
-        },
-        {
-          "t": "Sorrow, Grief, and Shame",
-          "d": "In sorrow, pulse is 'like a thread', slow and weak. In shame, it fluctuates inconsistently like a wave.",
-          "icon": "😔"
-        }
-      ]
-    },
-    "algorithm": {
-      "title": "3. Personalized Treatment Algorithm",
-      "intro": "Pulse data combined with physical traits created a personalized 'Temperament Map', which programmed the entire treatment.",
-      "points": [
-        {
-          "t": "Biometric ID Creation",
-          "d": "Temperament (Hot, Cold, etc.) was detected via parameters like heat (speed), dryness (vessel hardness), and moisture (softness).",
-          "icon": "🧬"
-        },
-        {
-          "t": "High-Frequency Music Therapy",
-          "d": "If the pulse was weak/slow (Cold), upbeat makams like Uşşak or Irak were played to stimulate the patient.",
-          "icon": "🎼"
-        },
-        {
-          "t": "Low-Frequency Music Therapy",
-          "d": "If the pulse was hard/fast (Hot), calming makams like Rast or Rehavi were chosen to relax the vessel and lower fever.",
-          "icon": "🧘"
-        },
-        {
-          "t": "Cooling Foods (Muberrid)",
-          "d": "For Choleric (Hot-Dry) patients, foods like vinegar, cucumber, and lettuce were prescribed to soften the sharp pulse.",
-          "icon": "🥒"
-        },
-        {
-          "t": "Warming Foods (Muhammiz)",
-          "d": "For Phlegmatic (Cold-Moist) patients, honey, ginger, and black cumin were coded in the kitchen like medicine.",
-          "icon": "🍯"
-        },
-        {
-          "t": "The Feedback Loop",
-          "d": "The physician updated the treatment by re-measuring the pulse every morning. Doses were reduced as the pulse approached balance.",
-          "icon": "🔄"
-        }
-      ]
-    }
-  },
-  "bibliography": [
-    "Avicenna, The Canon of Medicine (El-Kanun fi't-Tıbb), Book 1 - The Section on Pulse.",
-    "Articles on Pulse in Islamic Medicine by Prof. Dr. Ayten Altıntaş and Prof. Dr. Nil Sarı."
+const enExtra = {
+  dataAnalysis: [
+    "This 3D measurement is identical in logic to how a modern ECG reads electrical signals. The physician used fingertip pressure at different depths to record data on each axis separately.",
+    "Regular irregularity (Nizamlı İhtilaf) meant the body was fighting illness; completely chaotic beats (Nizamsız İhtilaf) signaled critical danger. Modern medicine calls this 'arrhythmia classification'.",
+    "According to Avicenna, a healthy child's pulse resembled Hicaz makam, a youth's resembled Rast, and an elder's resembled a slow Rehavi. When rhythm broke, the corrective makam was prescribed.",
+    "This mid-cycle interruption in cardiac contraction is today defined as 'intermittent heart block'. Physicians of the era interpreted it as the temporary depletion of the 'pneuma' (life spirit).",
+    "The hardness of the vessel wall (Sulb pulse) is described in Avicenna's Canon as the distinguishing diagnostic criterion for pleurisy. The physician tested this with a pressurized beat.",
+    "This pulse type is specifically highlighted in the Canon as a 'harbinger of death'. It shows life energy withdrawing to the core, leaving peripheral organs unserved — similar to modern septic shock."
+  ],
+  lieDetector: [
+    "Before applying this method, the physician calmed the patient to establish a 'baseline pulse'. Spikes above this baseline at emotional trigger words were recorded — exactly like a modern polygraph's GSR measurement.",
+    "This case is one of the earliest documented psychosomatic diagnoses in medical history. After diagnosis, Avicenna facilitated the marriage and the young man quickly recovered. He recounts it himself in the Canon.",
+    "The sudden increase of bile humor interpreted as anger was classified as a temporary flare of 'Hot and Dry' temperament. Cooling makams and foods were immediately applied as treatment.",
+    "The constriction of vessels around the brain and heart during fear is defined in modern medicine as 'sympathetic nervous system activation'. Physicians metaphorically described it as the body 'retreating to the castle'.",
+    "Shame and grief were classified as emotions increasing 'Cold and Moist' phlegm humor. Treatment involved lively makams to balance this humor and avoidance of heavy foods."
+  ],
+  algorithm: [
+    "Creating the temperament map was not a one-time static process. The physician visited each morning to re-measure the pulse and recalibrate the algorithm according to the current state.",
+    "The 'Principle of Opposites' guided makam selection: hot makam for cold temperament, cold makam for hot. Modern psychoacoustic research supports this; certain frequencies genuinely affect pulse and breathing rate.",
+    "Uşşak makam has been observed in modern animal studies to increase heart rate. Rast makam corresponds to a frequency range known for sedative effects.",
+    "The Mutfak-ı Şerif menu changed daily; each morning's pulse reading determined that day's food 'prescription', specially prepared for the patient. This parallels today's precision nutrition approach.",
+    "The warming foods had scientific backing: ginger is known in modern medicine for anti-inflammatory and circulatory properties; honey is a natural prebiotic. Seljuk physicians discovered these effects through observational data.",
+    "When the pulse reached 'Itidal' (balance) at the end of the feedback loop, the patient was considered healed and intensive treatment was gradually reduced. This cycle could last weeks or months."
   ]
 };
 
-trData.pulseScience = trPulse;
-enData.pulseScience = enPulse;
+// Patch the sections
+['dataAnalysis', 'lieDetector', 'algorithm'].forEach(section => {
+  tr.pulseScience.sections[section].points.forEach((p, i) => {
+    p.extra = trExtra[section][i] || '';
+  });
+  en.pulseScience.sections[section].points.forEach((p, i) => {
+    p.extra = enExtra[section][i] || '';
+  });
+});
 
-fs.writeFileSync('messages/tr.json', JSON.stringify(trData, null, 2));
-fs.writeFileSync('messages/en.json', JSON.stringify(enData, null, 2));
-console.log('JSON files updated to enriched summary.');
+fs.writeFileSync('messages/tr.json', JSON.stringify(tr, null, 2));
+fs.writeFileSync('messages/en.json', JSON.stringify(en, null, 2));
+console.log('Extra fields added.');

@@ -266,32 +266,38 @@
           {
             "t": "Length, Width, and Depth",
             "d": "The area the pulse hit the fingers was measured in 3D. They checked whether the beat was superficial or if it needed deep pressure towards the bone.",
-            "icon": "📐"
+            "icon": "📐",
+            "extra": "This 3D measurement is identical in logic to how a modern ECG reads electrical signals. The physician used fingertip pressure at different depths to record data on each axis separately."
           },
           {
             "t": "Equality and Regularity of Beats",
             "d": "If all beats were equal, the system was healthy. If one was strong and another weak, an 'Arrhythmia' was detected.",
-            "icon": "⚖️"
+            "icon": "⚖️",
+            "extra": "Regular irregularity (Nizamlı İhtilaf) meant the body was fighting illness; completely chaotic beats (Nizamsız İhtilaf) signaled critical danger. Modern medicine calls this 'arrhythmia classification'."
           },
           {
             "t": "Musical Rhythm",
             "d": "The highest diagnostic parameter. The ratio between 'movement' and 'rest' times was checked against musical harmony.",
-            "icon": "🎵"
+            "icon": "🎵",
+            "extra": "According to Avicenna, a healthy child's pulse resembled Hicaz makam, a youth's resembled Rast, and an elder's resembled a slow Rehavi. When rhythm broke, the corrective makam was prescribed."
           },
           {
             "t": "Broken Pulse (Zü'l-fetr)",
             "d": "The beat suddenly stops in the middle, then continues. Accepted as a sign of heart failure.",
-            "icon": "💔"
+            "icon": "💔",
+            "extra": "This mid-cycle interruption in cardiac contraction is today defined as 'intermittent heart block'. Physicians of the era interpreted it as the temporary depletion of the 'pneuma' (life spirit)."
           },
           {
             "t": "Sawtooth Pulse (Müşerşer)",
             "d": "The vessel is very hard and feels like rubbing against a jagged surface. Used in diagnosing pleurisy.",
-            "icon": "🪚"
+            "icon": "🪚",
+            "extra": "The hardness of the vessel wall (Sulb pulse) is described in Avicenna's Canon as the distinguishing diagnostic criterion for pleurisy. The physician tested this with a pressurized beat."
           },
           {
             "t": "Ant Pulse (Nemlî)",
             "d": "Beats are so weak they feel like ant footsteps. The most dangerous pulse indicating depleted life energy.",
-            "icon": "🐜"
+            "icon": "🐜",
+            "extra": "This pulse type is specifically highlighted in the Canon as a 'harbinger of death'. It shows life energy withdrawing to the core, leaving peripheral organs unserved — similar to modern septic shock."
           }
         ]
       },
@@ -302,27 +308,32 @@
           {
             "t": "Verbal Stimulus and Pulse Reaction",
             "d": "The physician whispered specific words (cities, names) while holding the wrist, measuring the 'Biometric Jump' (arrhythmia) upon emotional trigger.",
-            "icon": "🗣️"
+            "icon": "🗣️",
+            "extra": "Before applying this method, the physician calmed the patient to establish a 'baseline pulse'. Spikes above this baseline at emotional trigger words were recorded — exactly like a modern polygraph's GSR measurement."
           },
           {
             "t": "Avicenna's 'Love' Diagnosis",
             "d": "For a sick young man, Avicenna listed names. A pulse spike at a specific name led him to diagnose the illness as 'love'.",
-            "icon": "❤️‍🔥"
+            "icon": "❤️‍🔥",
+            "extra": "This case is one of the earliest documented psychosomatic diagnoses in medical history. After diagnosis, Avicenna facilitated the marriage and the young man quickly recovered. He recounts it himself in the Canon."
           },
           {
             "t": "Anger and Fury",
             "d": "Body heat rises. Pulse becomes extremely fast, wide, and the vessel wall hard (Rebellion of Rising Heat).",
-            "icon": "😡"
+            "icon": "😡",
+            "extra": "The sudden increase of bile humor interpreted as anger was classified as a temporary flare of 'Hot and Dry' temperament. Cooling makams and foods were immediately applied as treatment."
           },
           {
             "t": "Fear and Terror",
             "d": "Heat and blood pull inward. Pulse suddenly weakens and goes deep; rhythm may become chaotic (Escape to the Center).",
-            "icon": "😨"
+            "icon": "😨",
+            "extra": "The constriction of vessels around the brain and heart during fear is defined in modern medicine as 'sympathetic nervous system activation'. Physicians metaphorically described it as the body 'retreating to the castle'."
           },
           {
             "t": "Sorrow, Grief, and Shame",
             "d": "In sorrow, pulse is 'like a thread', slow and weak. In shame, it fluctuates inconsistently like a wave.",
-            "icon": "😔"
+            "icon": "😔",
+            "extra": "Shame and grief were classified as emotions increasing 'Cold and Moist' phlegm humor. Treatment involved lively makams to balance this humor and avoidance of heavy foods."
           }
         ]
       },
@@ -333,32 +344,38 @@
           {
             "t": "Biometric ID Creation",
             "d": "Temperament (Hot, Cold, etc.) was detected via parameters like heat (speed), dryness (vessel hardness), and moisture (softness).",
-            "icon": "🧬"
+            "icon": "🧬",
+            "extra": "Creating the temperament map was not a one-time static process. The physician visited each morning to re-measure the pulse and recalibrate the algorithm according to the current state."
           },
           {
             "t": "High-Frequency Music Therapy",
             "d": "If the pulse was weak/slow (Cold), upbeat makams like Uşşak or Irak were played to stimulate the patient.",
-            "icon": "🎼"
+            "icon": "🎼",
+            "extra": "The 'Principle of Opposites' guided makam selection: hot makam for cold temperament, cold makam for hot. Modern psychoacoustic research supports this; certain frequencies genuinely affect pulse and breathing rate."
           },
           {
             "t": "Low-Frequency Music Therapy",
             "d": "If the pulse was hard/fast (Hot), calming makams like Rast or Rehavi were chosen to relax the vessel and lower fever.",
-            "icon": "🧘"
+            "icon": "🧘",
+            "extra": "Uşşak makam has been observed in modern animal studies to increase heart rate. Rast makam corresponds to a frequency range known for sedative effects."
           },
           {
             "t": "Cooling Foods (Muberrid)",
             "d": "For Choleric (Hot-Dry) patients, foods like vinegar, cucumber, and lettuce were prescribed to soften the sharp pulse.",
-            "icon": "🥒"
+            "icon": "🥒",
+            "extra": "The Mutfak-ı Şerif menu changed daily; each morning's pulse reading determined that day's food 'prescription', specially prepared for the patient. This parallels today's precision nutrition approach."
           },
           {
             "t": "Warming Foods (Muhammiz)",
             "d": "For Phlegmatic (Cold-Moist) patients, honey, ginger, and black cumin were coded in the kitchen like medicine.",
-            "icon": "🍯"
+            "icon": "🍯",
+            "extra": "The warming foods had scientific backing: ginger is known in modern medicine for anti-inflammatory and circulatory properties; honey is a natural prebiotic. Seljuk physicians discovered these effects through observational data."
           },
           {
             "t": "The Feedback Loop",
             "d": "The physician updated the treatment by re-measuring the pulse every morning. Doses were reduced as the pulse approached balance.",
-            "icon": "🔄"
+            "icon": "🔄",
+            "extra": "When the pulse reached 'Itidal' (balance) at the end of the feedback loop, the patient was considered healed and intensive treatment was gradually reduced. This cycle could last weeks or months."
           }
         ]
       }

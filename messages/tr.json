@@ -266,32 +266,38 @@
           {
             "t": "Uzunluk, Genişlik ve Derinlik",
             "d": "Nabzın parmaklara vurduğu alan üç boyutlu olarak ölçülür. Atış yüzeysel mi yoksa derine (kemiğe doğru) mi basmak gerekiyor, buna bakılırdı.",
-            "icon": "📐"
+            "icon": "📐",
+            "extra": "Bu üç boyutlu ölçüm, günümüzdeki EKG cihazının elektrik sinyallerini okuma mantığıyla birebir aynıdır. Hekim, parmak uçlarını farklı baskı kademelerinde kullanarak her eksendeki veriyi ayrı ayrı kayıt ederdi."
           },
           {
             "t": "Atışların Eşitliği ve Nizam",
             "d": "Tüm vuruşlar eşitse sistem sağlıklıydı. Biri güçlü, diğeri zayıf vuruyorsa 'Aritmi' (ritim bozukluğu) tespit edilirdi.",
-            "icon": "⚖️"
+            "icon": "⚖️",
+            "extra": "Nabzın düzenli düzensizliği (Nizamlı İhtilaf) bedenin hastalıkla savaştığının; tamamen kaotik olması ise (Nizamsız İhtilaf) kritik tehlikenin işaretiydi. Modern tıpta buna 'aritmi sınıflandırması' denir."
           },
           {
             "t": "Müzikal Ritim (İkâ)",
             "d": "Nabzın 'hareket' ve 'sükûn' sürelerinin müzikal bir ahenge uyup uymadığı kontrol edilirdi. En üst düzey teşhis parametresiydi.",
-            "icon": "🎵"
+            "icon": "🎵",
+            "extra": "İbn-i Sina'ya göre sağlıklı bir çocuğun nabzı Hicaz makamına, gençlerinki Rast'a, yaşlılarınki ise yavaş bir Rehavi'ye benzerdi. Ritim bozulduğunda o ritmi geri kazandıracak makam reçete edilirdi."
           },
           {
             "t": "Zü'l-fetr (Kopan Nabız)",
             "d": "Atış tam ortasında aniden kesilir, sonra tekrar devam eder. Kalp yetmezliği belirtisi olarak kabul edilirdi.",
-            "icon": "💔"
+            "icon": "💔",
+            "extra": "Kalp kasının kasılma döngüsünün ortasındaki bu ani kesinti, günümüzde 'intermitent kalp bloğu' olarak tanımlanır. O dönem hekimleri bunu 'pnomat'ın (yaşam ruhunun) geçici olarak tükenmesi şeklinde yorumlardı."
           },
           {
             "t": "Müşerşer (Testere Dişi Nabzı)",
             "d": "Damar çok serttir ve tırtıklı bir yüzeye sürtünüyormuş hissi verir. Akciğer zarı iltihabı teşhisinde kullanılırdı.",
-            "icon": "🪚"
+            "icon": "🪚",
+            "extra": "Damar duvarının sertliği (Sulb nabız), İbn-i Sina'nın Kanun'unda akciğer zarı iltihabının (plörezi) ayırt edici tanı ölçütü olarak ayrıntılı biçimde tanımlanmıştır. Hekim basınçlı bir atışla bu özelliği test ederdi."
           },
           {
             "t": "Nemlî (Karınca Nabzı)",
             "d": "Deri altında yürüyen bir karıncanın ayak sesleri gibi zayıftır. Yaşam enerjisinin tükendiğini gösteren en tehlikeli nabızdı.",
-            "icon": "🐜"
+            "icon": "🐜",
+            "extra": "Bu nabız türü, Kanun'da 'ölüm habercisi' olarak özellikle vurgulanır. Yaşam enerjisinin merkeze çekilip dış organlara gitmediğini gösterir; modern tıptaki septik şok tablosuna benzer."
           }
         ]
       },
@@ -302,27 +308,32 @@
           {
             "t": "Sözel Uyaran ve Nabız Tepkisi",
             "d": "Hekim, hastanın bileğini tutarak belirli kelimeler (şehir, şahıs isimleri) fısıldar; duygusal bir tetiklenmede nabızdaki 'Biyometrik Sıçrama'yı (aritmi) ölçerdi.",
-            "icon": "🗣️"
+            "icon": "🗣️",
+            "extra": "Hekim bu yöntemi uygulamadan önce hastayı sakinleştirerek 'temel nabız' hattını (baseline) belirlerdi. Duygusal tetikleyici kelimelerde bu hatın üzerindeki sıçramalar kayıt edilirdi; tıpkı modern poligraf cihazının GSR (galvanik deri yanıtı) ölçümü gibi."
           },
           {
             "t": "İbn-i Sina ve 'Aşk' Teşhisi",
             "d": "Yemeden kesilen bir gence mahalle ve isimler sayan İbn-i Sina, belirli bir isimde nabzın hızlanmasıyla hastalığın 'aşk' olduğuna karar vermiştir.",
-            "icon": "❤️‍🔥"
+            "icon": "❤️‍🔥",
+            "extra": "Bu vaka, tıp tarihinin en erken belgelenmiş psikosomatik teşhis örneklerinden biridir. İbn-i Sina teşhisi koyduktan sonra ailesiyle görüşerek nikâhı mümkün kılmış ve genç hızla iyileşmiştir. Olayı 'El-Kanun fi't-Tıbb'da bizzat aktarır."
           },
           {
             "t": "Öfke ve Hiddet",
             "d": "Vücuttaki hararet yükselir. Nabız son derece hızlı, vuruş alanı geniş ve damar duvarı gergin (sert) bir yapıya bürünür (Yükselen Sıcaklığın İsyanı).",
-            "icon": "😡"
+            "icon": "😡",
+            "extra": "Safra sıvısının (Safra humoru) vücutta ani artışı olarak yorumlanan öfke durumu, hekimler tarafından 'Sıcak ve Kuru' mizacın geçici alevlenmesi kabul edilirdi. Tedavide soğutucu makamlar ve gıdalar derhal uygulanırdı."
           },
           {
             "t": "Korku ve Dehşet",
             "d": "Isı ve kan merkeze çekilir. Nabız aniden zayıflar ve derine kaçar, ritim kaotikleşebilir (Merkeze Kaçış).",
-            "icon": "😨"
+            "icon": "😨",
+            "extra": "Korku anında beyin ve kalp çevresindeki kan damarlarının büzülmesi sonucu oluşan bu nabız değişikliği, modern tıpta 'sempatik sinir sistemi aktivasyonu' olarak tanımlanır. Hekimler bu durumu, bedenin 'kalaya çekilmesi' metaforuyla ifade ederdi."
           },
           {
             "t": "Üzüntü, Keder ve Utanç",
             "d": "Üzüntüde nabız 'ip gibi' yavaş ve güçsüzdür. Utanç anında ise nabız bir hızlanıp bir yavaşlayan dalgalı ve kararsız bir seyir izler.",
-            "icon": "😔"
+            "icon": "😔",
+            "extra": "Utanç ve üzüntü duyguları Selçuklu tıbbında 'Soğuk ve Nemli' balgam humorunu artıran duygular olarak sınıflandırılırdı. Tedavide bu humoru dengelemek için hareketli ve neşeli makamlar reçete edilir, ağır yiyeceklerden kaçınılırdı."
           }
         ]
       },
@@ -333,32 +344,38 @@
           {
             "t": "Biyometrik Kimlik Oluşturma",
             "d": "Sıcaklık (hareket hızı), Kuruluk (damar sertliği) ve Nemlilik (damar yumuşaklığı) parametreleri üzerinden hastanın mizacı (Sıcak, Soğuk vb.) tespit edilirdi.",
-            "icon": "🧬"
+            "icon": "🧬",
+            "extra": "Mizaç haritasının çıkarılması bir kez yapılıp bırakılan statik bir işlem değildi. Hekim hastanın yanına her sabah uğrayarak nabzı yeniden ölçer ve algoritmayı güncel duruma göre yeniden kalibre ederdi."
           },
           {
             "t": "Yüksek Frekanslı Müdahale (Müzik)",
             "d": "Nabız 'Karınca Yürüyüşü' gibi yavaş ve zayıfsa (Soğuk mizaç), hastayı canlandırmak için Uşşak veya Irak gibi neşeli makamlar çalınırdı.",
-            "icon": "🎼"
+            "icon": "🎼",
+            "extra": "Makam seçiminde 'Zıtlıklar İlkesi' esas alınırdı: Soğuk mizaçlıya sıcak makam, sıcak mizaçlıya soğuk makam. Bu, günümüzde psikoakustik araştırmalarla da desteklenen bir prensiptir; bazı frekanslar gerçekten nabzı ve solunum hızını etkiler."
           },
           {
             "t": "Düşük Frekanslı Müdahale (Müzik)",
             "d": "Nabız 'Testere Dişi' gibi çok sert ve hızlıysa (Sıcak mizaç), damarı gevşetmek ve ateşi düşürmek için Rast veya Rehavi makamları seçilirdi.",
-            "icon": "🧘"
+            "icon": "🧘",
+            "extra": "Uşşak makamı, deney hayvanları üzerinde yapılan modern araştırmalarda da kalp atış hızını artırdığı gözlemlenen bir makamdır. Rast makamı ise sedasyon etkisiyle bilinen bir frekans aralığına karşılık gelir."
           },
           {
             "t": "Soğutucu Gıdalar (Muberrid)",
             "d": "Safravî (Sıcak-Kuru) hastalar için sirke, hıyar, koruk suyu gibi gıdalar reçete edilerek nabızdaki keskin 'testere' etkisi yumuşatılırdı.",
-            "icon": "🥒"
+            "icon": "🥒",
+            "extra": "Mutfak-ı Şerif'in menüsü her gün değişmezdi; hastanın sabah nabzı ölçümüne göre o günkü yemek 'reçetesi' belirlenir ve özel olarak hazırlanırdı. Bu, günümüzün kişiselleştirilmiş beslenme (precision nutrition) anlayışıyla örtüşür."
           },
           {
             "t": "Isıtıcı Gıdalar (Muhammiz)",
             "d": "Balgamî (Soğuk-Nemli) hastalar için kanı ısıtacak ve harekete geçirecek bal, zencefil ve çörek otu mutfakta bir ilaç gibi kodlanırdı.",
-            "icon": "🍯"
+            "icon": "🍯",
+            "extra": "Isıtıcı gıdaların seçiminde de bilimsel bir arka plan mevcuttu: Zencefil modern tıpta da anti-enflamatuar ve dolaşım açıcı özellikleriyle bilinir. Bal ise doğal bir prebiyotiktir. Selçuklu hekimleri bu etkileri gözlemsel verilerle keşfetmişti."
           },
           {
             "t": "Algoritmanın Döngüsü (Feedback Loop)",
             "d": "Hekim her sabah nabzı tekrar ölçerek tedaviyi güncellerdi. Nabız dengeye yaklaştıkça makamın süresi ve gıdaların dozu azaltılırdı.",
-            "icon": "🔄"
+            "icon": "🔄",
+            "extra": "Feedback döngüsünün sonunda nabız 'İtidal' (denge) noktasına ulaştıysa hasta 'şifa bulmuş' kabul edilir ve yoğun tedavi kademeli azaltılırdı. Bu döngü haftalar, hatta aylar sürebilirdi."
           }
         ]
       }
