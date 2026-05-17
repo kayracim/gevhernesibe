@@ -252,7 +252,7 @@
   "pulseScience": {
     "badge": "Advanced Technology in Seljuk Medicine",
     "title": "Biometric Data and the 'Lie Detector': The Science of Pulse",
-    "lead": "The medicine practiced at Gevher Nesibe Darüşşifa was largely based on Avicenna's medical philosophy. In this system, the pulse was not merely a simple symptom showing heart rate; it was a biometric data set mapping the patient's entire internal system, akin to today's ECG or a blood test.",
+    "lead": "The medicine practiced at Gevher Nesibe Darüşşifa was largely based on Avicenna's medical philosophy. In this system, the pulse was not merely a simple symptom showing heart rate; it was a biometric data set mapping the patient's entire internal system, akin to today's ECG or a blood test.\nWe can explain how Seljuk physicians read arrhythmias as a database:",
     "tabs": {
       "dataAnalysis": "Multi-dimensional Data",
       "lieDetector": "Lie Detector",
@@ -261,60 +261,179 @@
     "sections": {
       "dataAnalysis": {
         "title": "1. Multi-dimensional Data Analysis (Ilm-i Nabz)",
-        "intro": "While today we generally evaluate the pulse only by 'rate', physicians of that era examined the pulse three-dimensionally across 10 different parameters (Width, Strength, Speed, Rest Duration, Vessel Texture, Fullness, Temperature, Equality, Regularity, Musical Rhythm).",
+        "intro": "While today we generally evaluate the pulse only by 'rate', physicians of that era examined the pulse across 10 different parameters:",
         "points": [
           {
-            "t": "Zü'l-fetr (Broken Pulse):",
-            "d": "The beat suddenly stops in the middle, then continues. A sign of heart failure."
+            "t": "1. Amount of Vessel Expansion (Volume)",
+            "d": "The physician measured the 3D area the pulse hit the fingers:",
+            "subPoints": [
+              "Length: Is the beat felt along a long or short area of the vessel?",
+              "Width: How wide does the vessel expand? (Wide or Narrow)",
+              "Depth: Is it felt on the surface, or does one need to press deep (towards the bone)? (Superficial or Deep)"
+            ]
           },
           {
-            "t": "Müşerşer (Sawtooth Pulse):",
-            "d": "The vessel is very hard, beats fast, and feels like rubbing against a jagged surface. Used in diagnosing pleurisy."
+            "t": "2. Strength of the Beat",
+            "d": "The pressure intensity the expanding vessel exerts on the fingers.",
+            "subPoints": [
+              "Strong Pulse: Indicates strong organs and life energy.",
+              "Weak Pulse: Indicates the illness has exhausted the body and organ energy has dropped."
+            ]
           },
           {
-            "t": "Nemlî (Ant Pulse):",
-            "d": "Beats are so small and weak they feel like the footsteps of an ant walking under the skin. Indicates depleted life energy."
+            "t": "3. Speed of Movement",
+            "d": "Not the time between two beats, but how fast the 'expansion action' happens.",
+            "subPoints": [
+              "Fast Pulse: Indicates the body fighting inflammation/fever; rising 'heat'.",
+              "Slow Pulse: Indicates digestive difficulties or dominance of 'cold' (phlegmatic humor)."
+            ]
+          },
+          {
+            "t": "4. Rest Duration / Interval",
+            "d": "The resting time between the end of the first beat and the start of the second.",
+            "subPoints": [
+              "Frequent: Rest time is very short.",
+              "Infrequent: Wait time between beats is long."
+            ]
+          },
+          {
+            "t": "5. Texture of the Vessel Wall",
+            "d": "The physician examined the elasticity and physical structure.",
+            "subPoints": [
+              "Hard Vessel: Indicates dryness in the body, nervous tension, or old age.",
+              "Soft Vessel: Indicates high moisture (edema or increased phlegm)."
+            ]
+          },
+          {
+            "t": "6. Fullness of the Vessel",
+            "d": "The feeling of the amount of blood and 'life spirit' passing through.",
+            "subPoints": [
+              "Full: Feels completely filled with fluid. Indicates excess blood; cupping or leeches were advised.",
+              "Empty: Feels like a deflated hose. Sign of severe blood loss or anemia."
+            ]
+          },
+          {
+            "t": "7. Regional Temperature (Temperament)",
+            "d": "The temperature felt from the skin where the pulse is taken. The fastest place to detect the overall temperament (Hot/Cold).",
+            "subPoints": []
+          },
+          {
+            "t": "8. Equality of Beats",
+            "d": "Whether successive beats are identical.",
+            "subPoints": [
+              "Equal: If all beats have the same strength, speed, and volume, the system is healthy.",
+              "Unequal/Different: If one is strong, next is weak, then fast, there is an 'Arrhythmia'."
+            ]
+          },
+          {
+            "t": "9. Order of Irregularity",
+            "d": "If the pulse is unequal, they checked if there was a mathematical pattern.",
+            "subPoints": [
+              "Regular Irregularity: e.g., weakening every third beat periodically means the body developed a defense algorithm.",
+              "Irregular Irregularity: Chaotic beats mean the central nervous system or heart is about to fail."
+            ]
+          },
+          {
+            "t": "10. Musical Rhythm",
+            "d": "The highest diagnostic parameter. The ratio between 'movement' and 'rest' times was checked against musical harmony. Avicenna argued different ages had their own musical notes. If broken, melotherapy (music therapy) was applied.",
+            "subPoints": []
+          },
+          {
+            "t": "Composite Pulse Types",
+            "d": "Physicians blended these 10 parameters to name specific illnesses. Three famous diagnoses:",
+            "subPoints": [
+              "Broken Pulse: The beat suddenly stops in the middle, then continues. Sign of heart failure.",
+              "Sawtooth Pulse: Vessel is hard, fast, and feels like rubbing against a jagged surface. Used for pleurisy.",
+              "Ant Pulse: Beats are so small and weak they feel like ant footsteps. The most dangerous pulse indicating impending death."
+            ]
           }
         ]
       },
       "lieDetector": {
         "title": "2. Pulse as a 'Lie Detector' for the Soul",
-        "intro": "Physicians discovered that a thought in the mind instantly changed blood flow speed. Holding the patient's wrist and whispering specific words (cities, names), they detected emotional traumas via a 'Biometric Jump' (arrhythmia).",
+        "intro": "In Seljuk medicine, soul and body were a whole. Physicians discovered that thoughts or emotions instantly changed blood flow. This is identical to the 'physiological changes under stress' logic of modern lie detectors.",
         "points": [
           {
-            "t": "Avicenna's Diagnosis of Love:",
-            "d": "For a young man who stopped eating, Avicenna listed neighborhood and person names. A pulse spike at a specific name led to the diagnosis that the illness was not physiological, but 'love'."
+            "t": "1. Application Method: Verbal Stimulus and Pulse Reaction",
+            "d": "To solve an emotional trauma, a physician would:",
+            "subPoints": [
+              "Contact & Trust: Stabilize pulse parameters by holding the wrist during normal conversation.",
+              "Verbal Stimulus: Whisper words related to critical life points (cities, names).",
+              "Biometric Jump: If a word held emotional meaning, the pulse 'could not lie', showing an instant spike or arrhythmia."
+            ]
           },
           {
-            "t": "Anger and Fear:",
-            "d": "In anger, the pulse is hard and strong (Rebellion of Rising Heat); in fear, it is very weak and deep (Escape to the Center)."
+            "t": "2. Avicenna's Diagnosis of 'Love'",
+            "d": "The most famous historical example:",
+            "subPoints": [
+              "Method: Avicenna held a bedridden young man's hand and listed neighborhood names.",
+              "Detailing: Then street names, then homeowner names.",
+              "Diagnosis: At a specific name, the pulse spiked 'like an ant', leading Avicenna to diagnose the illness as love for that person's daughter."
+            ]
           },
           {
-            "t": "Sorrow and Shame:",
-            "d": "In sorrow, the pulse is slow 'like a thread' (Slowing Life Energy); in shame, it fluctuates inconsistently."
+            "t": "3. Emotion and Pulse Parameter Pairings",
+            "d": "How emotions were read as 'codes':",
+            "subPoints": [
+              "Anger: 'Rebellion of Rising Heat' - Pulse becomes extremely fast, wide, and the vessel wall hard (like a tense bow).",
+              "Fear: 'Escape to the Center' - Blood pulls inward. Pulse suddenly weakens and goes deep; rhythm may become chaotic.",
+              "Sorrow: 'Slowing Life Energy' - Pulse is slow, weak, and thin like a thread (economic mode).",
+              "Shame: 'Unstable Fluctuation' - Pulse fluctuates inconsistently in speed and strength.",
+              "Joy: 'Balanced Expansion' - Pulse is soft, full, and rhythmic with equal intervals."
+            ]
           }
         ]
       },
       "algorithm": {
-        "title": "3. Personalized Treatment Algorithm",
-        "intro": "Physicians combined pulse data with physical traits to map the patient's 'Temperament' (Hot, Cold, Dry, Moist) and programmed the treatment accordingly.",
+        "title": "3. Personalized Treatment Algorithm (Temperament Detection)",
+        "intro": "By comparing arrhythmias to movements in nature, they defined a biometric identity, directly revealing the temperament profile (Hot, Cold, Dry, Moist):",
         "points": [
           {
-            "t": "Music and Frequency:",
-            "d": "For a weak pulse (Cold temperament), upbeat makams like Uşşak; for a fast/hard pulse (Hot temperament), calming makams like Rast were prescribed."
+            "t": "1. Temperament Codings",
+            "d": "",
+            "subPoints": [
+              "Ant Pulse: Coded as Extreme Cold & Moist (Phlegmatic). Indicates dropped body heat.",
+              "Sawtooth Pulse: Matched with Extreme Hot & Dry (Choleric). Reports high infection.",
+              "Gazelle Pulse: One strong, one weak beat showing increased 'Dryness'."
+            ]
           },
           {
-            "t": "Culinary Coding:",
-            "d": "Cooling foods (Muberrid) like vinegar for Choleric (Hot) patients; warming foods (Muhammiz) like ginger and honey for Phlegmatic (Cold) patients."
+            "t": "2. Temperament Profile & Biometric ID",
+            "d": "Physical traits combined with pulse created a 'Temperament Map':",
+            "subPoints": [
+              "Heat: Measured by speed and strength of beat.",
+              "Dryness: Measured by vessel hardness and beat sharpness.",
+              "Moisture: Measured by vessel softness and fullness."
+            ]
           },
           {
-            "t": "Feedback Loop:",
-            "d": "The pulse was re-measured every morning for a 'Biometric ID Update', allowing dynamic adjustment of the treatment."
+            "t": "3. Treatment Programming: Music and Frequency",
+            "d": "The ID became a prescription for the music committee (Principle of Opposites):",
+            "subPoints": [
+              "High-Frequency Intervention: For slow/weak pulse (Cold), upbeat makams like Uşşak were played to stimulate flow.",
+              "Low-Frequency Intervention: For hard/fast pulse (Hot), calming makams like Rast were chosen to relax vessels."
+            ]
+          },
+          {
+            "t": "4. Culinary Coding: Warming and Cooling Foods",
+            "d": "The final stage was in the kitchen, coding food as medicine:",
+            "subPoints": [
+              "Cooling (Muberrid): Vinegar, cucumber, lettuce for Choleric (Hot) patients.",
+              "Warming (Muhammiz): Honey, ginger, lamb meat for Phlegmatic (Cold) patients."
+            ]
+          },
+          {
+            "t": "5. The Feedback Loop",
+            "d": "Dynamic process. Pulse was re-measured every morning to update the Biometric ID. If approaching 'Balance', treatment doses were reduced.",
+            "subPoints": []
           }
         ]
       }
     },
-    "source": "Avicenna, The Canon of Medicine (El-Kanun fi't-Tıbb), Book 1 - The Section on Pulse"
+    "bibliography": [
+      "Avicenna, The Canon of Medicine (El-Kanun fi't-Tıbb), Book 1 - The Section on Pulse.",
+      "Articles on Islamic and Ottoman medical history by Prof. Dr. Ayten Altıntaş and Prof. Dr. Nil Sarı."
+    ]
   },
   "didYouKnow": {
     "title": "Did You Know?",
