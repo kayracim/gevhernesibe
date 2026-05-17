@@ -33,14 +33,42 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
   const points = data.sections[activeTab].points;
   const total = points.length;
 
-  // Reset when tab changes
+  const [maxIndex, setMaxIndex] = useState(total - 1);
+
+  const updateMaxIndex = () => {
+    if (!scrollRef.current) return;
+    const { scrollWidth, clientWidth } = scrollRef.current;
+    const card = scrollRef.current.querySelector("[data-card]") as HTMLElement | null;
+    const cardWidth = card?.offsetWidth ?? 300;
+    const gap = 24;
+    if (scrollWidth <= clientWidth) {
+      setMaxIndex(0);
+    } else {
+      const maxScrollLeft = scrollWidth - clientWidth;
+      const maxIdx = Math.round(maxScrollLeft / (cardWidth + gap));
+      setMaxIndex(Math.max(0, maxIdx));
+    }
+  };
+
+  // Reset activeCard & scroll position when tab changes, and recalculate reachable dots
   useEffect(() => {
     setActiveCard(0);
     if (scrollRef.current) scrollRef.current.scrollLeft = 0;
-  }, [activeTab]);
+    
+    const timer1 = setTimeout(updateMaxIndex, 10);
+    const timer2 = setTimeout(updateMaxIndex, 150);
+    return () => { clearTimeout(timer1); clearTimeout(timer2); };
+  }, [activeTab, points]);
+
+  // Listen to window resize to adjust dots dynamically (e.g. desktop vs mobile)
+  useEffect(() => {
+    updateMaxIndex();
+    window.addEventListener("resize", updateMaxIndex);
+    return () => window.removeEventListener("resize", updateMaxIndex);
+  }, []);
 
   const goTo = (index: number) => {
-    const clamped = Math.max(0, Math.min(index, total - 1));
+    const clamped = Math.max(0, Math.min(index, maxIndex));
     setActiveCard(clamped);
     if (!scrollRef.current) return;
     isScrollingProgrammatically.current = true;
@@ -51,7 +79,7 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
     setTimeout(() => { isScrollingProgrammatically.current = false; }, 600);
   };
 
-  // Update activeCard from manual swipe only
+  // Update activeCard from manual swipe/scroll
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -61,14 +89,15 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
       const cardWidth = card?.offsetWidth ?? 300;
       const { scrollLeft, scrollWidth, clientWidth } = el;
       if (scrollLeft + clientWidth >= scrollWidth - 16) {
-        setActiveCard(total - 1);
+        setActiveCard(maxIndex);
       } else {
-        setActiveCard(Math.round(scrollLeft / (cardWidth + 24)));
+        const idx = Math.round(scrollLeft / (cardWidth + 24));
+        setActiveCard(Math.min(idx, maxIndex));
       }
     };
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
-  }, [total]);
+  }, [maxIndex]);
 
   const tabs: { id: keyof typeof data.sections; label: string; icon: string }[] = [
     { id: "dataAnalysis", label: data.tabs.dataAnalysis, icon: "📊" },
@@ -127,7 +156,7 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
             {/* Dot nav + Arrow controls */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex gap-1.5">
-                {points.map((_, i) => (
+                {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                   <button
                     key={i}
                     onClick={() => goTo(i)}
@@ -151,7 +180,7 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
                 </button>
                 <button
                   onClick={() => goTo(activeCard + 1)}
-                  disabled={activeCard === total - 1}
+                  disabled={activeCard >= maxIndex}
                   className="p-2 rounded-full bg-sand/30 hover:bg-heritage/20 text-ink-muted transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                   aria-label="Sonraki"
                 >
@@ -180,7 +209,7 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
 
                   {/* Internally scrollable content */}
                   <div
-                    className="h-full overflow-y-auto p-5"
+                    className="h-full overflow-y-auto p-5 relative z-10"
                     style={{
                       scrollbarWidth: "thin",
                       scrollbarColor: "rgba(100,100,100,0.25) transparent",
