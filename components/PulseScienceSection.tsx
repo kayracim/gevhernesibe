@@ -36,16 +36,16 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
     if (!scrollContainerRef.current) return;
     const container = scrollContainerRef.current;
     const { scrollLeft, scrollWidth, clientWidth } = container;
-    // If we're at (or very close to) the end, show last card
-    const atEnd = scrollLeft + clientWidth >= scrollWidth - 4;
-    if (atEnd) {
+    // At or very close to the end → snap to last card
+    if (scrollLeft + clientWidth >= scrollWidth - 16) {
       setActiveCard(totalCards - 1);
       return;
     }
-    const cardWidth = container.querySelector('[data-card]')?.clientWidth ?? 300;
+    const cardEl = container.querySelector('[data-card]') as HTMLElement | null;
+    const cardWidth = cardEl?.offsetWidth ?? 300;
     const gap = 24;
     const index = Math.round(scrollLeft / (cardWidth + gap));
-    setActiveCard(Math.min(index, totalCards - 1));
+    setActiveCard(Math.max(0, Math.min(index, totalCards - 1)));
   }, [totalCards]);
 
   useEffect(() => {
@@ -189,35 +189,40 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
                 <div
                   key={i}
                   data-card
-                  className="snap-start shrink-0 w-72 sm:w-80 rounded-2xl border border-accent/10 bg-accent/5 hover:border-accent/30 hover:bg-accent/10 transition-all duration-300 group"
+                  className="snap-start shrink-0 w-72 sm:w-80 rounded-2xl border border-accent/10 bg-accent/5 hover:border-accent/30 hover:bg-accent/10 transition-all duration-300 group relative"
                   style={{ height: "240px" }}
                 >
-                  {/* Internally scrollable content */}
-                  <div
-                    className="h-full overflow-y-auto p-6 relative"
-                    style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                    onWheel={(e) => e.stopPropagation()}
-                  >
-                    {/* Background icon watermark */}
-                    <div className="absolute top-2 right-2 text-7xl opacity-10 select-none pointer-events-none">
-                      {point.icon || "✨"}
-                    </div>
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-4">
-                        {point.icon && (
-                          <span className="text-2xl bg-white dark:bg-ink p-2 rounded-xl shadow-sm border border-sand/50 dark:border-paper/10 shrink-0">
-                            {point.icon}
-                          </span>
-                        )}
-                        <h4 className="font-bold text-accent text-base leading-tight">{point.t}</h4>
-                      </div>
-                      <p className="text-sm text-ink-muted dark:text-paper/70 leading-relaxed">
-                        {point.d}
-                      </p>
-                    </div>
-                    {/* Scroll hint gradient - fades away when scrolled */}
-                    <div className="sticky bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-accent/10 to-transparent pointer-events-none mt-2" />
+                  {/* Background icon watermark */}
+                  <div className="absolute top-2 right-2 text-7xl opacity-10 select-none pointer-events-none z-0">
+                    {point.icon || "✨"}
                   </div>
+
+                  {/* Internally scrollable content — CSS overscroll-contain keeps page scroll intact */}
+                  <div
+                    className="relative z-10 h-full overflow-y-scroll p-6"
+                    style={{
+                      scrollbarWidth: "none",
+                      msOverflowStyle: "none",
+                      overscrollBehavior: "contain",
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      {point.icon && (
+                        <span className="text-2xl bg-white dark:bg-ink p-2 rounded-xl shadow-sm border border-sand/50 dark:border-paper/10 shrink-0">
+                          {point.icon}
+                        </span>
+                      )}
+                      <h4 className="font-bold text-accent text-base leading-tight">{point.t}</h4>
+                    </div>
+                    <p className="text-sm text-ink-muted dark:text-paper/70 leading-relaxed">
+                      {point.d}
+                    </p>
+                    {/* Extra padding so content can scroll up inside the card */}
+                    <div className="h-16" />
+                  </div>
+
+                  {/* Bottom fade hint */}
+                  <div className="absolute bottom-0 left-0 right-0 h-10 rounded-b-2xl bg-gradient-to-t from-accent/15 to-transparent pointer-events-none z-20" />
                 </div>
               ))}
             </div>
