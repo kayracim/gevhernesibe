@@ -35,9 +35,15 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
   const updateActiveCard = useCallback(() => {
     if (!scrollContainerRef.current) return;
     const container = scrollContainerRef.current;
+    const { scrollLeft, scrollWidth, clientWidth } = container;
+    // If we're at (or very close to) the end, show last card
+    const atEnd = scrollLeft + clientWidth >= scrollWidth - 4;
+    if (atEnd) {
+      setActiveCard(totalCards - 1);
+      return;
+    }
     const cardWidth = container.querySelector('[data-card]')?.clientWidth ?? 300;
     const gap = 24;
-    const scrollLeft = container.scrollLeft;
     const index = Math.round(scrollLeft / (cardWidth + gap));
     setActiveCard(Math.min(index, totalCards - 1));
   }, [totalCards]);
@@ -183,39 +189,34 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
                 <div
                   key={i}
                   data-card
-                  className="snap-start shrink-0 w-72 sm:w-80 rounded-2xl border border-accent/10 relative overflow-hidden group cursor-pointer"
-                  style={{ minHeight: "220px" }}
+                  className="snap-start shrink-0 w-72 sm:w-80 rounded-2xl border border-accent/10 bg-accent/5 hover:border-accent/30 hover:bg-accent/10 transition-all duration-300 group"
+                  style={{ height: "240px" }}
                 >
-                  {/* Default "front" face */}
-                  <div className="absolute inset-0 flex flex-col p-6 bg-accent/5 group-hover:opacity-0 transition-opacity duration-500">
+                  {/* Internally scrollable content */}
+                  <div
+                    className="h-full overflow-y-auto p-6 relative"
+                    style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                    onWheel={(e) => e.stopPropagation()}
+                  >
                     {/* Background icon watermark */}
-                    <div className="absolute top-2 right-2 text-7xl opacity-10 select-none">
+                    <div className="absolute top-2 right-2 text-7xl opacity-10 select-none pointer-events-none">
                       {point.icon || "✨"}
                     </div>
-                    <div className="relative z-10 flex flex-col h-full">
+                    <div className="relative z-10">
                       <div className="flex items-center gap-3 mb-4">
                         {point.icon && (
-                          <span className="text-2xl bg-white dark:bg-ink p-2 rounded-xl shadow-sm border border-sand/50 dark:border-paper/10">
+                          <span className="text-2xl bg-white dark:bg-ink p-2 rounded-xl shadow-sm border border-sand/50 dark:border-paper/10 shrink-0">
                             {point.icon}
                           </span>
                         )}
                         <h4 className="font-bold text-accent text-base leading-tight">{point.t}</h4>
                       </div>
-                      <p className="text-sm text-ink-muted dark:text-paper/70 leading-relaxed line-clamp-4">
+                      <p className="text-sm text-ink-muted dark:text-paper/70 leading-relaxed">
                         {point.d}
                       </p>
                     </div>
-                    {/* Hover hint */}
-                    <p className="absolute bottom-3 right-4 text-xs text-ink-muted/40 dark:text-paper/25 italic">
-                      Detay için bekle →
-                    </p>
-                  </div>
-
-                  {/* Hover "reveal" face - slides up from bottom */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-heritage via-heritage/90 to-heritage/70 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <span className="text-5xl mb-3 block">{point.icon || "✨"}</span>
-                    <h4 className="font-bold text-white text-base mb-3 leading-snug">{point.t}</h4>
-                    <p className="text-sm text-white/90 leading-relaxed">{point.d}</p>
+                    {/* Scroll hint gradient - fades away when scrolled */}
+                    <div className="sticky bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-accent/10 to-transparent pointer-events-none mt-2" />
                   </div>
                 </div>
               ))}
