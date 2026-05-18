@@ -36,23 +36,6 @@ export default async function CasesPage({
       <PageIntro title={p.title} subtitle={p.subtitle} />
       <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper">{p.intro}</p>
 
-      {/* Bunları Biliyor Muydunuz? Section */}
-      <section className="grid gap-6 md:grid-cols-2">
-        {dict.didYouKnow.items.map((item: { title: string; body: string }, i: number) => (
-          <div key={i} className="group relative overflow-hidden rounded-3xl border border-accent/20 bg-accent/5 p-8 transition-all hover:bg-accent/10 dark:border-accent/30 dark:bg-accent/10">
-            <div className="relative z-10 space-y-4">
-              <div className="flex items-center gap-3 text-accent">
-                <span className="text-2xl">💡</span>
-                <h3 className="font-display text-xl font-bold">{item.title}</h3>
-              </div>
-              <p className="leading-relaxed text-ink-muted dark:text-paper/70">{item.body}</p>
-            </div>
-            {/* Decorative background element */}
-            <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-accent/10 blur-2xl transition-all group-hover:bg-accent/20"></div>
-          </div>
-        ))}
-      </section>
-
       <CaseStudyExplorer
         locale={locale}
         items={cases}

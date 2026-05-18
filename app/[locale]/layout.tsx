@@ -7,6 +7,7 @@ import { SetHtmlLang } from "@/components/SetHtmlLang";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Preloader } from "@/components/Preloader";
+import { PromoModal } from "@/components/PromoModal";
 
 const display = Fraunces({
   subsets: ["latin", "latin-ext"],
@@ -38,6 +39,7 @@ export default async function LocaleLayout({
     <div className={`${display.variable} ${sans.variable} font-sans`}>
       <SetHtmlLang lang={locale} />
       <Preloader />
+      <PromoModal />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-paper"

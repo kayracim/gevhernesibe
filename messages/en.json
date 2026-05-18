@@ -9,6 +9,7 @@
     "history": "History & Legacy",
     "hospital": "Architecture & Education",
     "cases": "Healing Methods",
+    "didYouKnow": "Did You Know?",
     "international": "Scientific Heritage STEM",
     "bibliography": "Bibliography",
     "virtualTour": "3D Virtual Tour",
@@ -387,6 +388,8 @@
   },
   "didYouKnow": {
     "title": "Did You Know?",
+    "subtitle": "Surprising Facts from 800 Years of Medical History",
+    "intro": "Discover fascinating facts about the Gevher Nesibe Healing House and the Seljuk medical world that have remained in the dusty pages of history, leaving even today's modern science in awe.",
     "items": [
       {
         "title": "Scientific History Note",
@@ -395,6 +398,18 @@
       {
         "title": "First Integrated System",
         "body": "Gevher Nesibe is the world's first Education and Research Hospital model where the hospital (Healing House) and the medical school (Madrasa) were intertwined. Students would take theoretical lessons in the classroom and immediately pass through the next door to practice at the patient's bedside."
+      },
+      {
+        "title": "Free and Equal Healthcare",
+        "body": "As per the last will of Princess Gevher Nesibe and the foundation charter, every patient coming to the healing house received completely free treatment and medication without any discrimination of religion, language, race, or wealth. Discharged poor patients were also given pocket money and new clothes."
+      },
+      {
+        "title": "Music Therapy and the Secret of Makams",
+        "body": "Did you know that different diseases and age groups were treated with specific musical makams in the healing house? For example, Hicaz makam was played for childhood diseases, Rehavi for mental illnesses, and Uşşak makam for heart conditions."
+      },
+      {
+        "title": "Women's Role in Leadership",
+        "body": "The Gevher Nesibe Healing House was established with the personal wealth and last will of a female royal, representing the largest scientific investment of the era. It stands as the most tangible monument to the strong position of women in science, endowments, and governance in Seljuk society."
       }
     ]
   }

@@ -9,6 +9,7 @@
     "history": "Tarih ve Miras",
     "hospital": "Mimari ve Eğitim",
     "cases": "Tedavi Yöntemleri",
+    "didYouKnow": "Bunları Biliyor Muydunuz?",
     "international": "Bilimsel Miras STEM",
     "bibliography": "Kaynakça",
     "virtualTour": "3D Sanal Tur",
@@ -387,6 +388,8 @@
   },
   "didYouKnow": {
     "title": "Bunları Biliyor Muydunuz?",
+    "subtitle": "800 Yıllık Tıp Tarihinin Şaşırtıcı Gerçekleri",
+    "intro": "Gevher Nesibe Şifahanesi ve Selçuklu tıp dünyası hakkında tarihin tozlu sayfalarında kalmış, bugünün modern bilimini bile hayrete düşüren ilginç gerçekleri keşfedin.",
     "items": [
       {
         "title": "Bilim Tarihi Notu",
@@ -395,6 +398,18 @@
       {
         "title": "İlk Entegre Sistem",
         "body": "Gevher Nesibe, hastane (Darüşşifa) ile tıp okulunun (Medrese) iç içe geçtiği dünyadaki ilk Eğitim ve Araştırma Hastanesi modelidir. Öğrenciler teorik dersi sınıfta görür, hemen yan kapıdan geçip hastanın başında pratik yapardı."
+      },
+      {
+        "title": "Ücretsiz ve Eşit Sağlık Hizmeti",
+        "body": "Gevher Nesibe Sultan'ın vasiyeti ve kurulan vakıf şartnamesi gereği, şifahaneye gelen her hastaya din, dil, ırk veya zenginlik ayrımı yapılmaksızın tamamen ücretsiz tedavi ve ilaç sağlanıyordu. Taburcu olan yoksul hastalara ayrıca harçlık ve yeni giysiler verilirdi."
+      },
+      {
+        "title": "Müzikoterapi ve Makamların Sırrı",
+        "body": "Şifahanede her hastalığın ve her yaş grubunun farklı bir müzik makamıyla tedavi edildiğini biliyor muydunuz? Örneğin çocuk hastalıklarına Hicaz, akıl hastalarına Rehavi, kalp hastalıklarına ise neşe veren Uşşak makamı dinletilirdi."
+      },
+      {
+        "title": "Kadınların Yönetimdeki Rolü",
+        "body": "Gevher Nesibe Şifahanesi, bir kadın sultanın şahsi malvarlığı ve vasiyetiyle kurulmuş, dönemin en büyük bilimsel yatırımıdır. Selçuklu toplumunda kadının bilim, vakıf ve devlet yönetimindeki güçlü konumunun en somut anıtıdır."
       }
     ]
   }
