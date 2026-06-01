@@ -93,6 +93,7 @@ export default async function HomePage({
         note={h.video.note}
         badge={h.video.badge}
         emptyState={h.video.emptyState}
+        videoSrc="/images/nejlavideo.mp4"
       />
 
       <PosterGridPlaceholder
@@ -100,8 +101,12 @@ export default async function HomePage({
         note={h.posters.note}
         slotLabel={h.posters.slotLabel}
         images={[
-          { src: "/images/poster1.png", alt: "STEM Durak 2 Afişi" },
-          { src: "/images/poster2.png", alt: "Geçmişten Günümüze Tıp Afişi" }
+          { src: "/images/poster1.png", alt: locale === "tr" ? "STEM Durak 2 Afişi" : "STEM Station 2 Poster" },
+          { src: "/images/poster2.png", alt: locale === "tr" ? "Geçmişten Günümüze Tıp Afişi" : "Medicine from Past to Present Poster" },
+          { src: "/images/Afiscimm1.jpeg", alt: locale === "tr" ? "Afiş 1" : "Poster 1" },
+          { src: "/images/Afiscimm2.jpeg", alt: locale === "tr" ? "Afiş 2" : "Poster 2" },
+          { src: "/images/Afiscimm3.jpeg", alt: locale === "tr" ? "Afiş 3" : "Poster 3" },
+          { src: "/images/Afiscimm4.jpeg", alt: locale === "tr" ? "Afiş 4" : "Poster 4" }
         ]}
       />
 

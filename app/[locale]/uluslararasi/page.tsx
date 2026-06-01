@@ -100,6 +100,7 @@ export default async function StemProjectPage({
         </div>
       </div>
 
+
       <div className="rounded-3xl border border-heritage/20 bg-heritage-soft/20 p-8 text-center sm:p-12 dark:border-heritage/30 dark:bg-heritage/5">
         <h3 className="font-display text-2xl font-bold text-heritage dark:text-heritage/90">{s.conclusion.title}</h3>
         <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-ink-muted dark:text-paper/70">

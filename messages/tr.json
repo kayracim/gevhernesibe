@@ -12,6 +12,7 @@
     "didYouKnow": "Bunları Biliyor Muydunuz?",
     "international": "Bilimsel Miras STEM",
     "bibliography": "Kaynakça",
+    "instruments": "Cerrahi Aletler",
     "virtualTour": "3D Sanal Tur",
     "contact": "Ziyaret ve İletişim",
     "cta": "STEM Keşfi"
@@ -49,7 +50,7 @@
       "emptyState": "Video oynatıcı alanı"
     },
     "posters": {
-      "title": "Tarihi Belgeler ve Çizimler",
+      "title": "Afişler",
       "note": "Külliyenin mimari planları, Selçuklu tıp aletleri ve tedavi sahnelerini içeren özel bir koleksiyon.",
       "slotLabel": "Eser"
     },
@@ -61,20 +62,37 @@
       {
         "id": 1,
         "tag": "Vasiyet",
-        "title": "Gevher Nesibe Sultan'ın Son Arzusu",
-        "description": "Ölüm döşeğinde abisi Gıyaseddin Keyhüsrev'e 'Benim adıma öyle bir yer yap ki, derdine çare bulunamayanlara şifa olsun' vasiyetiyle kuruldu."
+        "title": "Gevher Nesibe Sultan'ın Vasiyeti",
+        "description": "Ölüm döşeğinde abisi Gıyaseddin Keyhüsrev'e 'Benim adıma öyle bir yer yap ki, derdine çare bulunamayanlara şifa olsun' vasiyetiyle kurulan tıp medresesi.",
+        "image": "/images/GEBO1.jpeg"
       },
       {
         "id": 2,
-        "tag": "Müzik Terapi",
-        "title": "Makamların Şifalı Gücü",
-        "description": "800 yıl önce bu odalarda su sesi ve ney tınıları, ruhsal hastalıkların tedavisinde birer ilaç gibi kullanılıyordu."
+        "tag": "Mimari",
+        "title": "Şifa Koridorları",
+        "description": "Selçuklu mimarisinin zirvesi olan Çifte Medrese'nin tonozlu koridorları, akustik tasarımıyla suyun ve ney sesinin her odaya ulaşmasını sağlıyordu.",
+        "image": "/images/GEBO2.jpeg"
       },
       {
         "id": 3,
-        "tag": "Mimari",
-        "title": "Çifte Medrese: Bilimin Evi",
-        "description": "Dünyanın tıp eğitimini ve hastaneyi aynı çatı altında birleştiren ilk kurumsal yapısı, Selçuklu mimarisinin zirvesidir."
+        "tag": "Müzik Terapi",
+        "title": "Makamların Şifalı Gücü",
+        "description": "800 yıl önce bu odalarda su sesi, ney tınıları ve özel müzik makamları, ruhsal hastalıkların tedavisinde birer ilaç gibi kullanılıyordu.",
+        "image": "/images/GEBO3.jpeg"
+      },
+      {
+        "id": 4,
+        "tag": "Eğitim",
+        "title": "Dünyanın İlk Tıp Fakültesi",
+        "description": "Teorik eğitimin (Medrese) ve pratik uygulamanın (Şifahane) bir arada yürütüldüğü, öğrencilerin hasta başında usta-çırak ilişkisiyle yetiştiği bütünsel eğitim.",
+        "image": "/images/GEBO4.jpeg"
+      },
+      {
+        "id": 5,
+        "tag": "STEM",
+        "title": "Köklerden Geleceğe Kültür Köprüsü",
+        "description": "Selçuklu tıp dünyasının gözlem ve kayıt geleneği, bugün Sirius Takımı'nın bilim ve teknoloji odaklı projesiyle yarınlara taşınıyor.",
+        "image": "/images/GEBO5.jpeg"
       }
     ]
   },
@@ -176,7 +194,7 @@
   "virtualTourPage": {
     "title": "3D Sanal Gezi Turu",
     "subtitle": "Külliyeyi Adım Adım Keşfedin",
-    "intro": "Gevher Nesibe Şifahanesi ve Medresesi'nin (Selçuklu Uygarlığı Müzesi) tarihi atmosferini 360 derece VR video ile sanki oradaymış gibi gezebilirsiniz. Videoyu fare ile sürükleyerek etrafınıza bakabilirsiniz.",
+    "intro": "Gevher Nesibe Şifahanesi ve Medresesi'nin (Selçuklu Uygarlığı Müzesi) tarihi atmosferini, şifa yöntemlerini ve müzik/su terapisi mirasını TRT Haber belgesel videosu ile keşfedebilirsiniz.",
     "loading": "Sanal Tur yükleniyor..."
   },
   "footer": {

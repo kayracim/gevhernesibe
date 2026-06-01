@@ -29,6 +29,10 @@ export function SiteFooter({
               {locale === "tr" ? "Hikâyeler" : "Stories"}
             </Link>
             <span className="text-paper/40">·</span>
+            <Link className="underline-offset-4 hover:underline" href={withLocale(locale, "/sanal-tur")}>
+              {locale === "tr" ? "Sanal Tur" : "Virtual Tour"}
+            </Link>
+            <span className="text-paper/40">·</span>
             <Link className="underline-offset-4 hover:underline" href={withLocale(locale, "/iletisim")}>
               {locale === "tr" ? "İletişim" : "Contact"}
             </Link>

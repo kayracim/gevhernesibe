@@ -36,20 +36,13 @@ export default async function CasesPage({
       <PageIntro title={p.title} subtitle={p.subtitle} />
       <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper">{p.intro}</p>
 
-      <CaseStudyExplorer
-        locale={locale}
-        items={cases}
-        exampleLabel={p.filterExample}
-        labels={{
-          all: p.filterAll,
-          imaging: p.filterImaging,
-          lab: p.filterLab,
-          care: p.filterCare,
-        }}
-      />
-
-      {/* Scientific Analysis Section */}
+      {/* Scientific Analysis Section - Moved above CaseStudyExplorer */}
       <Section id="bilimsel-analiz" title={dict.scienceAnalysis.title}>
+        {/* Infographic Banner */}
+        <div className="mb-12 overflow-hidden rounded-3xl bg-paper/5 shadow-card dark:bg-ink/20">
+          <ImageLightbox src="/images/bilgi1.png" alt="Bilimsel Analiz Görseli" />
+        </div>
+
         <div className="grid gap-12 lg:grid-cols-3">
           {dict.scienceAnalysis.sections.map((s: { id: string; title: string; intro: string; explanation: string; scientificRelation: string }) => (
             <div key={s.id} className="space-y-6">
@@ -70,34 +63,37 @@ export default async function CasesPage({
         </div>
 
         <div className="mt-12 rounded-3xl bg-ink text-paper p-8 shadow-card dark:bg-paper/5 dark:border dark:border-paper/10">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
-            <div className="flex-1 space-y-6">
-              <h3 className="font-display text-2xl font-bold text-accent">{dict.scienceAnalysis.conclusion.title}</h3>
-              <p className="text-lg leading-relaxed text-paper/80">{dict.scienceAnalysis.conclusion.body}</p>
-              
-              <ul className="space-y-4">
-                {dict.scienceAnalysis.conclusion.points.map((point: string, i: number) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent text-xs font-bold mt-0.5">✓</span>
-                    <span className="text-sm text-paper/70 leading-relaxed">{point}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <p className="pt-4 font-medium italic text-accent/90 border-t border-paper/10">
-                {dict.scienceAnalysis.conclusion.final}
-              </p>
-            </div>
+          <div className="space-y-6">
+            <h3 className="font-display text-2xl font-bold text-accent">{dict.scienceAnalysis.conclusion.title}</h3>
+            <p className="text-lg leading-relaxed text-paper/80">{dict.scienceAnalysis.conclusion.body}</p>
             
-            <div className="flex-shrink-0 lg:w-1/3">
-              <ImageLightbox 
-                src="/images/bilgi1.png" 
-                alt="Bilimsel Analiz Görseli" 
-              />
-            </div>
+            <ul className="space-y-4">
+              {dict.scienceAnalysis.conclusion.points.map((point: string, i: number) => (
+                <li key={i} className="flex gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent text-xs font-bold mt-0.5">✓</span>
+                  <span className="text-sm text-paper/70 leading-relaxed">{point}</span>
+                </li>
+              ))}
+            </ul>
+            
+            <p className="pt-4 font-medium italic text-accent/90 border-t border-paper/10">
+              {dict.scienceAnalysis.conclusion.final}
+            </p>
           </div>
         </div>
       </Section>
+
+      <CaseStudyExplorer
+        locale={locale}
+        items={cases}
+        exampleLabel={p.filterExample}
+        labels={{
+          all: p.filterAll,
+          imaging: p.filterImaging,
+          lab: p.filterLab,
+          care: p.filterCare,
+        }}
+      />
     </div>
   );
 }

@@ -3,11 +3,13 @@ export function VideoPlaceholder({
   note,
   badge,
   emptyState,
+  videoSrc,
 }: {
   title: string;
   note: string;
   badge: string;
   emptyState: string;
+  videoSrc?: string;
 }) {
   return (
     <section aria-labelledby="intro-video-heading" className="space-y-4">
@@ -21,21 +23,34 @@ export function VideoPlaceholder({
       </div>
       <p className="max-w-measure text-sm leading-relaxed text-ink-muted dark:text-paper/60">{note}</p>
 
-      <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-heritage/35 bg-clinical-soft/40 shadow-card dark:border-heritage/20 dark:bg-ink/40">
-        <div className="aspect-video w-full bg-gradient-to-br from-clinical-soft via-paper to-sand dark:from-clinical/20 dark:via-ink dark:to-ink">
-          <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8 text-center">
-            <div
-              aria-hidden
-              className="grid h-16 w-16 place-items-center rounded-full border border-heritage/30 bg-paper shadow-sm"
-            >
-              <svg viewBox="0 0 24 24" className="h-7 w-7 text-heritage" fill="currentColor">
-                <path d="M8 5v14l11-7L8 5z" />
-              </svg>
+      {videoSrc ? (
+        <div className="relative overflow-hidden rounded-2xl border border-sand bg-ink/5 shadow-card dark:border-ink/20 dark:bg-ink/40 aspect-video">
+          <video
+            src={videoSrc}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ) : (
+        <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-heritage/35 bg-clinical-soft/40 shadow-card dark:border-heritage/20 dark:bg-ink/40">
+          <div className="aspect-video w-full bg-gradient-to-br from-clinical-soft via-paper to-sand dark:from-clinical/20 dark:via-ink dark:to-ink">
+            <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8 text-center">
+              <div
+                aria-hidden
+                className="grid h-16 w-16 place-items-center rounded-full border border-heritage/30 bg-paper shadow-sm"
+              >
+                <svg viewBox="0 0 24 24" className="h-7 w-7 text-heritage" fill="currentColor">
+                  <path d="M8 5v14l11-7L8 5z" />
+                </svg>
+              </div>
+              <p className="max-w-md text-sm text-ink-muted">{emptyState}</p>
             </div>
-            <p className="max-w-md text-sm text-ink-muted">{emptyState}</p>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
+

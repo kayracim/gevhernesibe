@@ -12,6 +12,7 @@
     "didYouKnow": "Did You Know?",
     "international": "Scientific Heritage STEM",
     "bibliography": "Bibliography",
+    "instruments": "Surgical Instruments",
     "virtualTour": "3D Virtual Tour",
     "contact": "Visit & Contact",
     "cta": "STEM Explore"
@@ -49,7 +50,7 @@
       "emptyState": "Video player area"
     },
     "posters": {
-      "title": "Historical Documents and Drawings",
+      "title": "Posters",
       "note": "A special collection including architectural plans of the complex, Seljuk medical instruments, and treatment scenes.",
       "slotLabel": "Artifact"
     },
@@ -61,20 +62,37 @@
       {
         "id": 1,
         "tag": "Legacy",
-        "title": "The Last Will of Princess Gevher Nesibe",
-        "description": "On her deathbed, she requested her brother to build a place that would provide cure and education for all, leading to the birth of this center."
+        "title": "The Will of Gevher Nesibe Sultan",
+        "description": "On her deathbed, she requested her brother to build a place that would provide cure and education for all, leading to the birth of this center.",
+        "image": "/images/GEBO1.jpeg"
       },
       {
         "id": 2,
-        "tag": "Healing Arts",
-        "title": "The Power of Sound and Water",
-        "description": "800 years ago, music therapy and the soothing sound of water were integrated into clinical treatments for psychological disorders."
+        "tag": "Architecture",
+        "title": "Corridors of Healing",
+        "description": "The vaulted corridors of the Double Madrasa, a masterpiece of Seljuk architecture, designed with unique acoustics to carry water and music therapy to every room.",
+        "image": "/images/GEBO2.jpeg"
       },
       {
         "id": 3,
-        "tag": "Architecture",
+        "tag": "Music Therapy",
+        "title": "The Power of Sound and Water",
+        "description": "800 years ago, music therapy and the soothing sound of water were integrated into clinical treatments for psychological disorders.",
+        "image": "/images/GEBO3.jpeg"
+      },
+      {
+        "id": 4,
+        "tag": "Education",
         "title": "The First Medical University",
-        "description": "The 'Double Madrasa' layout integrated clinical practice and theoretical education under one roof, a first in medical history."
+        "description": "The 'Double Madrasa' layout integrated clinical practice and theoretical education under one roof, a first in medical history.",
+        "image": "/images/GEBO4.jpeg"
+      },
+      {
+        "id": 5,
+        "tag": "STEM",
+        "title": "Cultural Bridge to the Future",
+        "description": "The observation and recording tradition of the Seljuk medical world is carried to the future today through the science and technology-focused project of the Sirius Team.",
+        "image": "/images/GEBO5.jpeg"
       }
     ]
   },
@@ -176,7 +194,7 @@
   "virtualTourPage": {
     "title": "3D Virtual Tour",
     "subtitle": "Explore the Complex Step by Step",
-    "intro": "You can explore the historical atmosphere of Gevher Nesibe Healing House and Madrasa (Seljuk Civilization Museum) with a 360-degree VR video, as if you were there. You can look around by dragging the video with the mouse.",
+    "intro": "You can explore the historical atmosphere, healing methods, and the legacy of music/water therapy of the Gevher Nesibe Healing House and Madrasa (Seljuk Civilization Museum) through the TRT Haber documentary video.",
     "loading": "Virtual Tour is loading..."
   },
   "footer": {
