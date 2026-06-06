@@ -14,6 +14,7 @@
     "bibliography": "Bibliography",
     "instruments": "Surgical Instruments",
     "virtualTour": "3D Virtual Tour",
+    "pulseAnalyzer": "İlm-i Nabız Analyzer",
     "contact": "Visit & Contact",
     "cta": "STEM Explore"
   },
@@ -430,5 +431,62 @@
         "body": "The Gevher Nesibe Healing House was established with the personal wealth and last will of a female royal, representing the largest scientific investment of the era. It stands as the most tangible monument to the strong position of women in science, endowments, and governance in Seljuk society."
       }
     ]
+  },
+  "pulseAnalyzerPage": {
+    "title": "İlm-i Nabız Analyzer",
+    "subtitle": "Analyze Your Biometric Data with Avicenna's Healing Algorithm",
+    "intro": "Analyze your pulse by entering your heart rate (BPM) or using the interactive rhythm adjuster below. Discover your temperament and emotional state according to Avicenna's 10-dimensional Science of Pulse.",
+    "bpmLabel": "Pulse Rate (BPM)",
+    "soundToggle": "Sound Rhythm",
+    "soundOn": "On",
+    "soundOff": "Off",
+    "analysisTitle": "Analysis Result",
+    "mizacLabel": "Temperament State",
+    "makamLabel": "Recommended Music Makam",
+    "gidaLabel": "Recommended Diet / Foods",
+    "caution": "Note: This analysis is based on historical medical texts and does not carry modern medical diagnostic value.",
+    "settingsTitle": "Pulse Threshold Settings",
+    "settingsIntro": "You can customize the pulse ranges (BPM) below where the Avicenna analyzer triggers specific emotional states.",
+    "angerLabel": "Anger / Fury Threshold",
+    "fearLabel": "Fear / Terror Threshold",
+    "sadnessLabel": "Sorrow / Grief Threshold",
+    "balanceLabel": "Itidal (Normal) Threshold",
+    "states": {
+      "fear": {
+        "name": "Fear and Terror (Dehşetli)",
+        "desc": "Pulse is slow and deep. Life energy and blood have pulled to the center, cooling the peripheral organs.",
+        "mizac": "Cold & Moist (Balgamî)",
+        "makam": "Rehavi or Rast",
+        "gida": "Ginger, honey, black cumin, cinnamon (warming foods)"
+      },
+      "sadness": {
+        "name": "Sorrow and Grief (Kederli)",
+        "desc": "Pulse is thread-like, slow, and weak. The body slows down and sorrow envelopes the soul.",
+        "mizac": "Cold & Dry (Sevdavî)",
+        "makam": "Uşşak or Irak",
+        "gida": "Fresh broth, honey, almonds, figs (moist and hot foods)"
+      },
+      "balance": {
+        "name": "Itidal (Balanced / Healthy)",
+        "desc": "Pulse is moderate in strength, rhythmic, and regular. Represents the perfect state of internal balance (homeostasis).",
+        "mizac": "Balanced (Mutedil)",
+        "makam": "Rast or Nihavend (to maintain the current balance)",
+        "gida": "Seasonal vegetables, light grains, pure water (diet free of excess)"
+      },
+      "anger": {
+        "name": "Anger and Fury (Öfkeli)",
+        "desc": "Pulse is fast, hard, vessel wall is tense, and beat area is wide. Bile and heat in the body are elevated.",
+        "mizac": "Hot & Dry (Safravî)",
+        "makam": "Rast or Rehavi",
+        "gida": "Vinegar, sour grape juice, cucumber, lettuce, cold water (cooling 'muberrid' foods)"
+      },
+      "excitement": {
+        "name": "Extreme Excitement / Love / Arrhythmia",
+        "desc": "Pulse is extremely fast, wavy, irregular, and sometimes broken (Zü'l-fetr). Indicates mental or emotional over-stimulation.",
+        "mizac": "Hot & Moist (Demeveî)",
+        "makam": "Nihavend or Hüseyni",
+        "gida": "Willow bark tea, lemon water, light yogurt-based foods"
+      }
+    }
   }
 }

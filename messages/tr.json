@@ -14,6 +14,7 @@
     "bibliography": "Kaynakça",
     "instruments": "Cerrahi Aletler",
     "virtualTour": "3D Sanal Tur",
+    "pulseAnalyzer": "İlm-i Nabız Analizörü",
     "contact": "Ziyaret ve İletişim",
     "cta": "STEM Keşfi"
   },
@@ -430,5 +431,62 @@
         "body": "Gevher Nesibe Şifahanesi, bir kadın sultanın şahsi malvarlığı ve vasiyetiyle kurulmuş, dönemin en büyük bilimsel yatırımıdır. Selçuklu toplumunda kadının bilim, vakıf ve devlet yönetimindeki güçlü konumunun en somut anıtıdır."
       }
     ]
+  },
+  "pulseAnalyzerPage": {
+    "title": "İlm-i Nabız Analizörü",
+    "subtitle": "Biyometrik Verilerinizi İbn-i Sina’nın Şifa Algoritması ile Çözümleyin",
+    "intro": "Kalp atış hızınızı girerek veya aşağıdaki ritim ayarlayıcıyı kullanarak nabzınızı analiz edin. İbn-i Sina’nın 10 boyutlu İlm-i Nabız öğretisine göre mizaç ve ruhsal durumunuzu keşfedin.",
+    "bpmLabel": "Nabız Sayısı (BPM)",
+    "soundToggle": "Ses Ritmi",
+    "soundOn": "Açık",
+    "soundOff": "Kapalı",
+    "analysisTitle": "Analiz Sonucu",
+    "mizacLabel": "Mizaç Durumu",
+    "makamLabel": "Önerilen Müzik Makamı",
+    "gidaLabel": "Önerilen Diyet / Gıdalar",
+    "caution": "Not: Bu analiz tarihi tıp metinlerine dayanmakta olup, modern tıbbi teşhis değeri taşımamaktadır.",
+    "settingsTitle": "Nabız Eşik Ayarları",
+    "settingsIntro": "İbn-i Sina analizörünün durumları tetikleyeceği nabız aralıklarını (BPM) aşağıdan kendinize göre özelleştirebilirsiniz.",
+    "angerLabel": "Öfke / Hiddet Eşiği",
+    "fearLabel": "Korku / Dehşet Eşiği",
+    "sadnessLabel": "Üzüntü / Keder Eşiği",
+    "balanceLabel": "İtidal (Normal) Eşiği",
+    "states": {
+      "fear": {
+        "name": "Korku ve Dehşet (Dehşetli)",
+        "desc": "Nabız yavaş ve derindedir. Yaşam enerjisi ve kan merkeze çekilmiş, dış organlar soğumuştur.",
+        "mizac": "Soğuk ve Nemli (Balgamî)",
+        "makam": "Rehavi veya Rast",
+        "gida": "Zencefil, bal, çörek otu, tarçın (kanı ve vücudu ısıtıcı gıdalar)"
+      },
+      "sadness": {
+        "name": "Üzüntü ve Keder (Kederli)",
+        "desc": "Nabız 'ip gibi' ince, yavaş ve güçsüz atar. Beden yavaşlamış ve keder ruhu kaplamıştır.",
+        "mizac": "Soğuk ve Kuru (Sevdavî)",
+        "makam": "Uşşak veya Irak",
+        "gida": "Taze et suyu, bal, badem, incir (yaş ve sıcak gıdalar)"
+      },
+      "balance": {
+        "name": "İtidal (Dengeli / Sağlıklı)",
+        "desc": "Nabız orta kuvvettedir, ritmi ahenkli ve düzenlidir. Bedenin iç dengesinin (homeostazi) mükemmel durumunu temsil eder.",
+        "mizac": "Dengeli (Mutedil)",
+        "makam": "Rast veya Nihavend (mevcut dengenin korunmesi için)",
+        "gida": "Mevsim sebzeleri, hafif tahıllar, temiz su (aşırılıktan uzak beslenme)"
+      },
+      "anger": {
+        "name": "Öfke ve Hiddet (Öfkeli)",
+        "desc": "Nabız hızlı, sert, damar duvarı gergin ve vuruş alanı geniştir. Vücuttaki safra ve hararet yükselmiştir.",
+        "mizac": "Sıcak ve Kuru (Safravî)",
+        "makam": "Rast veya Rehavi",
+        "gida": "Sirke, koruk suyu, salatalık, marul, soğuk su (vücudu soğutucu 'muberrid' gıdalar)"
+      },
+      "excitement": {
+        "name": "Aşırı Heyecan / Aşk / Aritmi",
+        "desc": "Nabız son derece hızlı, dalgalı, düzensiz ve bazen kopuktur (Zü'l-fetr). Zihinsel veya duygusal aşırı uyarılmayı gösterir.",
+        "mizac": "Sıcak ve Nemli (Demeveî)",
+        "makam": "Nihavend veya Hüseyni",
+        "gida": "Söğüt kabuğu çayı, limonlu su, hafif yoğurtlu yiyecekler"
+      }
+    }
   }
 }
