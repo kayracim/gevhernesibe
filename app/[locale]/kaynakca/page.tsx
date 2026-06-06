@@ -55,7 +55,7 @@ export default async function BibliographyPage({
               {locale === "tr" ? "Web 3.0 Araçları" : "Web 3.0 Tools"}
             </h3>
             <ul className="list-disc pl-5 space-y-1.5 text-base text-ink-muted dark:text-paper/70">
-              <li>ChatGPT (Chatpgh)</li>
+              <li>ChatGPT</li>
               <li>Gemini</li>
             </ul>
           </div>
