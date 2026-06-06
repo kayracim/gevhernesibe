@@ -36,6 +36,13 @@ export default async function StemProjectPage({
         <div className="space-y-6">
           <Section id="tema" title={locale === "tr" ? "Etkinlik Teması" : "Activity Theme"}>
             <p className="text-lg font-medium text-heritage dark:text-heritage/90">{s.activity.theme}</p>
+            <div className="mt-4 overflow-hidden rounded-2xl border border-sand/60 bg-paper/50 p-2 shadow-sm max-w-xs dark:border-ink/20 dark:bg-ink/30">
+              <img
+                src="/images/logoyabak.jpeg"
+                alt="Sirius Logo"
+                className="w-full h-auto object-contain rounded-xl"
+              />
+            </div>
             <p className="mt-4 leading-relaxed text-ink-muted dark:text-paper/70">{s.activity.purpose}</p>
           </Section>
 
