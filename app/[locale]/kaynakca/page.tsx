@@ -44,10 +44,7 @@ export default async function BibliographyPage({
             <ul className="list-disc pl-5 space-y-1.5 text-base text-ink-muted dark:text-paper/70">
               <li>Canva</li>
               <li>Padlet</li>
-              <li>NotebookLM</li>
-              <li>Mentimeter</li>
-              <li>Kahoot</li>
-              <li>Google Forms</li>
+              <li>Android Studio</li>
             </ul>
           </div>
           <div className="space-y-3 rounded-2xl bg-paper/55 p-6 shadow-sm border border-sand dark:bg-ink/60 dark:border-paper/10">
@@ -55,7 +52,8 @@ export default async function BibliographyPage({
               {locale === "tr" ? "Web 3.0 Araçları" : "Web 3.0 Tools"}
             </h3>
             <ul className="list-disc pl-5 space-y-1.5 text-base text-ink-muted dark:text-paper/70">
-              <li>ChatGPT</li>
+              <li>Antigravity</li>
+              <li>Cursor</li>
               <li>Gemini</li>
             </ul>
           </div>
