@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "gevhernesibe-8b017",
     "public": "out",
     "ignore": [
       "firebase.json",

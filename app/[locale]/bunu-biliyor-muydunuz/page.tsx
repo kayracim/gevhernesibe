@@ -27,6 +27,14 @@ export default async function DidYouKnowPage({
   const dict = await getDictionary(locale);
   const p = dict.didYouKnow;
 
+  const itemImages = [
+    "/images/GEV2.jpeg", // Bilim Tarihi Notu
+    "/images/GEV3.jpeg", // İlk Entegre Sistem
+    "/images/GEV4.jpeg", // Ücretsiz ve Eşit Sağlık Hizmeti
+    "/images/GEV5.jpeg", // Müzikoterapi ve Makamların Sırrı
+    "/images/GEV6.jpeg", // Kadınların Yönetimdeki Rolü
+  ];
+
   return (
     <div className="space-y-12">
       <PageIntro title={p.title} subtitle={p.subtitle || (locale === "tr" ? "800 Yıllık Tıp Tarihinin Şaşırtıcı Gerçekleri" : "Surprising Facts from 800 Years of Medical History")} />
@@ -41,6 +49,15 @@ export default async function DidYouKnowPage({
                 <h3 className="font-display text-xl font-bold text-ink dark:text-paper">{item.title}</h3>
               </div>
               <p className="leading-relaxed text-ink-muted dark:text-paper/80 text-base">{item.body}</p>
+              {itemImages[i] && (
+                <div className="mt-4 overflow-hidden rounded-2xl border border-sand bg-ink/5 shadow-sm aspect-video">
+                  <img
+                    src={itemImages[i]}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
             </div>
             {/* Decorative background element */}
             <div className="absolute -right-4 -top-4 h-32 w-32 rounded-full bg-accent/10 blur-2xl transition-all group-hover:bg-accent/20 dark:bg-accent/20"></div>

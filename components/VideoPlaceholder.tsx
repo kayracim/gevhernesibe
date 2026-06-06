@@ -21,7 +21,9 @@ export function VideoPlaceholder({
           {badge}
         </span>
       </div>
-      <p className="max-w-measure text-sm leading-relaxed text-ink-muted dark:text-paper/60">{note}</p>
+      {note && (
+        <p className="max-w-measure text-sm leading-relaxed text-ink-muted dark:text-paper/60">{note}</p>
+      )}
 
       {videoSrc ? (
         <div className="relative overflow-hidden rounded-2xl border border-sand bg-ink/5 shadow-card dark:border-ink/20 dark:bg-ink/40 aspect-video">

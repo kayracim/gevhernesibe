@@ -118,6 +118,13 @@ export function PulseScienceSection({ data }: PulseScienceProps) {
         <p className="mx-auto max-w-4xl text-lg leading-relaxed text-ink-muted dark:text-paper/80">
           {data.lead}
         </p>
+        <div className="mx-auto max-w-3xl mt-8 overflow-hidden rounded-3xl border border-sand/60 bg-paper/55 shadow-md dark:border-ink/20 dark:bg-ink/30">
+          <img
+            src="/images/GEV1.jpeg"
+            alt={data.title}
+            className="w-full h-auto max-h-[450px] object-cover mx-auto"
+          />
+        </div>
       </div>
 
       <div className="rounded-3xl bg-paper/50 p-3 shadow-sm border border-sand dark:bg-ink/40 dark:border-paper/10 relative overflow-hidden">
