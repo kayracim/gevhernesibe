@@ -46,8 +46,61 @@ export default async function StemProjectPage({
             <p className="mt-4 leading-relaxed text-ink-muted dark:text-paper/70">{s.activity.purpose}</p>
           </Section>
 
-          <Section id="maarif" title={locale === "tr" ? "Maarif Modeli Entegrasyonu" : "Maarif Model Integration"}>
-            <p className="leading-relaxed text-ink-muted dark:text-paper/60 italic">{s.activity.maarif}</p>
+          <Section id="stem-boyutu" title={locale === "tr" ? "Projemizin STEM Boyutu" : "Our Project's STEM Dimensions"}>
+            <div className="space-y-4">
+              {[
+                {
+                  letter: "S",
+                  label: locale === "tr" ? "Science / Fen" : "Science",
+                  color: "bg-clinical text-white",
+                  border: "border-clinical/30",
+                  bg: "bg-clinical/5 dark:bg-clinical/10",
+                  text: locale === "tr"
+                    ? "İbn-i Sina'nın nabız teorisi ve bunun modern kardiyoloji / EKG mantığıyla biyolojik karşılaştırması."
+                    : "Ibn Sina's pulse theory and its biological comparison with modern cardiology / ECG logic."
+                },
+                {
+                  letter: "T",
+                  label: locale === "tr" ? "Technology / Teknoloji" : "Technology",
+                  color: "bg-heritage text-white",
+                  border: "border-heritage/30",
+                  bg: "bg-heritage/5 dark:bg-heritage/10",
+                  text: locale === "tr"
+                    ? "Dijital Nabız Analizörü yazılımı, 3D Sanal Tur entegrasyonu ve Next.js tabanlı web kodlaması."
+                    : "Digital Pulse Analyzer software, 3D Virtual Tour integration and Next.js-based web coding."
+                },
+                {
+                  letter: "E",
+                  label: locale === "tr" ? "Engineering / Mühendislik" : "Engineering",
+                  color: "bg-accent text-white",
+                  border: "border-accent/30",
+                  bg: "bg-accent/5 dark:bg-accent/10",
+                  text: locale === "tr"
+                    ? "Tarihi cerrahi aletlerin çalışma mekanizmaları."
+                    : "Working mechanisms of historical surgical instruments."
+                },
+                {
+                  letter: "M",
+                  label: locale === "tr" ? "Mathematics / Matematik" : "Mathematics",
+                  color: "bg-ink text-white dark:bg-paper dark:text-ink",
+                  border: "border-ink/20",
+                  bg: "bg-ink/5 dark:bg-paper/10",
+                  text: locale === "tr"
+                    ? "Nabzın 10 farklı parametresindeki ritimsel oranlar, hareket/sükûn sürelerinin matematiksel dengesi."
+                    : "Rhythmic ratios in 10 different parameters of the pulse, mathematical balance of motion/rest durations."
+                },
+              ].map((item) => (
+                <div key={item.letter} className={`flex gap-4 rounded-2xl border ${item.border} ${item.bg} p-4`}>
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-display text-xl font-black shadow-sm ${item.color}`}>
+                    {item.letter}
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-ink-muted dark:text-paper/50">{item.label}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-ink dark:text-paper/90">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Section>
         </div>
 
