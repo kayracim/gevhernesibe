@@ -135,7 +135,7 @@ export function GameDownloadWidget({ locale }: { locale: string }) {
               <div className="space-y-4">
                 {/* QR Code and direct button */}
                 <div className="flex flex-col items-center gap-3">
-                  {/* Original QR Code Image from public/images/qr_code.png */}
+                  {/* Original QR Code Image from public/images/QRMOBIL.jpeg */}
                   <a
                     href="/app-debug.bin"
                     download="gevher-nesibe-mobil-oyun.apk"
@@ -144,7 +144,7 @@ export function GameDownloadWidget({ locale }: { locale: string }) {
                     title={t.clickToDownload}
                   >
                     <img
-                      src="/images/qr_code.png"
+                      src="/images/QRMOBIL.jpeg"
                       alt="QR Code"
                       className="h-full w-full object-contain"
                     />
