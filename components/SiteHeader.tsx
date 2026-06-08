@@ -26,6 +26,7 @@ export function SiteHeader({
     { href: withLocale(locale, "/bunu-biliyor-muydunuz"), label: nav.didYouKnow },
     { href: withLocale(locale, "/uluslararasi"), label: nav.international },
     { href: withLocale(locale, "/kaynakca"), label: nav.bibliography },
+    { href: withLocale(locale, "/galeri"), label: nav.gallery },
     { href: withLocale(locale, "/iletisim"), label: nav.contact },
   ];
 

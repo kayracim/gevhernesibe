@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Instrument {
@@ -260,120 +260,22 @@ function playKanun(ctx: AudioContext) {
   });
 }
 
-/** REBAP — Bowed string: sawtooth + multi-harmonic + heavy LP */
-function playRebap(ctx: AudioContext) {
-  const t = ctx.currentTime;
-  const phrase = [
-    { freq: 220.0, dur: 1.0 },
-    { freq: 246.9, dur: 0.8 },
-    { freq: 261.6, dur: 0.8 },
-    { freq: 293.7, dur: 1.2 },
-    { freq: 246.9, dur: 0.7 },
-    { freq: 220.0, dur: 1.5 },
-  ];
 
-  let offset = 0;
-  for (const note of phrase) {
-    const start = t + offset;
-    const dur = note.dur;
 
-    const osc = ctx.createOscillator();
-    osc.type = "sawtooth";
-    osc.frequency.setValueAtTime(note.freq, start);
-
-    // Vibrato
-    const vib = ctx.createOscillator();
-    const vibGain = ctx.createGain();
-    vib.frequency.value = 6;
-    vibGain.gain.value = 3.5;
-    vib.connect(vibGain);
-    vibGain.connect(osc.frequency);
-
-    // Warm body filter
-    const lp = ctx.createBiquadFilter();
-    lp.type = "lowpass";
-    lp.frequency.setValueAtTime(600, start);
-
-    const gainNode = ctx.createGain();
-    gainNode.gain.setValueAtTime(0, start);
-    gainNode.gain.linearRampToValueAtTime(0.3, start + 0.25); // slow bow attack
-    gainNode.gain.setValueAtTime(0.3, start + dur - 0.12);
-    gainNode.gain.linearRampToValueAtTime(0, start + dur);
-
-    osc.connect(lp); lp.connect(gainNode); gainNode.connect(ctx.destination);
-    vib.start(start); osc.start(start);
-    vib.stop(start + dur); osc.stop(start + dur);
-
-    offset += dur * 0.9;
-  }
-}
-
-/** DEF (frame drum) — layered membrane hit + rim click pattern */
-function playDef(ctx: AudioContext) {
-  const t = ctx.currentTime;
-
-  const hit = (time: number, vol = 0.7) => {
-    // Low thump (membrane)
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(180, time);
-    osc.frequency.exponentialRampToValueAtTime(55, time + 0.08);
-    gain.gain.setValueAtTime(vol, time);
-    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.35);
-    osc.connect(gain); gain.connect(ctx.destination);
-    osc.start(time); osc.stop(time + 0.4);
-
-    // Skin noise burst
-    const nLen = Math.ceil(ctx.sampleRate * 0.06);
-    const nBuf = ctx.createBuffer(1, nLen, ctx.sampleRate);
-    const nd = nBuf.getChannelData(0);
-    for (let i = 0; i < nLen; i++) nd[i] = Math.random() * 2 - 1;
-    const noise = ctx.createBufferSource();
-    noise.buffer = nBuf;
-    const nf = ctx.createBiquadFilter();
-    nf.type = "bandpass"; nf.frequency.value = 2200; nf.Q.value = 0.8;
-    const ng = ctx.createGain();
-    ng.gain.setValueAtTime(vol * 0.35, time);
-    ng.gain.exponentialRampToValueAtTime(0.001, time + 0.06);
-    noise.connect(nf); nf.connect(ng); ng.connect(ctx.destination);
-    noise.start(time); noise.stop(time + 0.07);
-  };
-
-  // Rhythmic pattern: düm-tek-tek-düm-tek
-  const bpm = 96;
-  const beat = 60 / bpm;
-  hit(t,          0.8); // düm
-  hit(t + beat * 0.5, 0.4); // tek
-  hit(t + beat,       0.75); // düm
-  hit(t + beat * 1.5, 0.4); // tek
-  hit(t + beat * 2,   0.8); // düm
-  hit(t + beat * 2.5, 0.35);
-  hit(t + beat * 3,   0.75);
-  hit(t + beat * 3.5, 0.4);
-  hit(t + beat * 4,   0.8);
-  hit(t + beat * 4.5, 0.35);
-  hit(t + beat * 5,   0.75);
-  hit(t + beat * 5.5, 0.4);
-}
-
-/** Main dispatcher */
-function playInstrumentSound(instrumentId: string) {
+/** Main dispatcher for synthesized instruments */
+function playInstrumentSound(instrumentId: string): AudioContext | null {
   const ctx = getAudioContext();
-  if (!ctx) return;
+  if (!ctx) return null;
   if (ctx.state === "suspended") ctx.resume();
 
   switch (instrumentId) {
     case "ney":   playNey(ctx);   break;
     case "ud":    playUd(ctx);    break;
     case "kanun": playKanun(ctx); break;
-    case "rebap": playRebap(ctx); break;
-    case "def":   playDef(ctx);   break;
     default:      playNey(ctx);
   }
 
-  // Close context after 10s to free resources
-  setTimeout(() => ctx.close().catch(() => {}), 10000);
+  return ctx;
 }
 
 
@@ -381,16 +283,84 @@ export function MusicalInstruments({ locale }: { locale: "tr" | "en" }) {
   const [selectedId, setSelectedId] = useState<string>("ney");
   const [playingId, setPlayingId] = useState<string | null>(null);
   const playTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+  const currentCtxRef = useRef<AudioContext | null>(null);
 
   const selected = instruments.find((i) => i.id === selectedId) || instruments[0];
 
+  // Stop playing on unmount
+  useEffect(() => {
+    return () => {
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause();
+      }
+      if (currentCtxRef.current) {
+        currentCtxRef.current.close().catch(() => {});
+      }
+      if (playTimerRef.current) {
+        clearTimeout(playTimerRef.current);
+      }
+    };
+  }, []);
+
   const handlePlay = useCallback(
     (inst: Instrument) => {
-      if (playingId === inst.id) return;
-      if (playTimerRef.current) clearTimeout(playTimerRef.current);
+      // 1. Stop any currently playing audio or context
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause();
+        currentAudioRef.current.currentTime = 0;
+        currentAudioRef.current = null;
+      }
+      if (currentCtxRef.current) {
+        currentCtxRef.current.close().catch(() => {});
+        currentCtxRef.current = null;
+      }
+      if (playTimerRef.current) {
+        clearTimeout(playTimerRef.current);
+        playTimerRef.current = null;
+      }
+
+      // If clicked the currently playing instrument, just stop it and toggle state
+      if (playingId === inst.id) {
+        setPlayingId(null);
+        return;
+      }
+
       setPlayingId(inst.id);
-      playInstrumentSound(inst.id);
-      playTimerRef.current = setTimeout(() => setPlayingId(null), 7500);
+
+      if (inst.id === "rebap" || inst.id === "def") {
+        // Play real MP3 files
+        const audio = new Audio(`/images/${inst.id}.mp3`);
+        currentAudioRef.current = audio;
+        audio.play().catch((err) => console.log("Audio play failed:", err));
+        
+        audio.onended = () => {
+          setPlayingId(null);
+          currentAudioRef.current = null;
+        };
+
+        // Fallback safety timeout (10 seconds max)
+        playTimerRef.current = setTimeout(() => {
+          if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+          }
+          setPlayingId(null);
+          currentAudioRef.current = null;
+        }, 10000);
+      } else {
+        // Synthesize other instruments (ney, ud, kanun)
+        const ctx = playInstrumentSound(inst.id);
+        currentCtxRef.current = ctx;
+
+        playTimerRef.current = setTimeout(() => {
+          setPlayingId(null);
+          if (ctx) {
+            ctx.close().catch(() => {});
+          }
+          currentCtxRef.current = null;
+        }, 7500);
+      }
     },
     [playingId]
   );
