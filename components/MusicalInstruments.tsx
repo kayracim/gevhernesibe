@@ -120,201 +120,40 @@ const instruments: Instrument[] = [
   },
 ];
 
-// Web Audio API synthesis for each instrument type
-function playInstrumentSound(
-  audioType: Instrument["audioType"],
-  baseFreq: number
-) {
-  const AudioCtx =
-    window.AudioContext ||
-    (window as Window & { webkitAudioContext?: typeof AudioContext })
-      .webkitAudioContext;
-  if (!AudioCtx) return;
+// Map each instrument to a matching makam MP3
+const INSTRUMENT_AUDIO: Record<string, string> = {
+  ney:   "/images/rast.mp3",      // Ney → Rast makamı
+  ud:    "/images/nihavent.mp3",  // Ud → Nihavend makamı
+  rebap: "/images/huseyni.mp3",   // Rebap → Hüseyni makamı
+  kanun: "/images/ussak.mp3",     // Kanun → Uşşak makamı
+  def:   "/images/rehavi.mp3",    // Def → Rehavi makamı
+};
 
-  const ctx = new AudioCtx();
+// Active audio instances (one per instrument slot)
+const activeAudioMap: Record<string, HTMLAudioElement> = {};
 
-  if (audioType === "wind") {
-    // Ney: breathy sine with vibrato
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    const lfo = ctx.createOscillator();
-    const lfoGain = ctx.createGain();
-
-    lfo.frequency.value = 5;
-    lfoGain.gain.value = 8;
-    lfo.connect(lfoGain);
-    lfoGain.connect(osc.frequency);
-
-    osc.type = "sine";
-    osc.frequency.value = baseFreq;
-    gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.3);
-    gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 1.5);
-    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 2.5);
-
-    // Add breath noise
-    const bufferSize = ctx.sampleRate * 2.5;
-    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-    const data = noiseBuffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-    const noise = ctx.createBufferSource();
-    noise.buffer = noiseBuffer;
-    const noiseFilter = ctx.createBiquadFilter();
-    noiseFilter.type = "bandpass";
-    noiseFilter.frequency.value = baseFreq * 2;
-    noiseFilter.Q.value = 0.5;
-    const noiseGain = ctx.createGain();
-    noiseGain.gain.value = 0.06;
-    noise.connect(noiseFilter);
-    noiseFilter.connect(noiseGain);
-    noiseGain.connect(ctx.destination);
-    noise.start();
-    noise.stop(ctx.currentTime + 2.5);
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    lfo.start();
-    osc.start();
-    osc.stop(ctx.currentTime + 2.5);
-    lfo.stop(ctx.currentTime + 2.5);
-  } else if (audioType === "pluck") {
-    // Ud or Kanun pluck sound: acoustic modeling
-    const playNote = (freq: number, delay: number) => {
-      const osc1 = ctx.createOscillator();
-      const osc2 = ctx.createOscillator();
-      const gainNode = ctx.createGain();
-      const filter = ctx.createBiquadFilter();
-
-      // Check if Ud or Kanun based on frequency
-      const isUd = baseFreq < 250; 
-
-      if (isUd) {
-        // Ud: Warm, lower, woody resonance
-        osc1.type = "triangle";
-        osc1.frequency.setValueAtTime(freq, ctx.currentTime + delay);
-        
-        osc2.type = "sine";
-        osc2.frequency.setValueAtTime(freq * 2, ctx.currentTime + delay);
-
-        filter.type = "lowpass";
-        filter.frequency.setValueAtTime(800, ctx.currentTime + delay);
-
-        gainNode.gain.setValueAtTime(0, ctx.currentTime + delay);
-        gainNode.gain.linearRampToValueAtTime(0.35, ctx.currentTime + delay + 0.005);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 1.8);
-
-        osc1.connect(filter);
-        osc2.connect(filter);
-        filter.connect(gainNode);
-        gainNode.connect(ctx.destination);
-      } else {
-        // Kanun: Bright, metallic, multi-string zither
-        osc1.type = "triangle";
-        osc1.frequency.setValueAtTime(freq, ctx.currentTime + delay);
-
-        osc2.type = "sawtooth";
-        osc2.frequency.setValueAtTime(freq * 2, ctx.currentTime + delay);
-
-        filter.type = "lowpass";
-        filter.frequency.setValueAtTime(2200, ctx.currentTime + delay);
-
-        gainNode.gain.setValueAtTime(0, ctx.currentTime + delay);
-        gainNode.gain.linearRampToValueAtTime(0.25, ctx.currentTime + delay + 0.005);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 2.2);
-
-        const osc2Gain = ctx.createGain();
-        osc2Gain.gain.value = 0.12; // Sawtooth blend for bright bite
-
-        osc1.connect(filter);
-        osc2.connect(osc2Gain);
-        osc2Gain.connect(filter);
-        filter.connect(gainNode);
-        gainNode.connect(ctx.destination);
-      }
-
-      osc1.start(ctx.currentTime + delay);
-      osc2.start(ctx.currentTime + delay);
-      osc1.stop(ctx.currentTime + delay + 2.4);
-      osc2.stop(ctx.currentTime + delay + 2.4);
-    };
-
-    if (baseFreq < 250) {
-      // Ud chord
-      playNote(baseFreq, 0);
-      playNote(baseFreq * 1.33, 0.4);
-      playNote(baseFreq * 1.5, 0.8);
-    } else {
-      // Kanun arpeggio
-      playNote(baseFreq, 0);
-      playNote(baseFreq * 1.25, 0.25);
-      playNote(baseFreq * 1.5, 0.5);
-      playNote(baseFreq * 2.0, 0.75);
-    }
-  } else if (audioType === "string") {
-    // Rebap: bowed string (sawtooth with vibrato, tremolo, and heavy lowpass)
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    const vibratoLFO = ctx.createOscillator();
-    const vibratoGain = ctx.createGain();
-    const tremoloLFO = ctx.createOscillator();
-    const tremoloGain = ctx.createGain();
-
-    vibratoLFO.frequency.value = 5.5; // Vibrato speed
-    vibratoGain.gain.value = 4.5; // Vibrato depth (Hz)
-    vibratoLFO.connect(vibratoGain);
-    vibratoGain.connect(osc.frequency);
-
-    tremoloLFO.frequency.value = 6;
-    tremoloGain.gain.value = 0.12;
-    tremoloLFO.connect(tremoloGain);
-    tremoloGain.connect(gain.gain);
-
-    osc.type = "sawtooth";
-    osc.frequency.value = baseFreq;
-
-    // Heavy lowpass filter cuts harsh synthesizer bite to mimic wooden body acoustics
-    const filter = ctx.createBiquadFilter();
-    filter.type = "lowpass";
-    filter.frequency.value = 650; 
-
-    gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.35); // Slow bow attack
-    gain.gain.setValueAtTime(0.3, ctx.currentTime + 1.8);
-    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 2.5); // Smooth release
-
-    osc.connect(filter);
-    filter.connect(gain);
-    gain.connect(ctx.destination);
-
-    vibratoLFO.start();
-    tremoloLFO.start();
-    osc.start();
-
-    vibratoLFO.stop(ctx.currentTime + 2.5);
-    tremoloLFO.stop(ctx.currentTime + 2.5);
-    osc.stop(ctx.currentTime + 2.5);
-  } else if (audioType === "drum") {
-    // Def/Bendir: low thump + decay
-    const playBeat = (time: number) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(baseFreq, time);
-      osc.frequency.exponentialRampToValueAtTime(40, time + 0.08);
-      gain.gain.setValueAtTime(0.6, time);
-      gain.gain.exponentialRampToValueAtTime(0.01, time + 0.35);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(time);
-      osc.stop(time + 0.4);
-    };
-    const bpm = 90;
-    const interval = 60 / bpm;
-    for (let i = 0; i < 6; i++) {
-      playBeat(ctx.currentTime + i * interval);
-    }
+// Play an instrument's MP3 snippet (stops after 8 seconds)
+function playInstrumentSound(instrumentId: string) {
+  // Stop any existing audio for this slot
+  if (activeAudioMap[instrumentId]) {
+    activeAudioMap[instrumentId].pause();
+    activeAudioMap[instrumentId].currentTime = 0;
   }
+  const src = INSTRUMENT_AUDIO[instrumentId] || "/images/rast.mp3";
+  const audio = new Audio(src);
+  audio.volume = 0.85;
+  audio.play().catch(() => {});
+  activeAudioMap[instrumentId] = audio;
+
+  // Auto-stop after 8 seconds
+  const stopTimer = setTimeout(() => {
+    audio.pause();
+    audio.currentTime = 0;
+  }, 8000);
+
+  audio.addEventListener("ended", () => clearTimeout(stopTimer));
 }
+
 
 export function MusicalInstruments({ locale }: { locale: "tr" | "en" }) {
   const [selectedId, setSelectedId] = useState<string>("ney");
@@ -328,8 +167,8 @@ export function MusicalInstruments({ locale }: { locale: "tr" | "en" }) {
       if (playingId === inst.id) return;
       if (playTimerRef.current) clearTimeout(playTimerRef.current);
       setPlayingId(inst.id);
-      playInstrumentSound(inst.audioType, inst.baseFreq);
-      playTimerRef.current = setTimeout(() => setPlayingId(null), 2800);
+      playInstrumentSound(inst.id);
+      playTimerRef.current = setTimeout(() => setPlayingId(null), 8500);
     },
     [playingId]
   );

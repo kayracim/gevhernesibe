@@ -3,6 +3,7 @@ import { getDictionary } from "@/lib/i18n";
 import type { Locale } from "@/lib/locale";
 import { PageIntro } from "@/components/PageIntro";
 import { Section } from "@/components/Section";
+import { QRCodeGenerator } from "@/components/QRCodeGenerator";
 
 export async function generateMetadata({
   params,
@@ -178,6 +179,11 @@ export default async function BibliographyPage({
             </li>
           ))}
         </ul>
+      </Section>
+
+
+      <Section id="qr-kod" title={locale === "tr" ? "QR Kod Oluşturucu" : "QR Code Generator"}>
+        <QRCodeGenerator locale={locale} />
       </Section>
 
       <Section id="muze-notu" variant="heritage" title={locale === "tr" ? "Müze Bilgisi" : "Museum Information"}>
