@@ -336,14 +336,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     descEn: "Characteristic barrel-vaulted ceilings and dim exhibition corridors of Seljuk architecture.",
     category: "now",
   },
-  {
-    src: "/images/gevhersimdik/simdik_8.jpeg",
-    titleTr: "Tıbbi Bitkiler Bahçesi",
-    titleEn: "Medicinal Herbs Garden",
-    descTr: "Gevher Nesibe hekimlerinin ilaç yapımında kullandığı bitkilerin sergilendiği bölüm.",
-    descEn: "Section exhibiting herbs used by Gevher Nesibe physicians in making medicine.",
-    category: "now",
-  },
+
   {
     src: "/images/gevhersimdik/simdik_9.jpeg",
     titleTr: "Cerrahi Aletler Sergisi",
