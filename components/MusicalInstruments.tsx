@@ -120,38 +120,260 @@ const instruments: Instrument[] = [
   },
 ];
 
-// Map each instrument to a matching makam MP3
-const INSTRUMENT_AUDIO: Record<string, string> = {
-  ney:   "/images/rast.mp3",      // Ney → Rast makamı
-  ud:    "/images/nihavent.mp3",  // Ud → Nihavend makamı
-  rebap: "/images/huseyni.mp3",   // Rebap → Hüseyni makamı
-  kanun: "/images/ussak.mp3",     // Kanun → Uşşak makamı
-  def:   "/images/rehavi.mp3",    // Def → Rehavi makamı
-};
+// ─── Web Audio Synthesis: realistic instrument timbres ───────────────────────
 
-// Active audio instances (one per instrument slot)
-const activeAudioMap: Record<string, HTMLAudioElement> = {};
+function getAudioContext(): AudioContext | null {
+  const AudioCtx =
+    window.AudioContext ||
+    (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+  return AudioCtx ? new AudioCtx() : null;
+}
 
-// Play an instrument's MP3 snippet (stops after 8 seconds)
-function playInstrumentSound(instrumentId: string) {
-  // Stop any existing audio for this slot
-  if (activeAudioMap[instrumentId]) {
-    activeAudioMap[instrumentId].pause();
-    activeAudioMap[instrumentId].currentTime = 0;
+/** Karplus-Strong plucked string — very realistic for Ud & Kanun */
+function karplusStrong(ctx: AudioContext, freq: number, decay: number, gain: number, startTime: number) {
+  const sampleRate = ctx.sampleRate;
+  const period = Math.round(sampleRate / freq);
+  const bufLen = sampleRate * 3; // 3 seconds buffer
+  const buffer = ctx.createBuffer(1, bufLen, sampleRate);
+  const data = buffer.getChannelData(0);
+
+  // Seed with white noise for one period
+  for (let i = 0; i < period; i++) data[i] = Math.random() * 2 - 1;
+  // KS feedback loop
+  for (let i = period; i < bufLen; i++) {
+    data[i] = decay * 0.5 * (data[i - period] + data[i - period + 1]);
   }
-  const src = INSTRUMENT_AUDIO[instrumentId] || "/images/rast.mp3";
-  const audio = new Audio(src);
-  audio.volume = 0.85;
-  audio.play().catch(() => {});
-  activeAudioMap[instrumentId] = audio;
 
-  // Auto-stop after 8 seconds
-  const stopTimer = setTimeout(() => {
-    audio.pause();
-    audio.currentTime = 0;
-  }, 8000);
+  const source = ctx.createBufferSource();
+  source.buffer = buffer;
 
-  audio.addEventListener("ended", () => clearTimeout(stopTimer));
+  const gainNode = ctx.createGain();
+  gainNode.gain.setValueAtTime(gain, startTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + 2.8);
+
+  // Warm lowpass for body resonance
+  const filter = ctx.createBiquadFilter();
+  filter.type = "lowpass";
+  filter.frequency.setValueAtTime(freq * 8, startTime);
+
+  source.connect(filter);
+  filter.connect(gainNode);
+  gainNode.connect(ctx.destination);
+  source.start(startTime);
+  source.stop(startTime + 3);
+}
+
+/** NEY — breathy reed flute: filtered noise + sine, vibrato */
+function playNey(ctx: AudioContext) {
+  const t = ctx.currentTime;
+  // Notes: G4, A4, B4, C5 (short characteristic phrase)
+  const phrase = [
+    { freq: 392.0, dur: 0.7 },
+    { freq: 440.0, dur: 0.7 },
+    { freq: 493.9, dur: 0.7 },
+    { freq: 523.3, dur: 1.2 },
+    { freq: 440.0, dur: 0.8 },
+    { freq: 392.0, dur: 1.4 },
+  ];
+
+  let offset = 0;
+  for (const note of phrase) {
+    const start = t + offset;
+    const dur = note.dur;
+
+    // Sine body
+    const osc = ctx.createOscillator();
+    const oscGain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(note.freq, start);
+
+    // Vibrato
+    const lfo = ctx.createOscillator();
+    const lfoGain = ctx.createGain();
+    lfo.frequency.value = 5.5;
+    lfoGain.gain.value = 5;
+    lfo.connect(lfoGain);
+    lfoGain.connect(osc.frequency);
+
+    oscGain.gain.setValueAtTime(0, start);
+    oscGain.gain.linearRampToValueAtTime(0.38, start + 0.18);
+    oscGain.gain.setValueAtTime(0.38, start + dur - 0.12);
+    oscGain.gain.linearRampToValueAtTime(0, start + dur);
+
+    osc.connect(oscGain);
+    oscGain.connect(ctx.destination);
+    lfo.start(start); osc.start(start);
+    lfo.stop(start + dur); osc.stop(start + dur);
+
+    // Breath noise layer
+    const noiseLen = Math.ceil(ctx.sampleRate * dur);
+    const noiseBuf = ctx.createBuffer(1, noiseLen, ctx.sampleRate);
+    const nd = noiseBuf.getChannelData(0);
+    for (let i = 0; i < noiseLen; i++) nd[i] = Math.random() * 2 - 1;
+    const noise = ctx.createBufferSource();
+    noise.buffer = noiseBuf;
+    const nf = ctx.createBiquadFilter();
+    nf.type = "bandpass"; nf.frequency.value = note.freq * 2; nf.Q.value = 1.5;
+    const ng = ctx.createGain();
+    ng.gain.setValueAtTime(0, start);
+    ng.gain.linearRampToValueAtTime(0.045, start + 0.1);
+    ng.gain.linearRampToValueAtTime(0, start + dur);
+    noise.connect(nf); nf.connect(ng); ng.connect(ctx.destination);
+    noise.start(start); noise.stop(start + dur);
+
+    offset += dur * 0.92; // slight legato overlap
+  }
+}
+
+/** UD — Karplus-Strong arpeggio chord (G2-D3-A3-D4-G4-A4) */
+function playUd(ctx: AudioContext) {
+  const t = ctx.currentTime;
+  // Open string strum: G2, D3, A3, D4, G4, A4
+  const strings = [98.0, 146.8, 220.0, 293.7, 392.0, 440.0];
+  strings.forEach((freq, i) => {
+    karplusStrong(ctx, freq, 0.998, 0.55, t + i * 0.07);
+  });
+  // Follow with a simple melodic phrase
+  const melody = [
+    { freq: 392.0, delay: 0.7 },
+    { freq: 440.0, delay: 1.2 },
+    { freq: 493.9, delay: 1.7 },
+    { freq: 440.0, delay: 2.2 },
+    { freq: 392.0, delay: 2.7 },
+  ];
+  melody.forEach(({ freq, delay }) => {
+    karplusStrong(ctx, freq, 0.997, 0.5, t + delay);
+  });
+}
+
+/** KANUN — Bright zither arpeggio (Karplus-Strong, higher decay) */
+function playKanun(ctx: AudioContext) {
+  const t = ctx.currentTime;
+  // Fast arpeggio across two octaves
+  const notes = [293.7, 349.2, 392.0, 440.0, 523.3, 587.3, 659.3, 783.9];
+  notes.forEach((freq, i) => {
+    karplusStrong(ctx, freq, 0.9995, 0.45, t + i * 0.14);
+  });
+  // Repeat arpeggio going down
+  [...notes].reverse().forEach((freq, i) => {
+    karplusStrong(ctx, freq, 0.9993, 0.35, t + 1.3 + i * 0.13);
+  });
+}
+
+/** REBAP — Bowed string: sawtooth + multi-harmonic + heavy LP */
+function playRebap(ctx: AudioContext) {
+  const t = ctx.currentTime;
+  const phrase = [
+    { freq: 220.0, dur: 1.0 },
+    { freq: 246.9, dur: 0.8 },
+    { freq: 261.6, dur: 0.8 },
+    { freq: 293.7, dur: 1.2 },
+    { freq: 246.9, dur: 0.7 },
+    { freq: 220.0, dur: 1.5 },
+  ];
+
+  let offset = 0;
+  for (const note of phrase) {
+    const start = t + offset;
+    const dur = note.dur;
+
+    const osc = ctx.createOscillator();
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(note.freq, start);
+
+    // Vibrato
+    const vib = ctx.createOscillator();
+    const vibGain = ctx.createGain();
+    vib.frequency.value = 6;
+    vibGain.gain.value = 3.5;
+    vib.connect(vibGain);
+    vibGain.connect(osc.frequency);
+
+    // Warm body filter
+    const lp = ctx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.setValueAtTime(600, start);
+
+    const gainNode = ctx.createGain();
+    gainNode.gain.setValueAtTime(0, start);
+    gainNode.gain.linearRampToValueAtTime(0.3, start + 0.25); // slow bow attack
+    gainNode.gain.setValueAtTime(0.3, start + dur - 0.12);
+    gainNode.gain.linearRampToValueAtTime(0, start + dur);
+
+    osc.connect(lp); lp.connect(gainNode); gainNode.connect(ctx.destination);
+    vib.start(start); osc.start(start);
+    vib.stop(start + dur); osc.stop(start + dur);
+
+    offset += dur * 0.9;
+  }
+}
+
+/** DEF (frame drum) — layered membrane hit + rim click pattern */
+function playDef(ctx: AudioContext) {
+  const t = ctx.currentTime;
+
+  const hit = (time: number, vol = 0.7) => {
+    // Low thump (membrane)
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(180, time);
+    osc.frequency.exponentialRampToValueAtTime(55, time + 0.08);
+    gain.gain.setValueAtTime(vol, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.35);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(time); osc.stop(time + 0.4);
+
+    // Skin noise burst
+    const nLen = Math.ceil(ctx.sampleRate * 0.06);
+    const nBuf = ctx.createBuffer(1, nLen, ctx.sampleRate);
+    const nd = nBuf.getChannelData(0);
+    for (let i = 0; i < nLen; i++) nd[i] = Math.random() * 2 - 1;
+    const noise = ctx.createBufferSource();
+    noise.buffer = nBuf;
+    const nf = ctx.createBiquadFilter();
+    nf.type = "bandpass"; nf.frequency.value = 2200; nf.Q.value = 0.8;
+    const ng = ctx.createGain();
+    ng.gain.setValueAtTime(vol * 0.35, time);
+    ng.gain.exponentialRampToValueAtTime(0.001, time + 0.06);
+    noise.connect(nf); nf.connect(ng); ng.connect(ctx.destination);
+    noise.start(time); noise.stop(time + 0.07);
+  };
+
+  // Rhythmic pattern: düm-tek-tek-düm-tek
+  const bpm = 96;
+  const beat = 60 / bpm;
+  hit(t,          0.8); // düm
+  hit(t + beat * 0.5, 0.4); // tek
+  hit(t + beat,       0.75); // düm
+  hit(t + beat * 1.5, 0.4); // tek
+  hit(t + beat * 2,   0.8); // düm
+  hit(t + beat * 2.5, 0.35);
+  hit(t + beat * 3,   0.75);
+  hit(t + beat * 3.5, 0.4);
+  hit(t + beat * 4,   0.8);
+  hit(t + beat * 4.5, 0.35);
+  hit(t + beat * 5,   0.75);
+  hit(t + beat * 5.5, 0.4);
+}
+
+/** Main dispatcher */
+function playInstrumentSound(instrumentId: string) {
+  const ctx = getAudioContext();
+  if (!ctx) return;
+  if (ctx.state === "suspended") ctx.resume();
+
+  switch (instrumentId) {
+    case "ney":   playNey(ctx);   break;
+    case "ud":    playUd(ctx);    break;
+    case "kanun": playKanun(ctx); break;
+    case "rebap": playRebap(ctx); break;
+    case "def":   playDef(ctx);   break;
+    default:      playNey(ctx);
+  }
+
+  // Close context after 10s to free resources
+  setTimeout(() => ctx.close().catch(() => {}), 10000);
 }
 
 
@@ -168,7 +390,7 @@ export function MusicalInstruments({ locale }: { locale: "tr" | "en" }) {
       if (playTimerRef.current) clearTimeout(playTimerRef.current);
       setPlayingId(inst.id);
       playInstrumentSound(inst.id);
-      playTimerRef.current = setTimeout(() => setPlayingId(null), 8500);
+      playTimerRef.current = setTimeout(() => setPlayingId(null), 7500);
     },
     [playingId]
   );
