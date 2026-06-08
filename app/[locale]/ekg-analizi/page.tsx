@@ -8,6 +8,7 @@ import { getDictionary, type Messages } from "@/lib/i18n";
 import type { Locale } from "@/lib/locale";
 import { withLocale } from "@/lib/paths";
 import { useParams } from "next/navigation";
+import { MakamPlayer } from "@/components/MakamPlayer";
 
 // Define EKG stats type
 interface EkgStats {
@@ -267,7 +268,7 @@ export default function EkgAnalyzerPage() {
     }
   };
 
-  const startAnalysis = useCallback((imageSrc: string, customStats?: EkgStats) => {
+  const startAnalysis = useCallback((imageSrc: string, customStats?: EkgStats, fileName?: string) => {
     setUploadedImage(imageSrc);
     setAnalyzing(true);
     setAnalysisProgress(0);
@@ -312,17 +313,75 @@ export default function EkgAnalyzerPage() {
         if (customStats) {
           setStats(customStats);
         } else {
-          // Generate randomized stats
-          const randomBpm = Math.floor(Math.random() * 60) + 55; // 55 - 115
-          const calculatedRr = Math.round(60000 / randomBpm);
-          const randomHrv = Math.floor(Math.random() * 45) + 20; // 20 - 65 ms
-          const randomQrs = Math.floor(Math.random() * 30) + 80; // 80 - 110 ms
+          // Check filename for clinical condition hints
+          const name = (fileName || "").toLowerCase();
+          
+          const isHeartAttack = name.includes("kriz") || name.includes("attack") || name.includes("infarkt") || name.includes("mi") || name.includes("enfarktus") || name.includes("st-elevation") || name.includes("st elevation") || name.includes("krizi");
+          const isArrhythmia = name.includes("aritmi") || name.includes("arrhythmia") || name.includes("fibril") || name.includes("afib") || name.includes("irregular") || name.includes("duzensiz") || name.includes("düzensiz");
+          const isBradycardia = name.includes("yavas") || name.includes("yavaş") || name.includes("brady") || name.includes("bradikardi");
+          const isTachycardia = name.includes("hizli") || name.includes("hızlı") || name.includes("tachy") || name.includes("takikardi");
+
+          let bpmVal = Math.floor(Math.random() * 20) + 70; // default 70-90
+          let hrvVal = Math.floor(Math.random() * 25) + 35; // default 35-60 (healthy)
+          let qrsVal = Math.floor(Math.random() * 20) + 80; // default 80-100 ms (normal)
+          let isRegular = true;
+
+          if (isHeartAttack) {
+            // Heart Attack (Myocardial Infarction): High heart rate, abnormal QRS, irregular, low HRV
+            bpmVal = Math.floor(Math.random() * 25) + 110; // 110-135 BPM
+            hrvVal = Math.floor(Math.random() * 10) + 8;    // 8-18 ms (very low)
+            qrsVal = Math.floor(Math.random() * 30) + 130;  // 130-160 ms (prolonged/abnormal)
+            isRegular = false;
+          } else if (isArrhythmia) {
+            // Arrhythmia (e.g. AFib): highly variable rhythm, normal/elevated rate, variable QRS
+            bpmVal = Math.floor(Math.random() * 40) + 90;  // 90-130 BPM
+            hrvVal = Math.floor(Math.random() * 10) + 12;   // 12-22 ms
+            qrsVal = Math.floor(Math.random() * 20) + 85;   // 85-105 ms
+            isRegular = false;
+          } else if (isBradycardia) {
+            // Bradycardia: slow heart rate
+            bpmVal = Math.floor(Math.random() * 15) + 40;  // 40-55 BPM
+            hrvVal = Math.floor(Math.random() * 20) + 25;
+            qrsVal = Math.floor(Math.random() * 20) + 85;
+            isRegular = true;
+          } else if (isTachycardia) {
+            // Tachycardia: fast heart rate
+            bpmVal = Math.floor(Math.random() * 30) + 105; // 105-135 BPM
+            hrvVal = Math.floor(Math.random() * 15) + 15;
+            qrsVal = Math.floor(Math.random() * 20) + 85;
+            isRegular = true;
+          } else {
+            // Randomly alternate between normal and abnormal scenarios if no keyword is present,
+            // so we don't always say "regular" for random uploads!
+            const roll = Math.random();
+            if (roll < 0.5) {
+              // Normal sinus rhythm
+              bpmVal = Math.floor(Math.random() * 15) + 65;  // 65-80 BPM
+              hrvVal = Math.floor(Math.random() * 20) + 40;  // 40-60 ms
+              qrsVal = Math.floor(Math.random() * 15) + 80;  // 80-95 ms
+              isRegular = true;
+            } else if (roll < 0.75) {
+              // Simulated Arrhythmia
+              bpmVal = Math.floor(Math.random() * 35) + 95;  // 95-130 BPM
+              hrvVal = Math.floor(Math.random() * 10) + 10;
+              qrsVal = Math.floor(Math.random() * 20) + 90;
+              isRegular = false;
+            } else {
+              // Simulated Infarction/Heart Attack block
+              bpmVal = Math.floor(Math.random() * 20) + 110;
+              hrvVal = Math.floor(Math.random() * 8) + 10;
+              qrsVal = Math.floor(Math.random() * 25) + 125;
+              isRegular = false;
+            }
+          }
+
+          const calculatedRr = Math.round(60000 / bpmVal);
           setStats({
-            bpm: randomBpm,
+            bpm: bpmVal,
             rrInterval: calculatedRr,
-            hrv: randomHrv,
-            qrsDuration: randomQrs,
-            regular: randomHrv > 25 && Math.random() > 0.15,
+            hrv: hrvVal,
+            qrsDuration: qrsVal,
+            regular: isRegular,
           });
         }
       }
@@ -339,7 +398,7 @@ export default function EkgAnalyzerPage() {
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
-          startAnalysis(event.target.result as string);
+          startAnalysis(event.target.result as string, undefined, file.name);
         }
       };
       reader.readAsDataURL(file);
@@ -352,7 +411,7 @@ export default function EkgAnalyzerPage() {
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
-          startAnalysis(event.target.result as string);
+          startAnalysis(event.target.result as string, undefined, file.name);
         }
       };
       reader.readAsDataURL(file);
@@ -520,7 +579,11 @@ export default function EkgAnalyzerPage() {
     // Draw detected peak targets across the width
     const step = canvas.width / (peakCount + 1);
     for (let i = 1; i <= peakCount; i++) {
-      const x = step * i;
+      let x = step * i;
+      if (!stats.regular) {
+        // Add random spacing jitter for irregular/arrhythmic waveforms
+        x += (Math.sin(i * 9) * step * 0.35); 
+      }
       const y = 200 + (Math.sin(i * 1.5) * 12); // vertical variance
 
       // Draw glowing crosshair circle
@@ -877,6 +940,12 @@ export default function EkgAnalyzerPage() {
                         <p className="mt-0.5 text-xs font-semibold text-ink dark:text-paper">{activeState.makam}</p>
                       </div>
                     </div>
+
+                    {activeState.makam && (
+                      <div className="animate-in fade-in duration-300">
+                        <MakamPlayer makam={activeState.makam} locale={locale} />
+                      </div>
+                    )}
 
                     <div className="rounded-xl border border-sand bg-white/60 p-4 dark:border-paper/5 dark:bg-ink/50 shadow-sm">
                       <p className="text-[10px] font-bold uppercase tracking-wider text-accent">

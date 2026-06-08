@@ -8,6 +8,7 @@ import { getDictionary, type Messages } from "@/lib/i18n";
 import type { Locale } from "@/lib/locale";
 import { withLocale } from "@/lib/paths";
 import { useParams } from "next/navigation";
+import { MakamPlayer } from "@/components/MakamPlayer";
 
 export default function PulseAnalyzerPage() {
   const params = useParams();
@@ -319,6 +320,12 @@ export default function PulseAnalyzerPage() {
                   <p className="mt-1 text-base font-semibold text-ink dark:text-paper">{activeState.makam}</p>
                 </div>
               </div>
+
+              {activeState.makam && (
+                <div className="animate-in fade-in duration-300">
+                  <MakamPlayer makam={activeState.makam} locale={locale} />
+                </div>
+              )}
 
               <div className="rounded-2xl border border-sand bg-white/60 p-5 dark:border-paper/5 dark:bg-ink/50 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-accent">

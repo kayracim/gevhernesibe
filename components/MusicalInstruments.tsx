@@ -178,61 +178,121 @@ function playInstrumentSound(
     osc.stop(ctx.currentTime + 2.5);
     lfo.stop(ctx.currentTime + 2.5);
   } else if (audioType === "pluck") {
-    // Ud/Kanun: Karplus-Strong pluck
+    // Ud or Kanun pluck sound: acoustic modeling
     const playNote = (freq: number, delay: number) => {
-      const bufLen = Math.round(ctx.sampleRate / freq);
-      const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
-      const d = buf.getChannelData(0);
-      for (let i = 0; i < bufLen; i++) d[i] = Math.random() * 2 - 1;
-      const src = ctx.createBufferSource();
-      src.buffer = buf;
-      src.loop = true;
+      const osc1 = ctx.createOscillator();
+      const osc2 = ctx.createOscillator();
+      const gainNode = ctx.createGain();
       const filter = ctx.createBiquadFilter();
-      filter.type = "lowpass";
-      filter.frequency.value = freq * 3;
-      const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0.5, ctx.currentTime + delay);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 2);
-      src.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-      src.start(ctx.currentTime + delay);
-      src.stop(ctx.currentTime + delay + 2.2);
+
+      // Check if Ud or Kanun based on frequency
+      const isUd = baseFreq < 250; 
+
+      if (isUd) {
+        // Ud: Warm, lower, woody resonance
+        osc1.type = "triangle";
+        osc1.frequency.setValueAtTime(freq, ctx.currentTime + delay);
+        
+        osc2.type = "sine";
+        osc2.frequency.setValueAtTime(freq * 2, ctx.currentTime + delay);
+
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(800, ctx.currentTime + delay);
+
+        gainNode.gain.setValueAtTime(0, ctx.currentTime + delay);
+        gainNode.gain.linearRampToValueAtTime(0.35, ctx.currentTime + delay + 0.005);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 1.8);
+
+        osc1.connect(filter);
+        osc2.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+      } else {
+        // Kanun: Bright, metallic, multi-string zither
+        osc1.type = "triangle";
+        osc1.frequency.setValueAtTime(freq, ctx.currentTime + delay);
+
+        osc2.type = "sawtooth";
+        osc2.frequency.setValueAtTime(freq * 2, ctx.currentTime + delay);
+
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(2200, ctx.currentTime + delay);
+
+        gainNode.gain.setValueAtTime(0, ctx.currentTime + delay);
+        gainNode.gain.linearRampToValueAtTime(0.25, ctx.currentTime + delay + 0.005);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + 2.2);
+
+        const osc2Gain = ctx.createGain();
+        osc2Gain.gain.value = 0.12; // Sawtooth blend for bright bite
+
+        osc1.connect(filter);
+        osc2.connect(osc2Gain);
+        osc2Gain.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+      }
+
+      osc1.start(ctx.currentTime + delay);
+      osc2.start(ctx.currentTime + delay);
+      osc1.stop(ctx.currentTime + delay + 2.4);
+      osc2.stop(ctx.currentTime + delay + 2.4);
     };
-    playNote(baseFreq, 0);
-    playNote(baseFreq * 1.5, 0.6);
-    playNote(baseFreq * 2, 1.2);
+
+    if (baseFreq < 250) {
+      // Ud chord
+      playNote(baseFreq, 0);
+      playNote(baseFreq * 1.33, 0.4);
+      playNote(baseFreq * 1.5, 0.8);
+    } else {
+      // Kanun arpeggio
+      playNote(baseFreq, 0);
+      playNote(baseFreq * 1.25, 0.25);
+      playNote(baseFreq * 1.5, 0.5);
+      playNote(baseFreq * 2.0, 0.75);
+    }
   } else if (audioType === "string") {
-    // Rebap: bowed string (sawtooth with tremolo)
+    // Rebap: bowed string (sawtooth with vibrato, tremolo, and heavy lowpass)
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
+    const vibratoLFO = ctx.createOscillator();
+    const vibratoGain = ctx.createGain();
     const tremoloLFO = ctx.createOscillator();
     const tremoloGain = ctx.createGain();
 
+    vibratoLFO.frequency.value = 5.5; // Vibrato speed
+    vibratoGain.gain.value = 4.5; // Vibrato depth (Hz)
+    vibratoLFO.connect(vibratoGain);
+    vibratoGain.connect(osc.frequency);
+
     tremoloLFO.frequency.value = 6;
-    tremoloGain.gain.value = 0.15;
+    tremoloGain.gain.value = 0.12;
     tremoloLFO.connect(tremoloGain);
     tremoloGain.connect(gain.gain);
 
     osc.type = "sawtooth";
     osc.frequency.value = baseFreq;
 
+    // Heavy lowpass filter cuts harsh synthesizer bite to mimic wooden body acoustics
     const filter = ctx.createBiquadFilter();
     filter.type = "lowpass";
-    filter.frequency.value = 2000;
+    filter.frequency.value = 650; 
 
     gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + 0.4);
-    gain.gain.setValueAtTime(0.25, ctx.currentTime + 1.8);
-    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 2.5);
+    gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.35); // Slow bow attack
+    gain.gain.setValueAtTime(0.3, ctx.currentTime + 1.8);
+    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 2.5); // Smooth release
 
     osc.connect(filter);
     filter.connect(gain);
     gain.connect(ctx.destination);
+
+    vibratoLFO.start();
     tremoloLFO.start();
     osc.start();
-    osc.stop(ctx.currentTime + 2.5);
+
+    vibratoLFO.stop(ctx.currentTime + 2.5);
     tremoloLFO.stop(ctx.currentTime + 2.5);
+    osc.stop(ctx.currentTime + 2.5);
   } else if (audioType === "drum") {
     // Def/Bendir: low thump + decay
     const playBeat = (time: number) => {
@@ -241,12 +301,12 @@ function playInstrumentSound(
       osc.type = "sine";
       osc.frequency.setValueAtTime(baseFreq, time);
       osc.frequency.exponentialRampToValueAtTime(40, time + 0.08);
-      gain.gain.setValueAtTime(0.8, time);
-      gain.gain.exponentialRampToValueAtTime(0.01, time + 0.4);
+      gain.gain.setValueAtTime(0.6, time);
+      gain.gain.exponentialRampToValueAtTime(0.01, time + 0.35);
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start(time);
-      osc.stop(time + 0.5);
+      osc.stop(time + 0.4);
     };
     const bpm = 90;
     const interval = 60 / bpm;
