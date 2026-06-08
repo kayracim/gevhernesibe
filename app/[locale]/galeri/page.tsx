@@ -12,7 +12,7 @@ interface GalleryItem {
   titleEn: string;
   descTr: string;
   descEn: string;
-  category: "poster" | "architecture" | "instrument" | "history";
+  category: "poster" | "architecture" | "instrument" | "history" | "now";
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
@@ -279,6 +279,111 @@ const GALLERY_ITEMS: GalleryItem[] = [
     descEn: "Detailed miniature scene reflecting the social life, dressing style, and cultural environment of the period.",
     category: "history",
   },
+  // now
+  {
+    src: "/images/gevhersimdik/simdik_1.jpeg",
+    titleTr: "Gevher Nesibe Müzesi Girişi",
+    titleEn: "Gevher Nesibe Museum Entrance",
+    descTr: "Gevher Nesibe Şifahanesi ve Tıp Tarihi Müzesi'nin günümüzdeki dış cephe görünümü.",
+    descEn: "Present-day exterior view of the Gevher Nesibe Hospital and History of Medicine Museum.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_2.jpeg",
+    titleTr: "Müze İç Avlu Detayları",
+    titleEn: "Museum Inner Courtyard Details",
+    descTr: "Medresenin iç avlusunda bulunan Selçuklu taş işçiliği ve mimari sütunlar.",
+    descEn: "Seljuk stonework and architectural columns located in the inner courtyard of the madrasah.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_3.jpeg",
+    titleTr: "Tarihi Sergi Bölümü",
+    titleEn: "Historical Exhibition Section",
+    descTr: "Müzede sergilenen Selçuklu dönemine ait el yazmaları, kitaplar ve tıp tarihi belgeleri.",
+    descEn: "Manuscripts, books, and history of medicine documents from the Seljuk period exhibited in the museum.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_4.jpeg",
+    titleTr: "Geleneksel Tedavi Odaları",
+    titleEn: "Traditional Healing Rooms",
+    descTr: "Şifahanede hastaların tedavi edildiği ve günümüzde balmumu heykellerle canlandırılan şifa odaları.",
+    descEn: "Healing rooms where patients were treated in the hospital, now animated with wax sculptures.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_5.jpeg",
+    titleTr: "Selçuklu Çini ve Seramikleri",
+    titleEn: "Seljuk Tiles & Ceramics",
+    descTr: "Kazılarda ortaya çıkarılan ve müzede sergilenen geometrik desenli Selçuklu çinileri.",
+    descEn: "Seljuk tiles with geometric patterns unearthed in excavations and exhibited in the museum.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_6.jpeg",
+    titleTr: "Şifahane Su Havuzu (Bugün)",
+    titleEn: "Hospital Water Pool (Today)",
+    descTr: "Müzik ve su terapisi için tasarlanan ve günümüzde de korunan tarihi iç avlu havuzu.",
+    descEn: "The historical inner courtyard pool designed for music and water therapy, preserved today.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_7.jpeg",
+    titleTr: "Müze Koridorları ve Tonozlar",
+    titleEn: "Museum Corridors & Vaults",
+    descTr: "Selçuklu mimarisinin karakteristik beşik tonozlu tavanları ve loş sergi koridorları.",
+    descEn: "Characteristic barrel-vaulted ceilings and dim exhibition corridors of Seljuk architecture.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_8.jpeg",
+    titleTr: "Tıbbi Bitkiler Bahçesi",
+    titleEn: "Medicinal Herbs Garden",
+    descTr: "Gevher Nesibe hekimlerinin ilaç yapımında kullandığı bitkilerin sergilendiği bölüm.",
+    descEn: "Section exhibiting herbs used by Gevher Nesibe physicians in making medicine.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_9.jpeg",
+    titleTr: "Cerrahi Aletler Sergisi",
+    titleEn: "Surgical Tools Exhibition",
+    descTr: "Selçuklu ve Osmanlı döneminde kullanılan neşter, makas ve diğer cerrahi aletlerin sergi vitrini.",
+    descEn: "Exhibition showcase of scalpels, scissors, and other surgical tools used in the Seljuk and Ottoman periods.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_10.jpeg",
+    titleTr: "Melodi ve Ritim Odası",
+    titleEn: "Melody & Rhythm Room",
+    descTr: "Müzik terapisinde kullanılan çalgıların sergilendiği ve terapi ortamının canlandırıldığı özel oda.",
+    descEn: "Special room where instruments used in music therapy are exhibited and the therapy environment is animated.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_11.jpeg",
+    titleTr: "Gıyaseddin Keyhüsrev Tahtı",
+    titleEn: "Throne of Ghiyath al-Din Keyhusrev",
+    descTr: "Şifahanenin inşasını başlatan Anadolu Selçuklu Sultanı I. Gıyaseddin Keyhüsrev'in canlandırma vitrini.",
+    descEn: "Recreation showcase of Anatolian Seljuk Sultan Ghiyath al-Din Keyhusrev I, who initiated the construction of the hospital.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_12.jpeg",
+    titleTr: "Gevher Nesibe Sultan Anıt Kabri",
+    titleEn: "Memorial Tomb of Gevher Nesibe Sultan",
+    descTr: "Medrese bünyesindeki türbede yer alan Prenses Gevher Nesibe Sultan'ın sandukası.",
+    descEn: "The sarcophagus of Princess Gevher Nesibe Sultan located in the tomb within the madrasah.",
+    category: "now",
+  },
+  {
+    src: "/images/gevhersimdik/simdik_13.jpeg",
+    titleTr: "Müze Aydınlatma ve Gece Görünümü",
+    titleEn: "Museum Lighting & Night View",
+    descTr: "Tarihi yapının akşam saatlerinde modern ışıklandırma ile oluşturduğu büyüleyici atmosfer.",
+    descEn: "The fascinating atmosphere created by modern lighting of the historical building in the evening hours.",
+    category: "now",
+  },
 ];
 
 export default function GalleryPage() {
@@ -291,6 +396,7 @@ export default function GalleryPage() {
 
   const categories = useMemo(() => [
     { id: "all", tr: "Tüm Görseller", en: "All Images" },
+    { id: "now", tr: "Müzeden Güncel Kareler", en: "Modern Museum Photos" },
     { id: "poster", tr: "Afişler & Tasarımlar", en: "Posters & Designs" },
     { id: "architecture", tr: "Şifahane & Mimari", en: "Hospital & Architecture" },
     { id: "instrument", tr: "Müzik Aletleri", en: "Musical Instruments" },
@@ -437,6 +543,8 @@ export default function GalleryPage() {
                         ? locale === "tr" ? "Mimari" : "Architecture"
                         : item.category === "instrument"
                         ? locale === "tr" ? "Çalgı" : "Instrument"
+                        : item.category === "now"
+                        ? locale === "tr" ? "Güncel" : "Modern"
                         : locale === "tr" ? "Tarih" : "History"}
                     </span>
                     <h3 className="font-display text-sm font-bold text-ink dark:text-paper line-clamp-1 group-hover:text-heritage transition-colors">
