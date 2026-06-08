@@ -594,35 +594,8 @@ export default function GalleryPage() {
               </button>
             </div>
 
-            {/* Bottom Panel: Info and Mobile Navigation */}
-            <div className="max-w-3xl mx-auto w-full text-center space-y-4 pb-4 md:pb-0">
-              {/* Image Info */}
-              <div className="space-y-2">
-                <h2 className="text-lg font-bold text-white md:text-2xl font-display">
-                  {locale === "tr"
-                    ? filteredItems[lightboxIndex].titleTr
-                    : filteredItems[lightboxIndex].titleEn
-                  }
-                </h2>
-                <p className="text-sm text-paper/70 dark:text-paper/50 leading-relaxed">
-                  {locale === "tr"
-                    ? filteredItems[lightboxIndex].descTr
-                    : filteredItems[lightboxIndex].descEn
-                  }
-                </p>
-              </div>
-
-              {/* Direct Download Button */}
-              <div className="flex justify-center">
-                <a
-                  href={filteredItems[lightboxIndex].src}
-                  download={filteredItems[lightboxIndex].src.split("/").pop()}
-                  className="inline-flex items-center gap-2 rounded-full bg-heritage px-5 py-2.5 text-xs font-bold text-white shadow hover:bg-heritage-dark transition active:scale-95"
-                >
-                  📥 {locale === "tr" ? "Görseli İndir" : "Download Image"}
-                </a>
-              </div>
-
+            {/* Bottom Panel: Mobile Navigation Only */}
+            <div className="max-w-3xl mx-auto w-full text-center pb-4 md:pb-0">
               {/* Mobile Swipe / Arrow Helpers */}
               <div className="flex justify-center gap-6 md:hidden">
                 <button
