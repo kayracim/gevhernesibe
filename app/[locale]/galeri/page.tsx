@@ -526,27 +526,6 @@ export default function GalleryPage() {
                       </span>
                     </div>
                   </div>
-
-                  {/* Card Details */}
-                  <div className="p-4 space-y-1">
-                    <span className="inline-block rounded bg-heritage/10 px-2 py-0.5 text-[10px] font-bold tracking-wider text-heritage uppercase dark:bg-heritage/20">
-                      {item.category === "poster"
-                        ? locale === "tr" ? "Tasarım" : "Design"
-                        : item.category === "architecture"
-                        ? locale === "tr" ? "Mimari" : "Architecture"
-                        : item.category === "instrument"
-                        ? locale === "tr" ? "Çalgı" : "Instrument"
-                        : item.category === "now"
-                        ? locale === "tr" ? "Güncel" : "Modern"
-                        : locale === "tr" ? "Tarih" : "History"}
-                    </span>
-                    <h3 className="font-display text-sm font-bold text-ink dark:text-paper line-clamp-1 group-hover:text-heritage transition-colors">
-                      {title}
-                    </h3>
-                    <p className="text-xs text-ink-muted dark:text-paper/60 line-clamp-2 leading-relaxed">
-                      {desc}
-                    </p>
-                  </div>
                 </motion.div>
               );
             })}
