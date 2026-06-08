@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import Link from "next/link";
 import { PageIntro } from "@/components/PageIntro";
 import { Section } from "@/components/Section";
 import { getDictionary, type Messages } from "@/lib/i18n";
 import type { Locale } from "@/lib/locale";
+import { withLocale } from "@/lib/paths";
 import { useParams } from "next/navigation";
 
 export default function PulseAnalyzerPage() {
@@ -199,6 +201,26 @@ export default function PulseAnalyzerPage() {
       <p className="max-w-measure text-lg leading-relaxed text-ink-muted dark:text-paper/80">
         {p.intro}
       </p>
+
+      {/* Dynamic EKG Yönlendirme Banner */}
+      <div className="rounded-3xl border border-clinical/20 bg-clinical/5 p-6 flex flex-col md:flex-row items-center justify-between gap-4 dark:border-clinical/10 dark:bg-clinical/5 animate-in fade-in duration-700">
+        <div className="space-y-1">
+          <h4 className="font-display text-lg font-bold text-ink dark:text-paper flex items-center gap-2">
+            📊 {locale === "tr" ? "EKG Görseliniz mi var?" : "Do you have an EKG image?"}
+          </h4>
+          <p className="text-sm text-ink-muted dark:text-paper/60 leading-relaxed">
+            {locale === "tr" 
+              ? "EKG çıktı görselinizi yükleyerek yapay zeka ve İbn-i Sina algoritmalarıyla duygu analizi gerçekleştirebilirsiniz." 
+              : "Upload your EKG output image to analyze emotions with AI and Avicenna's algorithms."}
+          </p>
+        </div>
+        <Link
+          href={withLocale(locale, "/ekg-analizi")}
+          className="btn-hover-effect rounded-full bg-clinical px-6 py-2.5 text-xs font-bold text-white shadow-lift hover:bg-clinical-dark shrink-0 cursor-pointer"
+        >
+          {locale === "tr" ? "EKG Analizörünü Keşfet ➔" : "Explore EKG Analyzer ➔"}
+        </Link>
+      </div>
 
       <div className="grid gap-8 lg:grid-cols-12">
         {/* Left Side: Controller and Heart Visualizer */}

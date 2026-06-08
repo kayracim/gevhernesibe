@@ -15,6 +15,7 @@
     "instruments": "Enstrüman ve Cerrahi Aletler",
     "virtualTour": "3D Sanal Tur",
     "pulseAnalyzer": "İlm-i Nabız Analizörü",
+    "ekgAnalyzer": "EKG Analizörü",
     "contact": "Ziyaret ve İletişim",
     "cta": "STEM Keşfi"
   },
@@ -487,6 +488,37 @@
         "makam": "Nihavend veya Hüseyni",
         "gida": "Söğüt kabuğu çayı, limonlu su, hafif yoğurtlu yiyecekler"
       }
+    }
+  },
+  "ekgAnalyzerPage": {
+    "title": "EKG Analizörü ile Duygu Ölçümü",
+    "subtitle": "EKG Görselinizi Yükleyin, İbn-i Sina Algoritması ile Ritmik Analiz Yapın",
+    "intro": "EKG dalga formu görselinizi sürükleyip bırakarak veya cihazınızdan seçerek yükleyin. Yapay zeka destekli simülatörümüz EKG dalgalarınızı tarayarak ritmik parametreleri tespit edecek ve İbn-i Sina'nın İlm-i Nabız öğretisiyle eşleştirecektir.",
+    "dropzonePlaceholder": "EKG Fotoğrafınızı Buraya Sürükleyin veya Dosya Seçin",
+    "dropzoneMobile": "Fotoğraf Çek veya Galeriden EKG Seç",
+    "dropzoneHint": "PNG, JPG veya JPEG formatında EKG şeridi görseli",
+    "sampleTitle": "Hazır Örnek EKG'ler",
+    "sampleDesc": "Kendi EKG görseliniz yoksa, analizi test etmek için aşağıdaki örnek EKG şablonlarından birini seçebilirsiniz:",
+    "sampleMutedil": "Normal / Dengeli EKG",
+    "sampleSafravi": "Hızlı / Öfkeli EKG",
+    "sampleBalgami": "Yavaş / Zayıf EKG",
+    "analyzingTitle": "EKG Dalga Analizi Yapılıyor...",
+    "scanningLabel": "Sinyal Analizi",
+    "soundToggle": "Ses Ritmi",
+    "analysisTitle": "EKG ve İlm-i Nabız Bulguları",
+    "mizacLabel": "Mizaç Grubu",
+    "makamLabel": "Önerilen Müzik Makamı",
+    "gidaLabel": "Beslenme / Diyet Önerileri",
+    "caution": "Not: Bu sayfa eğitim ve tarihi bilgi amaçlı olup, tıbbi bir teşhis veya tedavi tavsiyesi niteliği taşımamaktadır.",
+    "changePhoto": "Yeni Fotoğraf Analiz Et",
+    "pulseLinkBanner": "Fotoğraf yerine doğrudan nabız değerinizle mi analiz etmek istiyorsunuz?",
+    "pulseLinkBtn": "Hızlı İlm-i Nabız Analizörüne Geç ➔",
+    "details": {
+      "hr": "Kalp Hızı (HR)",
+      "rr": "R-R Aralığı",
+      "hrv": "Ritim Değişkenliği (HRV)",
+      "qrs": "QRS Süresi",
+      "status": "Ritim Kararlılığı"
     }
   }
 }

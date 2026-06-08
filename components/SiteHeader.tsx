@@ -22,6 +22,7 @@ export function SiteHeader({
     { href: withLocale(locale, "/cerrahi-aletler"), label: nav.instruments },
     { href: withLocale(locale, "/sanal-tur"), label: nav.virtualTour },
     { href: withLocale(locale, "/nabiz-analizoru"), label: nav.pulseAnalyzer },
+    { href: withLocale(locale, "/ekg-analizi"), label: nav.ekgAnalyzer },
     { href: withLocale(locale, "/bunu-biliyor-muydunuz"), label: nav.didYouKnow },
     { href: withLocale(locale, "/uluslararasi"), label: nav.international },
     { href: withLocale(locale, "/kaynakca"), label: nav.bibliography },

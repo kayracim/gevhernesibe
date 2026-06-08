@@ -15,6 +15,7 @@
     "instruments": "Instruments & Surgical Tools",
     "virtualTour": "3D Virtual Tour",
     "pulseAnalyzer": "İlm-i Nabız Analyzer",
+    "ekgAnalyzer": "EKG Analyzer",
     "contact": "Visit & Contact",
     "cta": "STEM Explore"
   },
@@ -487,6 +488,37 @@
         "makam": "Nihavend or Hüseyni",
         "gida": "Willow bark tea, lemon water, light yogurt-based foods"
       }
+    }
+  },
+  "ekgAnalyzerPage": {
+    "title": "EKG Analyzer & Emotion Measurement",
+    "subtitle": "Upload Your EKG Image, Perform Rhythmic Analysis with Avicenna's Algorithm",
+    "intro": "Upload your EKG waveform image by dragging and dropping or selecting from your device. Our simulator will scan your EKG waves to detect rhythmic parameters and match them with Avicenna's Science of Pulse (İlm-i Nabız) teachings.",
+    "dropzonePlaceholder": "Drag & Drop Your EKG Photo Here or Select File",
+    "dropzoneMobile": "Take Photo or Select EKG from Gallery",
+    "dropzoneHint": "EKG strip image in PNG, JPG or JPEG format",
+    "sampleTitle": "Sample EKG Images",
+    "sampleDesc": "If you don't have your own EKG image, you can select one of the sample templates below to test the analysis:",
+    "sampleMutedil": "Normal / Balanced EKG",
+    "sampleSafravi": "Fast / Angry EKG",
+    "sampleBalgami": "Slow / Weak EKG",
+    "analyzingTitle": "Analyzing EKG Waveform...",
+    "scanningLabel": "Signal Analysis",
+    "soundToggle": "Sound Rhythm",
+    "analysisTitle": "EKG & İlm-i Nabız Findings",
+    "mizacLabel": "Temperament Group",
+    "makamLabel": "Recommended Music Makam",
+    "gidaLabel": "Dietary / Food Advice",
+    "caution": "Note: This page is for educational and historical purposes only and does not constitute medical diagnosis or treatment advice.",
+    "changePhoto": "Analyze New Photo",
+    "pulseLinkBanner": "Would you prefer to analyze using your heart rate value directly instead of a photo?",
+    "pulseLinkBtn": "Switch to Quick Pulse Analyzer ➔",
+    "details": {
+      "hr": "Heart Rate (HR)",
+      "rr": "R-R Interval",
+      "hrv": "Rhythm Variability (HRV)",
+      "qrs": "QRS Duration",
+      "status": "Rhythm Stability"
     }
   }
 }
